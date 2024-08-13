@@ -15,7 +15,7 @@ import { _mock } from 'src/_mock';
 export function useMockedUser() {
   const user = {
     id: '8864c717-587d-472a-929a-8e5f298024da-0',
-    displayName: 'Jaydon Frankie',
+    userName: 'Jaydon Frankie',
     email: 'demo@minimals.cc',
     password: 'demo1234',
     photoURL: _mock.image.avatar(24),
@@ -27,12 +27,12 @@ export function useMockedUser() {
     zipCode: '94116',
     about: 'Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.',
     role: 'admin',
-    isPublic: true,
+    isPublic: true
   };
 
   const User = {
     id: '8864c717-587d-472a-929a-8e5f298024da-0',
-    displayName: 'Jaydon Frankie',
+    userName: 'Jaydon Frankie',
     email: 'demo@minimals.cc',
     password: 'demo1234',
     photoURL: _mock.image.avatar(24),
@@ -44,8 +44,8 @@ export function useMockedUser() {
     zipCode: '94116',
     about: 'Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.',
     role: 'admin',
-    isPublic: true,
+    isPublic: true
   };
 
-  return { User,user };
+  return { User, user };
 }
