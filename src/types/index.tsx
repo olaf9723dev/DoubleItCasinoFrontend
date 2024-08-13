@@ -26,6 +26,7 @@ export type UserType = {
   userId: string;
   balance: number;
   displayName: string;
+  username: string;
 };
 
 export type IChatMessage = {
