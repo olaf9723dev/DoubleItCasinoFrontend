@@ -12,16 +12,16 @@ import { GameHistoryType } from './types';
 const TABS = [
   {
     value: 'latest_bets',
-    label: 'Latest Bets',
+    label: 'Latest Bets'
   },
   {
     value: 'high_rollers',
-    label: 'High rollers',
+    label: 'High rollers'
   },
   {
     value: 'luckiest_wins',
-    label: 'luckiest wins',
-  },
+    label: 'luckiest wins'
+  }
 ];
 
 export default function GameHistory() {
@@ -64,8 +64,8 @@ export default function GameHistory() {
           onChange={handleChangeTab}
           sx={{
             '& .MuiTabs-indicator': {
-              background: 'linear-gradient(180deg, #C8CAFF 0%, #7C83C5 100%)',
-            },
+              background: 'linear-gradient(180deg, #C8CAFF 0%, #7C83C5 100%)'
+            }
           }}
         >
           {TABS.map((tab) => (
@@ -78,7 +78,7 @@ export default function GameHistory() {
                 background: `linear-gradient(180deg, #C8CAFF 0%, #7C83C5 100%)`,
                 backgroundClip: `text`,
                 WebkitBackgroundClip: `text`,
-                WebkitTextFillColor: `transparent`,
+                WebkitTextFillColor: `transparent`
               }}
             />
           ))}
@@ -92,7 +92,7 @@ export default function GameHistory() {
             { id: 'createdAt', label: 'Time', align: 'center', date: true },
             { id: 'bet', label: 'Bet', align: 'center', unit: '$' },
             { id: 'target', label: 'Multiplier', align: 'center', unit: 'x' },
-            { id: 'payout', label: 'Payout', align: 'right', unit: '$' },
+            { id: 'payout', label: 'Payout', align: 'right', unit: '$' }
           ]}
           sx={{ background: `transparent` }}
         />
