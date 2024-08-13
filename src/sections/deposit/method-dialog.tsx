@@ -8,7 +8,7 @@ import {
   DialogContent,
   IconButton,
   DialogTitle,
-  Typography,
+  Typography
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -22,28 +22,28 @@ import { MethodDialogProps, MethodOpenProps } from './types';
 
 const _MethodData = [
   {
-    id: 'adopt_me',
-    name: 'Adopt Me',
-  },
-  {
-    id: 'mm2',
-    name: 'MM2',
-  },
-  {
-    id: 'psx',
-    name: 'PSX',
-  },
-  {
     id: 'crypto',
-    name: 'Crypto',
+    name: 'Crypto'
   },
+  {
+    id: 'unicred',
+    name: 'UniCred'
+  },
+  {
+    id: 'visa',
+    name: 'Visa'
+  },
+  {
+    id: 'gift',
+    name: 'Gift'
+  }
 ];
 
 const defaultState = {
   adopt_me: false,
   mm2: false,
   psx: false,
-  crypto: false,
+  crypto: false
 };
 
 export default function MethodDialog({ open, onClose }: MethodDialogProps) {
@@ -71,8 +71,8 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
-            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`,
-          },
+            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+          }
         }}
       >
         <DialogTitle
@@ -80,7 +80,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
           sx={{
             textAlign: 'center',
             py: 3.6,
-            borderBottom: '2px dashed #32366a',
+            borderBottom: '2px dashed #32366a'
           }}
         >
           <Typography sx={{ fontSize: 24, fontWeight: 700, color: 'white' }}>
@@ -95,7 +95,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
             sx={{
               py: 3,
               px: 3,
-              gap: 1.5,
+              gap: 1.5
             }}
           >
             <Grid container spacing={3}>
@@ -112,7 +112,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
                       border: `1px solid #454779`,
                       boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
                       background:
-                        'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)',
+                        'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)'
                     }}
                   >
                     <Box
@@ -120,15 +120,15 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
                         p: 2,
                         borderRadius: 0.5,
                         border: `2px solid #303462`,
-                        bgcolor: '#1a1c36',
+                        bgcolor: '#1a1c36'
                       }}
                     >
                       <Image
-                        src={`/assets/icons/deposit/${row.id}.svg`}
+                        src={`/assets/icons/deposit/${row.id}.png`}
                         alt={row.id}
                         sx={{
                           width: 116,
-                          height: 116,
+                          height: 116
                         }}
                       />
                     </Box>
