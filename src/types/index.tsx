@@ -72,6 +72,8 @@ export type Event = {
 
 export type ApiContextType = {
   initialize: () => Promise<any>;
+  login: (emailOrUsername: string, password: string) => Promise<any>;
+  register: (email: string, username: string, password: string) => Promise<any>;
   getUsers: () => Promise<any>;
   getUserId: (data: string) => Promise<any>;
   confirmPhrase: (data: number) => Promise<any>;
