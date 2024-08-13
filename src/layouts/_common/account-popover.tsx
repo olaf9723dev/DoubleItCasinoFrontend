@@ -20,13 +20,13 @@ import { Event } from 'src/types';
 const OPTIONS = [
   {
     label: 'Home',
-    linkTo: '/',
+    linkTo: '/'
   },
   {
     label: 'Profile',
     linkTo: '/#1',
-    modal: 'profile',
-  },
+    modal: 'profile'
+  }
 ];
 
 export default function AccountPopover() {
@@ -60,14 +60,14 @@ export default function AccountPopover() {
       handler: (msg) => {
         enqueueSnackbar(msg, { variant: 'error' });
         handleLogout();
-      },
+      }
     },
     {
       name: SOCKET_PATH.ALERT,
       handler: ({ msg, type }) => {
         enqueueSnackbar(msg, { variant: type });
-      },
-    },
+      }
+    }
   ];
 
   useSocketEvents(events);
@@ -89,7 +89,7 @@ export default function AccountPopover() {
               theme.palette.grey[800],
               1
             )}`,
-          gap: 2.45,
+          gap: 2.45
         }}
         color="secondary"
       >
@@ -99,14 +99,13 @@ export default function AccountPopover() {
           sx={{
             width: 43,
             height: 43,
-            borderRadius: `5px`,
+            borderRadius: `5px`
           }}
         >
-          {user?.displayName?.charAt(0).toUpperCase() || ''}
+          {user?.username?.charAt(0).toUpperCase() || ''}
         </Avatar>
         <Box sx={{ textAlign: 'left' }}>
-          <Typography sx={{ fontSize: 15, fontWeight: 600 }}>{user?.displayName}</Typography>
-          <Typography sx={{ fontSize: 11, fontWeight: 300 }}>ID: {user?.userId}</Typography>
+          <Typography sx={{ fontSize: 15, fontWeight: 600 }}>{user?.username}</Typography>
         </Box>
         <ExpandMoreIcon sx={{ ml: 1 }} />
       </Button>
@@ -114,15 +113,14 @@ export default function AccountPopover() {
       <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {user?.username}
           </Typography>
-
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user?.name}
+            {user?.email}
           </Typography>
         </Box>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        <Divider sx={{ borderStyle: 'dashed', borderColor: 'text.secondary' }} />
 
         <Stack sx={{ p: 1 }}>
           {OPTIONS.map((option) => (
@@ -132,7 +130,7 @@ export default function AccountPopover() {
           ))}
         </Stack>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        <Divider sx={{ borderStyle: 'dashed', borderColor: 'text.secondary' }} />
 
         <MenuItem
           onClick={handleLogout}
