@@ -17,6 +17,18 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return dispatch(edit(res.data));
   };
 
+  const login = async (emailOrUsername: string, password: string) => {
+    return await axios.post(API_PATH.AUTH_LOGIN, { emailOrUsername, password });
+  };
+
+  const register = async (email: string, username: string, password: string) => {
+    return await axios.post(API_PATH.AUTH_REGISTER, {
+      email,
+      username,
+      password
+    });
+  };
+
   const getUsers = async () => {
     return await axios.get(API_PATH.AUTH_ROOT);
   };
@@ -68,6 +80,8 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     <ApiContext.Provider
       value={{
         initialize,
+        login,
+        register,
         deposit,
         getUsers,
         getUserId,
@@ -78,9 +92,8 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getGameHistory,
         getUserCrashData,
         getCurrencies,
-
         getWithdrawalItems,
-        withdraw,
+        withdraw
       }}
     >
       {children}
