@@ -2,14 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type UserType = {
   _id: string;
-  userId: number;
   description: string;
-  created: string;
+  email: string;
+  username: string;
+  password: string;
   name: string;
   displayName: string;
   role: string;
-  status: string;
+  avatar: string;
   balance: number;
+  status: boolean;
   bet: number;
   profit: number;
   deposited: number;
@@ -27,19 +29,21 @@ type initialStateType = {
 
 const initialUser: UserType = {
   _id: '',
-  balance: 0,
-  userId: 0,
   description: '',
-  created: '',
+  email: '',
+  username: '',
+  password: '',
   name: '',
   displayName: '',
   role: '',
-  status: '',
+  avatar: '',
+  balance: 0,
+  status: false,
   bet: 0,
   profit: 0,
   deposited: 0,
   won: 0,
-  lost: 0,
+  lost: 0
 };
 
 const initialState: initialStateType = {
@@ -47,7 +51,7 @@ const initialState: initialStateType = {
   user: initialUser,
   isLoggedIn: false,
   loading: false,
-  avatar: 'https://api-dev-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg',
+  avatar: 'https://api-dev-minimal-v510.vercel.app/assets/images/avatar/avatar_25.jpg'
 };
 
 const auth = createSlice({
@@ -63,7 +67,7 @@ const auth = createSlice({
       state.user = action.payload.user;
       state.isLoggedIn = true;
       state.loading = false;
-      state.avatar = action.payload.img;
+      state.avatar = action.payload.avatar;
     },
 
     edit(state, action) {
@@ -75,8 +79,8 @@ const auth = createSlice({
       state.token = '';
       state.user = initialUser;
       state.isLoggedIn = false;
-    },
-  },
+    }
+  }
 });
 
 export default auth.reducer;
