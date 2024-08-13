@@ -9,6 +9,7 @@ export type PlayerProps = {
   name: string;
   email: string;
   avatar: string;
+  userName: string;
   stoppedAt: number;
   betAmount: number;
 };
