@@ -20,6 +20,8 @@ export const SERVER_URL =
 export const API_PATH = {
   // auth
   AUTH_ROOT: 'auth',
+  AUTH_LOGIN: 'auth/login',
+  AUTH_REGISTER: 'auth/register',
   AUTH_GET_ME: 'auth/me',
   AUTH_GET_USER_ID: 'auth/get-user-id',
   AUTH_CONFIRM_PHRASE: 'auth/confirm-phrase',
@@ -36,7 +38,7 @@ export const API_PATH = {
   DEPOSIT: 'payment/deposit',
 
   WITHDRAW: 'payment/withdraw',
-  WITHDRAW_ITEMS: 'payment/withdraw-items',
+  WITHDRAW_ITEMS: 'payment/withdraw-items'
 };
 
 export const SOCKET_PATH = {
@@ -44,5 +46,5 @@ export const SOCKET_PATH = {
   ALERT: 'alert',
   CHAT: 'chat:message',
   COINFLIP_CREATE: 'coinflip:create',
-  COINFLIP_JOIN: 'coinflip:join',
+  COINFLIP_JOIN: 'coinflip:join'
 };
