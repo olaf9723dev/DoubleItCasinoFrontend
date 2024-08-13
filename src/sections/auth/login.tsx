@@ -4,67 +4,135 @@ import {
   Stack,
   Button,
   Dialog,
-  Checkbox,
   TextField,
   IconButton,
   Typography,
   DialogContent,
-  useMediaQuery,
+  useMediaQuery
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSnackbar } from 'notistack';
-import { useCopyToClipboard } from 'src/hooks/use-copy-to-clipboard';
-
 import useApi from 'src/hooks/use-api';
 import { useDispatch } from 'src/store';
 import { signin } from 'src/store/reducers/auth';
+import { emailValidator } from 'src/utils';
 import { authenticateSockets } from 'src/utils/socket';
 import { useTheme } from '@mui/material/styles';
-
 import { LoginDialogProps, ActiveProps } from './types';
+
+const initLoginForm = {
+  emailOrUsername: {
+    label: 'Email Or Username *',
+    type: 'text',
+    placeholder: 'Enter your email or username',
+    value: 'demo@gmail.com',
+    message: ''
+  },
+  password: {
+    label: 'Password *',
+    type: 'password',
+    placeholder: 'Enter your password',
+    value: 'demo',
+    message: ''
+  }
+};
+const initRegisterForm = {
+  email: {
+    label: 'Email *',
+    type: 'email',
+    placeholder: 'Enter your email',
+    value: 'demo@gmail.com',
+    message: ''
+  },
+  username: {
+    label: 'Username *',
+    type: 'text',
+    placeholder: 'Enter your username',
+    value: 'demo',
+    message: ''
+  },
+  password: {
+    label: 'Password *',
+    type: 'password',
+    placeholder: 'Enter your password',
+    value: 'demo',
+    message: ''
+  }
+};
 
 export default function LoginDialog({ open, onClose }: LoginDialogProps) {
   const dispatch = useDispatch();
-  const { copy } = useCopyToClipboard();
   const { enqueueSnackbar } = useSnackbar();
-  const { getUserId, confirmPhrase } = useApi();
+  const { login, register } = useApi();
 
   const theme = useTheme();
   const mediaDown = useMediaQuery(theme.breakpoints.down('lg'));
-  const [active, setActive] = useState<ActiveProps>('username');
-  const [username, setUsername] = useState<string>('');
-  const [userId, setUserId] = useState<number>(0);
-  const [phrase, setPhrase] = useState([]);
-  const [checked, setChecked] = useState(false);
+  const [active, setActive] = useState<ActiveProps>('login');
   const [loading, setloading] = useState(false);
 
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
+  const [loginForm, setLoginForm] = useState<{ [key: string]: any }>(initLoginForm);
+  const [registerForm, setRegisterForm] = useState<{ [key: string]: any }>(initRegisterForm);
+
+  const Login = async () => {
+    try {
+      const { emailOrUsername, password } = loginForm;
+
+      if (!emailOrUsername.value) {
+        enqueueSnackbar('Empty Email or Username!', { variant: 'warning' });
+        return;
+      }
+      if (!password.value) {
+        enqueueSnackbar('Empty Password!', { variant: 'warning' });
+        return;
+      }
+
+      setloading(true);
+      const res = await login(emailOrUsername.value, password.value);
+
+      if (res && res.status === 200) {
+        enqueueSnackbar(res.data.message, { variant: 'success' });
+        authenticateSockets(res.data.token);
+        dispatch(signin(res.data));
+      }
+      setloading(false);
+    } catch (err: any) {
+      enqueueSnackbar(`${err.response.data.message}!`, { variant: 'error' });
+    }
   };
 
-  const ConfirmPhrase = async () => {
-    setloading(true);
-    const res = await confirmPhrase(userId);
-    setloading(false);
-    if (!res?.data) return;
-    enqueueSnackbar('Verified successfly!', { variant: 'success' });
-    authenticateSockets(res.data.token);
-    dispatch(signin(res.data));
-    window.location.reload();
-  };
+  const Register = async () => {
+    try {
+      const { email, username, password } = registerForm;
 
-  const verifyUserName = async () => {
-    if (active !== 'username' || !username) return;
+      if (!email.value) {
+        enqueueSnackbar('Empty Email!', { variant: 'warning' });
+        return;
+      }
+      if (!emailValidator(email.value)) {
+        enqueueSnackbar('Invalied Email!', { variant: 'warning' });
+        return;
+      }
+      if (!username.value) {
+        enqueueSnackbar('Empty Username!', { variant: 'warning' });
+        return;
+      }
+      if (!password.value) {
+        enqueueSnackbar('Empty Password!', { variant: 'warning' });
+        return;
+      }
 
-    setloading(true);
-    const res = await getUserId(username);
-    setloading(false);
-    if (!res?.data) return;
+      setloading(true);
+      const res = await register(email.value, username.value, password.value);
 
-    const { userInfo, words } = res.data;
-    setPhrase(words);
-    setUserId(userInfo[0].id);
-    setActive('verify');
+      if (res && res.status === 201) {
+        enqueueSnackbar(res.data, { variant: 'success' });
+        setActive('login');
+        setRegisterForm(initRegisterForm);
+      }
+      setloading(false);
+    } catch (err: any) {
+      enqueueSnackbar(`${err.response.data.message}!`, { variant: 'error' });
+    }
   };
 
   return (
@@ -85,13 +153,13 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
           width: `100%`,
           border: '2px solid #32366a',
           position: `relative`,
-          background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`,
-        },
+          background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+        }
       }}
     >
       <DialogContent
         sx={{
-          p: 0,
+          p: 0
         }}
       >
         <IconButton
@@ -106,21 +174,20 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            background: mediaDown
-              ? 'transparent'
-              : 'url("/assets/login.png") -33px -49px no-repeat',
+            background: mediaDown ? 'transparent' : 'url("/assets/login.png") -33px -49px no-repeat'
           }}
         >
           <Stack
             sx={{
               p: 5.7,
               gap: 3,
-              width: '100%',
+              width: '100%'
             }}
           >
             <Box>
-              <Typography sx={{ fontSize: 19 }}>Login</Typography>
-              <Typography sx={{ fontSize: 22 }}>Locate Your Account</Typography>
+              <Typography sx={{ fontSize: 32 }}>
+                {active === 'login' ? 'Login' : 'Register'}
+              </Typography>
             </Box>
             <Stack
               sx={{
@@ -128,7 +195,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                 gap: 2.8,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                borderBottom: '1px solid #33355F',
+                borderBottom: '1px solid #33355F'
               }}
             >
               <Button
@@ -138,10 +205,11 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                   py: 1.5,
                   width: '50%',
                   borderRadius: 0.5,
-                  bgcolor: active === 'username' ? '#303158' : 'transparent',
+                  bgcolor: active === 'login' ? '#303158' : 'transparent'
                 }}
+                onClick={() => setActive('login')}
               >
-                1. Username
+                Login
               </Button>
               <Button
                 variant="contained"
@@ -150,131 +218,120 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                   py: 1.5,
                   width: '50%',
                   borderRadius: 0.5,
-                  bgcolor: active === 'verify' ? '#303158' : 'transparent',
+                  bgcolor: active === 'register' ? '#303158' : 'transparent'
                 }}
+                onClick={() => setActive('register')}
               >
-                2. Verify Account
+                Register
               </Button>
             </Stack>
             <Stack>
-              {active === 'username' && (
+              {active === 'login' && (
                 <>
-                  <Stack>
-                    <Typography sx={{ fontSize: 15 }}>USERNAME *</Typography>
-                    <TextField
-                      value={username}
-                      onChange={handleChangeName}
-                      placeholder="Enter your roblox username"
-                      sx={{
-                        width: '100%',
-                        borderRadius: 1.25,
-                        background: '#17182E',
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.code === 'Enter' || e.code === 'NumpadEnter') verifyUserName();
-                      }}
-                    />
-                    <Typography sx={{ mt: 2.1, fontSize: 12 }}>
+                  <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    {Object.keys(loginForm).map((key: any, ind: number) => (
+                      <Stack key={ind}>
+                        <Typography sx={{ fontSize: 15 }}>{loginForm[key].label}</Typography>
+                        <TextField
+                          sx={{
+                            width: '100%',
+                            borderRadius: 1.25,
+                            background: '#17182E',
+                            marginTop: 1.25
+                          }}
+                          type={loginForm[key].type}
+                          value={loginForm[key].value}
+                          placeholder={loginForm[key].placeholder}
+                          onKeyDown={(e) => {
+                            if (
+                              key === 'password' &&
+                              (e.code === 'Enter' || e.code === 'NumpadEnter')
+                            )
+                              Login();
+                          }}
+                          onChange={(e: any) =>
+                            setLoginForm({
+                              ...loginForm,
+                              [key]: {
+                                ...loginForm[key],
+                                value: e.target.value
+                              }
+                            })
+                          }
+                        />
+                      </Stack>
+                    ))}
+                    <Typography sx={{ fontSize: 12 }}>
                       By logging in you acknowledge that you are at least 18 years of age, that any
                       items you wager are not stolen, and that you agree with our Terms of Service
                       and our Privacy Policy.
                     </Typography>
                   </Stack>
-
                   <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={verifyUserName}
-                    disabled={!username || loading}
                     sx={{
                       py: 2,
-                      mt: 20.3,
-                      borderRadius: 0.5,
+                      mt: 8,
+                      borderRadius: 0.5
                     }}
+                    variant="contained"
+                    color="primary"
+                    disabled={loading}
+                    onClick={Login}
                   >
-                    Continue
+                    Login
                   </Button>
                 </>
               )}
-
-              {active === 'verify' && (
-                <Stack
-                  sx={{ gap: 0.8 }}
-                  onKeyDown={(e) => {
-                    if (e.code === 'Enter' || e.code === 'NumpadEnter') ConfirmPhrase();
-                  }}
-                >
-                  <Typography sx={{ fontSize: 14 }}>
-                    To verify your account, please put this phrase in your Roblox about me.
-                  </Typography>
-                  <Typography
-                    sx={{
-                      py: 2.6,
-                      px: 1.8,
-                      fontSize: 15,
-                      borderRadius: 1.25,
-                      bgcolor: '#33355F',
-                    }}
-                  >
-                    {phrase.length > 0
-                      ? phrase.map((word: string, k: number) => {
-                          if (k === phrase.length) {
-                            return word;
+              {active === 'register' && (
+                <>
+                  <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    {Object.keys(registerForm).map((key: any, ind: number) => (
+                      <Stack key={ind}>
+                        <Typography sx={{ fontSize: 15 }}>{registerForm[key].label}</Typography>
+                        <TextField
+                          sx={{
+                            width: '100%',
+                            borderRadius: 1.25,
+                            background: '#17182E',
+                            marginTop: 1.25
+                          }}
+                          type={registerForm[key].type}
+                          value={registerForm[key].value}
+                          placeholder={registerForm[key].placeholder}
+                          onKeyDown={(e) => {
+                            if (
+                              key === 'password' &&
+                              (e.code === 'Enter' || e.code === 'NumpadEnter')
+                            )
+                              Register();
+                          }}
+                          onChange={(e: any) =>
+                            setRegisterForm({
+                              ...registerForm,
+                              [key]: {
+                                ...registerForm[key],
+                                value: e.target.value
+                              }
+                            })
                           }
-                          // eslint-disable-next-line
-                          else return `${word} `;
-                        })
-                      : ''}
-                  </Typography>
-                  <Stack
-                    sx={{
-                      alignItems: 'flex-end',
-                    }}
-                  >
-                    <Button
-                      onClick={() => {
-                        copy(phrase.join(' '));
-                        enqueueSnackbar('Copied!');
-                      }}
-                      variant="contained"
-                      color="primary"
-                      sx={{
-                        px: mediaDown ? 1 : 6,
-                        width: mediaDown ? '100%' : 'auto',
-                      }}
-                    >
-                      Copy
-                    </Button>
+                        />
+                      </Stack>
+                    ))}
                   </Stack>
-
-                  <Stack sx={{ flexDirection: 'row', gap: 1, alignItems: 'center' }}>
-                    <Checkbox
-                      checked={checked}
-                      onChange={(e) => setChecked(e.target.checked)}
-                      sx={{ p: 0 }}
-                    />
-                    <Typography sx={{ fontSize: 12 }}>
-                      I read and accept the Terms of Service.
-                    </Typography>
-                  </Stack>
-                  <Typography sx={{ fontSize: 12 }}>
-                    By logging in you acknowledge that you are at least 18 years of age, that any
-                    items you wager are not stolen, and that you agree with our Terms of conditions
-                    and our Privacy Policy.
-                  </Typography>
                   <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={ConfirmPhrase}
-                    disabled={!username || loading || !checked}
                     sx={{
                       py: 2,
-                      borderRadius: 0.5,
+                      mt: 4,
+                      borderRadius: 0.5
                     }}
+                    variant="contained"
+                    color="primary"
+                    disabled={loading}
+                    onClick={Register}
                   >
-                    Continue
+                    Register
                   </Button>
-                </Stack>
+                </>
               )}
             </Stack>
           </Stack>
