@@ -95,17 +95,17 @@ export default function AccountPopover() {
       >
         <Avatar
           src={avatar}
-          alt={user?.displayName}
+          alt={user?.userName}
           sx={{
             width: 43,
             height: 43,
             borderRadius: `5px`
           }}
         >
-          {user?.username?.charAt(0).toUpperCase() || ''}
+          {user?.userName?.charAt(0).toUpperCase() || ''}
         </Avatar>
         <Box sx={{ textAlign: 'left' }}>
-          <Typography sx={{ fontSize: 15, fontWeight: 600 }}>{user?.username}</Typography>
+          <Typography sx={{ fontSize: 15, fontWeight: 600 }}>{user?.userName}</Typography>
         </Box>
         <ExpandMoreIcon sx={{ ml: 1 }} />
       </Button>
@@ -113,7 +113,7 @@ export default function AccountPopover() {
       <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.username}
+            {user?.userName}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
             {user?.email}

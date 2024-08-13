@@ -44,7 +44,7 @@ const initRegisterForm = {
     value: 'demo@gmail.com',
     message: ''
   },
-  username: {
+  userName: {
     label: 'Username *',
     type: 'text',
     placeholder: 'Enter your username',
@@ -102,7 +102,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
 
   const Register = async () => {
     try {
-      const { email, username, password } = registerForm;
+      const { email, userName, password } = registerForm;
 
       if (!email.value) {
         enqueueSnackbar('Empty Email!', { variant: 'warning' });
@@ -112,7 +112,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
         enqueueSnackbar('Invalied Email!', { variant: 'warning' });
         return;
       }
-      if (!username.value) {
+      if (!userName.value) {
         enqueueSnackbar('Empty Username!', { variant: 'warning' });
         return;
       }
@@ -122,7 +122,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
       }
 
       setloading(true);
-      const res = await register(email.value, username.value, password.value);
+      const res = await register(email.value, userName.value, password.value);
 
       if (res && res.status === 201) {
         enqueueSnackbar(res.data, { variant: 'success' });

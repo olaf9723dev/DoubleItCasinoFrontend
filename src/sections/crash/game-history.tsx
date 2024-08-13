@@ -88,7 +88,7 @@ export default function GameHistory() {
           tableData={histories}
           tableLabels={[
             { id: 'type', label: 'Game' },
-            { id: 'username', label: 'Username', avatar: true },
+            { id: 'userName', label: 'Username', avatar: true },
             { id: 'createdAt', label: 'Time', align: 'center', date: true },
             { id: 'bet', label: 'Bet', align: 'center', unit: '$' },
             { id: 'target', label: 'Multiplier', align: 'center', unit: 'x' },

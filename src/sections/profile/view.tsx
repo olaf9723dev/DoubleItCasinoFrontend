@@ -9,7 +9,7 @@ import {
   IconButton,
   Typography,
   DialogContent,
-  Autocomplete,
+  Autocomplete
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -24,31 +24,31 @@ const COLUMNS = [
   {
     id: 'bet',
     label: 'Total Bet',
-    format: 'G _val_ T',
+    format: 'G _val_ T'
   },
   {
     id: 'profit',
     label: 'Total Profit',
     format: 'G _val_ T',
-    color: '#F59696',
+    color: '#F59696'
   },
   {
     id: 'deposited',
     label: 'G Deposit',
-    format: 'G _val_ T',
+    format: 'G _val_ T'
   },
   {
     id: 'games',
-    label: 'Total Games',
+    label: 'Total Games'
   },
   {
     id: 'won',
-    label: 'Games Won',
+    label: 'Games Won'
   },
   {
     id: 'lost',
-    label: 'Games Lost',
-  },
+    label: 'Games Lost'
+  }
 ];
 
 export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
@@ -70,7 +70,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
       ...e,
       label: e.name,
       id: e.userId,
-      avatar: e.avatar,
+      avatar: e.avatar
     }));
     setUserList(users);
     const me = users.find((e: any) => e._id === user._id);
@@ -94,13 +94,13 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
           width: `100%`,
           border: '2px solid #32366a',
           position: `relative`,
-          background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`,
-        },
+          background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+        }
       }}
     >
       <DialogContent
         sx={{
-          p: 0,
+          p: 0
         }}
       >
         <IconButton
@@ -113,7 +113,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
           sx={{
             alignItems: 'center',
             justifyContent: 'center',
-            borderBottom: '2px dashed #32366a',
+            borderBottom: '2px dashed #32366a'
           }}
         >
           <Image
@@ -123,8 +123,8 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
               '& img': {
                 width: '114%',
                 ml: '-7%',
-                maxWidth: '114%',
-              },
+                maxWidth: '114%'
+              }
             }}
           />
           <Stack
@@ -135,7 +135,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
               textAlign: 'center',
               position: 'absolute',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Autocomplete
@@ -159,7 +159,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
                     borderRadius: 1.25,
                     background: 'rgba(0, 0, 0, 0.50)',
                     boxShadow:
-                      '0px 15px 45px 0px rgba(0, 0, 0, 0.30), 0px 13px 40px 0px rgba(0, 0, 0, 0.25)',
+                      '0px 15px 45px 0px rgba(0, 0, 0, 0.30), 0px 13px 40px 0px rgba(0, 0, 0, 0.25)'
                   }}
                 />
               )}
@@ -167,15 +167,15 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
 
             <Avatar
               src={curuser ? curuser.avatar : avatar}
-              alt={User?.displayName}
+              alt={User?.userName}
               sx={{
                 width: 126,
                 height: 126,
                 boxShadow:
-                  '0px 23px 125px 0px rgba(100, 80, 255, 0.55), -1px 14px 15px 0px rgba(255, 255, 255, 0.33) inset',
+                  '0px 23px 125px 0px rgba(100, 80, 255, 0.55), -1px 14px 15px 0px rgba(255, 255, 255, 0.33) inset'
               }}
             >
-              {User?.displayName.charAt(0).toUpperCase()}
+              {User?.userName.charAt(0).toUpperCase()}
             </Avatar>
             <Box>
               <Typography sx={{ fontSize: 15, fontWeight: 600 }}>
@@ -191,7 +191,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
           sx={{
             px: 8,
             py: 5,
-            gap: 1.5,
+            gap: 1.5
           }}
         >
           <Grid container spacing={3}>
@@ -205,7 +205,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
                       background:
                         'linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 28%) 100%)',
                       boxShadow:
-                        '0px 37px 40px 0px rgb(0 0 0 / 21%), -1px 1px 7px 0px rgb(255 255 255 / 7%) inset',
+                        '0px 37px 40px 0px rgb(0 0 0 / 21%), -1px 1px 7px 0px rgb(255 255 255 / 7%) inset'
                     }}
                   >
                     <Typography sx={{ fontSize: 10 }}>{row.label}</Typography>

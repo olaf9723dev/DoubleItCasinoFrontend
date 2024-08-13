@@ -25,8 +25,7 @@ export type UserType = {
   avatar: string;
   userId: string;
   balance: number;
-  displayName: string;
-  username: string;
+  userName: string;
 };
 
 export type IChatMessage = {
@@ -74,7 +73,7 @@ export type Event = {
 export type ApiContextType = {
   initialize: () => Promise<any>;
   login: (emailOrUsername: string, password: string) => Promise<any>;
-  register: (email: string, username: string, password: string) => Promise<any>;
+  register: (email: string, userName: string, password: string) => Promise<any>;
   getUsers: () => Promise<any>;
   getUserId: (data: string) => Promise<any>;
   confirmPhrase: (data: number) => Promise<any>;

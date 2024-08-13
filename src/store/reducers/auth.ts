@@ -4,10 +4,9 @@ type UserType = {
   _id: string;
   description: string;
   email: string;
-  username: string;
   password: string;
   name: string;
-  displayName: string;
+  userName: string;
   role: string;
   avatar: string;
   balance: number;
@@ -31,10 +30,9 @@ const initialUser: UserType = {
   _id: '',
   description: '',
   email: '',
-  username: '',
   password: '',
   name: '',
-  displayName: '',
+  userName: '',
   role: '',
   avatar: '',
   balance: 0,
