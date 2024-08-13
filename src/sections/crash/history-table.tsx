@@ -8,7 +8,7 @@ import {
   TableCell,
   TableBody,
   Typography,
-  TableContainer,
+  TableContainer
 } from '@mui/material';
 // utils
 import moment from 'moment';
@@ -63,7 +63,7 @@ function GameHistoryTableRow({ row, headLabel }: GameHistoryTableRowProps) {
           {label.avatar ? (
             <Stack sx={{ flexDirection: 'row', alignItems: 'center' }}>
               <Avatar alt={row._id} src={row.user.avatar} sx={{ mr: 2 }} />
-              {row.user.name}
+              {row.user.username}
             </Stack>
           ) : (
             <Typography
