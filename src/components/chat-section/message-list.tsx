@@ -29,8 +29,8 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
   const events: Event[] = [
     {
       name: SOCKET_PATH.CHAT,
-      handler: onUpdateHiistory,
-    },
+      handler: onUpdateHiistory
+    }
   ];
 
   useSocketEvents(events);
@@ -46,8 +46,8 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
           '& .simplebar-content-wrapper': {
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: messageList.length < 6 ? 'end' : 'unset',
-          },
+            justifyContent: messageList.length < 6 ? 'end' : 'unset'
+          }
         }}
       >
         <Stack gap={2}>
@@ -65,24 +65,24 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
                     boxShadow: `0px 10px 40px 0px rgba(0, 0, 0, 0.15)`,
                     padding: 2.5,
                     flexDirection: 'row',
-                    gap: 1.25,
+                    gap: 1.25
                   }}
                 >
                   <Avatar
                     src={data.sender.avatar}
-                    alt={data.sender.name}
+                    alt={data.sender.username}
                     sx={{
                       width: 60,
                       height: 60,
                       borderRadius: `15px`,
-                      background: '#32366a !important',
+                      background: '#32366a !important'
                     }}
                   >
-                    {data.sender.name.charAt(0).toUpperCase()}
+                    {data.sender.username.charAt(0).toUpperCase()}
                   </Avatar>
                   <Stack gap={0.75} sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
                     <Typography sx={{ fontSize: 13, fontWeight: 500 }}>
-                      {data.sender.name}
+                      {data.sender.username}
                     </Typography>
                     <Typography sx={{ fontSize: 11, fontWeight: 300 }}>{data.content}</Typography>
                   </Stack>
@@ -97,7 +97,7 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
           height: '25%',
           width: '100%',
           background: `linear-gradient(180deg, #100F1C 0%, rgba(16, 15, 28, 0.00) 100%)`,
-          boxShadow: `-5px 0px 75px 0px rgba(0, 0, 0, 0.10)`,
+          boxShadow: `-5px 0px 75px 0px rgba(0, 0, 0, 0.10)`
         }}
       />
     </>
