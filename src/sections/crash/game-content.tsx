@@ -7,7 +7,7 @@ import {
   InputBase,
   Stack,
   Typography,
-  useMediaQuery,
+  useMediaQuery
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
@@ -50,12 +50,12 @@ export const GAME_STATES = {
   InProgress: 3,
   Over: 4,
   Blocking: 5,
-  Refunded: 6,
+  Refunded: 6
 };
 
 const BET_STATES = {
   Playing: 1,
-  CashedOut: 2,
+  CashedOut: 2
 };
 // Renderer callback with condition
 const renderer = ({ minutes, seconds, completed }: any) => {
@@ -331,7 +331,7 @@ export default function GameContent() {
     ownBet,
     user,
     rockets,
-    charts,
+    charts
   ]);
 
   useEffect(() => {
@@ -340,6 +340,7 @@ export default function GameContent() {
       setLoading(true);
       try {
         const res = await getCrashSchema();
+        console.log('!!!!!!!!!!!', res.data);
         if (!res?.data) return;
         const schema = res.data;
 
@@ -394,22 +395,22 @@ export default function GameContent() {
     gsap.set(['.rocket', '.rocket--self'], {
       xPercent: -50,
       yPercent: -50,
-      transformOrigin: '50% 50%',
+      transformOrigin: '50% 50%'
     });
 
     const rocket = gsap.to('.rocket', {
       motionPath: {
         path: '#path',
         align: '#path',
-        autoRotate: true,
+        autoRotate: true
       },
       duration: 20,
-      ease: 'power1.in',
+      ease: 'power1.in'
     });
     const chart = gsap.to('.crash-game-chart-inner', {
       duration: 19.5,
       width: 600,
-      ease: 'power1.in',
+      ease: 'power1.in'
     });
     setRockets(rocket);
     setCharts(chart);
@@ -431,7 +432,7 @@ export default function GameContent() {
             borderRadius: `15px`,
             bgcolor: 'rgba(255, 255, 255, 0.04)',
             boxShadow: `0px 0px 15px 0px rgba(0, 0, 0, 0.25)`,
-            justifyContent: 'space-between',
+            justifyContent: 'space-between'
           }}
         >
           <Stack
@@ -441,7 +442,7 @@ export default function GameContent() {
               boxShadow: `0px 0px 2px 0px rgba(0, 0, 0, 0.25)`,
               gap: 2,
               px: 2.5,
-              py: 3.5,
+              py: 3.5
             }}
           >
             <Stack sx={{ flexDirection: 'row', gap: 1.9 }}>
@@ -452,7 +453,7 @@ export default function GameContent() {
                   py: 0.8,
                   width: '50%',
                   borderRadius: 1.5,
-                  bgcolor: betTab === 'manual' ? '#303158' : 'transparent',
+                  bgcolor: betTab === 'manual' ? '#303158' : 'transparent'
                 }}
                 onClick={() => handleChange('manual')}
               >
@@ -465,7 +466,7 @@ export default function GameContent() {
                   py: 0.8,
                   width: '50%',
                   borderRadius: 1.5,
-                  bgcolor: betTab === 'auto' ? '#303158' : 'transparent',
+                  bgcolor: betTab === 'auto' ? '#303158' : 'transparent'
                 }}
                 onClick={() => handleChange('auto')}
               >
@@ -523,7 +524,7 @@ export default function GameContent() {
                   px: 1.25,
                   py: 0.85,
                   borderRadius: 1.25,
-                  background: `#303158`,
+                  background: `#303158`
                 }}
               />
             </Stack>
@@ -584,7 +585,7 @@ export default function GameContent() {
                   px: 1.25,
                   py: 0.85,
                   borderRadius: 1.25,
-                  background: `#303158`,
+                  background: `#303158`
                 }}
               />
             </Stack>
@@ -616,6 +617,7 @@ export default function GameContent() {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 px: 3.8,
+                pt: 2
               }}
             >
               <Typography sx={{ fontSize: 10 }}>{players.length} Players</Typography>
@@ -632,37 +634,37 @@ export default function GameContent() {
                       px: 3.8,
                       py: 0.55,
                       flexDirection: 'row',
-                      bgcolor: index % 2 === 0 ? 'rgba(0, 0, 0, 0.17)' : '',
+                      bgcolor: index % 2 === 0 ? 'rgba(0, 0, 0, 0.17)' : ''
                     }}
                   >
                     <Stack
                       sx={{
                         flexDirection: 'row',
                         alignItems: 'center',
-                        width: '60%',
+                        width: '60%'
                       }}
                     >
-                      <Avatar alt={row.name} src={row.avatar} sx={{ width: 32, height: 32 }} />
+                      <Avatar alt={row.userName} src={row.avatar} sx={{ width: 32, height: 32 }} />
                       <Typography
                         sx={{
                           fontSize: 11,
-                          ml: 1.1,
+                          ml: 1.1
                         }}
                       >
-                        {row.name}
+                        {row.userName}
                       </Typography>
                     </Stack>
                     <Stack
                       sx={{
                         width: '20%',
-                        justifyContent: 'center',
+                        justifyContent: 'center'
                       }}
                     >
                       <Typography
                         sx={{
                           fontSize: 11,
                           textAlign: 'center',
-                          color: theme.palette.success.main,
+                          color: theme.palette.success.main
                         }}
                       >
                         {row.stoppedAt ? `${(row.stoppedAt / 100).toFixed(2)}x` : ''}
@@ -671,7 +673,7 @@ export default function GameContent() {
                     <Stack
                       sx={{
                         width: '20%',
-                        justifyContent: 'center',
+                        justifyContent: 'center'
                       }}
                     >
                       <Typography sx={{ fontSize: 11, textAlign: 'right' }}>
@@ -697,7 +699,7 @@ export default function GameContent() {
             position: 'relative',
             height: 550,
             overflow: 'hidden',
-            padding: '0px !important',
+            padding: '0px !important'
           }}
         >
           <div
@@ -746,7 +748,7 @@ export default function GameContent() {
               zIndex: 10,
               height: 24,
               fontSize: 15,
-              position: 'absolute',
+              position: 'absolute'
             }}
           >
             {!isMobile && `Network status`}
