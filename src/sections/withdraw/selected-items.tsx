@@ -64,7 +64,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
       data-aos-duration="500"
       sx={{
         position: 'sticky',
-        top: 0,
+        top: 0
       }}
     >
       <Stack
@@ -75,7 +75,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
           border: `2px solid #302e58`,
           borderRadius: `15px 15px 0px 0px`,
           boxShadow: `0px 0px 70px 0px rgba(0, 0, 0, 0.25)`,
-          background: `linear-gradient(170deg, rgb(255 255 255 / 3%) 0%, rgb(255 255 255 / 16%) 80%, rgb(178 175 243 / 24%) 100%)`,
+          background: `linear-gradient(170deg, rgb(255 255 255 / 3%) 0%, rgb(255 255 255 / 16%) 80%, rgb(178 175 243 / 24%) 100%)`
         }}
       >
         <Stack
@@ -84,7 +84,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
             px: 2.55,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            borderBottom: `2px solid #302e58`,
+            borderBottom: `2px solid #302e58`
           }}
         >
           <Typography>Selected Items</Typography>
@@ -93,7 +93,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
               flexDirection: 'row',
               fontSize: 13,
               gap: 1.5,
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             <Box>{`$ ${totalAmount}`}</Box>
@@ -109,7 +109,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
               px: 2.5,
               py: 3,
               gap: 2.7,
-              height: '100%',
+              height: '100%'
             }}
           >
             {items.map((row, index) => (
@@ -123,7 +123,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
                   flexDirection: 'row',
                   border: `1px solid #504e7d`,
                   background: `radial-gradient(415.64% 157.95% at 0% 3.09%, rgb(80 86 163 / 0%) 0%, rgb(83 89 157 / 55%) 95%),linear-gradient(180deg, rgb(179 183 223 / 17%) 0%, rgb(0 0 0 / 0%) 100%)`,
-                  boxShadow: `2px -2px 1px 0px rgba(0, 0, 0, 0.17) inset, -2px 2px 1px 0px rgba(255, 255, 255, 0.03) inset, 0px 9px 11px 0px rgba(0, 0, 0, 0.15)`,
+                  boxShadow: `2px -2px 1px 0px rgba(0, 0, 0, 0.17) inset, -2px 2px 1px 0px rgba(255, 255, 255, 0.03) inset, 0px 9px 11px 0px rgba(0, 0, 0, 0.15)`
                 }}
               >
                 <Stack sx={{ p: 1, gap: 1.9, flexDirection: 'row', alignItems: 'center' }}>
@@ -134,7 +134,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
                       width: 62,
                       height: 62,
                       borderRadius: 0.5,
-                      border: `2px solid #302f4796`,
+                      border: `2px solid #302f4796`
                     }}
                   />
                   <Box>
@@ -161,7 +161,7 @@ export default function SelectedItems({ list, selected, onCancel }: ItemProps) {
           sx={{
             py: 3,
             px: 2.55,
-            borderTop: `2px solid #44417e`,
+            borderTop: `2px solid #44417e`
           }}
         >
           <Button
