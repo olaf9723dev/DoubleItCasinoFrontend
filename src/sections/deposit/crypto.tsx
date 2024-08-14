@@ -9,8 +9,9 @@ import {
   IconButton,
   DialogTitle,
   Typography,
-  InputBase,
+  InputBase
 } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import QRCode from 'qrcode.react';
@@ -22,7 +23,7 @@ import { useCopyToClipboard } from 'src/hooks/use-copy-to-clipboard';
 
 import Iconify from 'src/components/iconify';
 import Image from 'src/components/image';
-import { DepositIcon } from 'src/components/crash';
+import { DepositIcon } from 'src/components/icons';
 import { useSnackbar } from 'src/components/snackbar';
 import { StyledScrollbar } from 'src/components/scrollbar/styles';
 
@@ -42,11 +43,83 @@ interface Currency {
   status: boolean;
 }
 
+const _CoinsData = [
+  {
+    id: 'bitcoin',
+    name: 'BITCOIN'
+  },
+  {
+    id: 'litecoin',
+    name: 'LITECOIN'
+  },
+  {
+    id: 'ethereum',
+    name: 'ETHEREUM'
+  },
+  {
+    id: 'bnb',
+    name: 'BNB'
+  },
+  {
+    id: 'usdc',
+    name: 'USDC'
+  },
+  {
+    id: 'usdt',
+    name: 'USDT'
+  },
+  {
+    id: 'dogecoin',
+    name: 'DOGECOIN'
+  },
+  {
+    id: 'polygon',
+    name: 'Polygon'
+  },
+  {
+    id: 'tron',
+    name: 'TRON'
+  },
+  {
+    id: 'arbitrum',
+    name: 'Arbitrum'
+  },
+  {
+    id: 'avax',
+    name: 'Avalanche'
+  },
+  {
+    id: 'dai',
+    name: 'Dai'
+  },
+  {
+    id: 'bitcoin-cash',
+    name: 'Bitcoin Cash'
+  },
+  {
+    id: 'shiba',
+    name: 'Shiba'
+  },
+  {
+    id: 'uniswap',
+    name: 'Uniswap'
+  },
+  {
+    id: 'aptos',
+    name: 'Aptos'
+  },
+  {
+    id: 'solana',
+    name: 'Solana'
+  }
+];
+
 export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
   const { enqueueSnackbar } = useSnackbar();
   const { getCurrencies, deposit } = useApi();
   const { copy } = useCopyToClipboard();
 
+  const [transactionType, setTransactionType] = useState<'deposit' | 'withdraw'>('deposit');
   const [currency, setCurrency] = useState<Partial<Currency>>({});
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [amount, setAmount] = useState<string>('0');
@@ -64,6 +137,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
     setOpenDeposit(true);
     setAddress(res.data.address);
   };
+
+  const onWithdraw = async () => {};
 
   const handleCopy = () => {
     enqueueSnackbar('Copied!');
@@ -94,19 +169,41 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
-            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`,
-          },
+            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+          }
         }}
       >
         <DialogTitle
           id="adopt-me-dialog-title"
           sx={{
             textAlign: 'center',
-            py: 3.6,
-            borderBottom: '2px dashed #32366a',
+            py: 3.25,
+            borderBottom: '2px dashed #32366a'
           }}
         >
-          <Typography sx={{ fontSize: 24, fontWeight: 700 }}>Crypto Deposit</Typography>
+          <Stack flexDirection="row" gap={1.25} sx={{ alignItems: 'center' }}>
+            <Button
+              variant="text"
+              color="primary"
+              size="small"
+              sx={{ fontSize: 18, fontWeight: 600, color: 'white', px: 1.25 }}
+              disabled={transactionType === 'deposit'}
+              onClick={() => setTransactionType('deposit')}
+            >
+              Deposit
+            </Button>
+            <Typography sx={{ fontSize: 18, fontWeight: 600, color: 'grey' }}>|</Typography>
+            <Button
+              variant="text"
+              color="primary"
+              size="small"
+              sx={{ fontSize: 18, fontWeight: 600, color: 'white', px: 1.25 }}
+              disabled={transactionType === 'withdraw'}
+              onClick={() => setTransactionType('withdraw')}
+            >
+              Withdraw
+            </Button>
+          </Stack>
           <IconButton sx={{ position: 'absolute', top: 1, right: 1.25 }} onClick={onClose}>
             <CloseIcon />
           </IconButton>
@@ -114,7 +211,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
         <DialogContent sx={{ p: 0 }}>
           <StyledScrollbar>
             <Stack spacing={3} p={3} direction="row">
-              {currencies.map((item, key) => (
+              {_CoinsData.map((item, key) => (
                 <Grid key={key} item xs={1.7} md={1.7}>
                   <Button
                     onClick={() => setCurrency(item)}
@@ -128,15 +225,15 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                       background: '#131528',
                       flexDirection: 'column',
                       border: `1px solid #454779`,
-                      boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
+                      boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)'
                     }}
                   >
                     <Image
-                      src={`assets/icons/coins/${item.icon}`}
+                      src={`assets/icons/coins/${item.id}.png`}
                       alt={item.name}
                       sx={{
                         width: 45,
-                        height: 45,
+                        height: 45
                       }}
                     />
                     <Typography sx={{ textAlign: 'center', color: 'white', mt: 1.5 }}>
@@ -151,7 +248,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
             sx={{
               px: 3,
               py: 2,
-              gap: 2,
+              gap: 2
             }}
           >
             <Stack sx={{ flexDirection: 'row', gap: 1, alignItems: 'center' }}>
@@ -179,7 +276,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     gap: 2,
                     width: 40,
                     flexDirection: 'row',
-                    alignItems: 'flex-end',
+                    alignItems: 'flex-end'
                   }}
                 >
                   <Image
@@ -187,7 +284,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     alt="ethereum"
                     sx={{
                       width: 23,
-                      height: 23,
+                      height: 23
                     }}
                   />
                 </Stack>
@@ -201,15 +298,15 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 width: '100%',
                 gap: 1.25,
                 '& input': {
-                  width: '70%',
-                },
+                  width: '70%'
+                }
               }}
             />
             <Stack
               sx={{
                 gap: 3,
                 flexDirection: 'row',
-                alignItems: 'center',
+                alignItems: 'center'
               }}
             >
               <InputBase
@@ -221,7 +318,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                   <AttachMoneyIcon
                     sx={{
                       width: 23,
-                      height: 23,
+                      height: 23
                     }}
                   />
                 }
@@ -234,8 +331,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                   border: `1px solid #34386c`,
                   bgcolor: `rgba(0, 0, 0, 0.27)`,
                   '& input': {
-                    width: '70%',
-                  },
+                    width: '70%'
+                  }
                 }}
               />
               <Typography>=</Typography>
@@ -250,7 +347,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     alt="ethereum"
                     sx={{
                       width: 23,
-                      height: 23,
+                      height: 23
                     }}
                   />
                 }
@@ -263,20 +360,19 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                   border: `1px solid #34386c`,
                   bgcolor: `rgba(0, 0, 0, 0.27)`,
                   '& input': {
-                    width: '70%',
-                  },
+                    width: '70%'
+                  }
                 }}
               />
             </Stack>
-
             <Button
               variant="contained"
               size="medium"
               color="primary"
-              startIcon={<DepositIcon />}
-              onClick={onDeposit}
+              sx={{ fontSize: 16 }}
+              onClick={() => (transactionType === 'deposit' ? onDeposit() : onWithdraw())}
             >
-              Deposit
+              {transactionType === 'deposit' ? 'Deposit' : 'Withdraw'}
             </Button>
           </Stack>
         </DialogContent>
@@ -293,8 +389,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
-            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`,
-          },
+            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+          }
         }}
       >
         <DialogTitle
@@ -302,7 +398,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
           sx={{
             textAlign: 'center',
             py: 3.6,
-            borderBottom: '2px dashed #32366a',
+            borderBottom: '2px dashed #32366a'
           }}
         >
           <Typography sx={{ fontSize: 24, fontWeight: 700 }}>Crypto Deposit</Typography>
@@ -325,7 +421,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 border: `1px solid #34386c`,
-                bgcolor: `rgba(0, 0, 0, 0.27)`,
+                bgcolor: `rgba(0, 0, 0, 0.27)`
               }}
             >
               <Typography sx={{ fontSize: 12, opacity: 0.6 }}>
@@ -333,7 +429,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: 11,
+                  fontSize: 11
                 }}
               >
                 {address}
@@ -346,7 +442,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
               sx={{
                 opacity: 0.7,
                 fontSize: 14,
-                textAlign: 'center',
+                textAlign: 'center'
               }}
             >
               Only send {currency?.symbol} to the address or QR above, do not send other currencies.
