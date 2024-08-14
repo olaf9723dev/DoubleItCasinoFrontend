@@ -13,7 +13,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 // components
 import Logo from 'src/components/logo';
 import SvgColor from 'src/components/svg-color';
-import { DepositIcon } from 'src/components/crash';
+import { DepositIcon } from 'src/components/icons';
 import { useSettingsContext } from 'src/components/settings';
 // reduce
 import { useSelector } from 'src/store';
@@ -100,7 +100,7 @@ export default function Header({ onOpenNav }: Props) {
               startIcon={<DepositIcon />}
               onClick={handleSetOpen}
             >
-              Deposit
+              Wallet
             </Button>
             <Button
               variant="contained"
@@ -128,10 +128,10 @@ export default function Header({ onOpenNav }: Props) {
         height: HEADER.H_MOBILE,
         zIndex: theme.zIndex.appBar + 1,
         ...bgBlur({
-          color: theme.palette.background.default,
+          color: theme.palette.background.default
         }),
         transition: theme.transitions.create(['height'], {
-          duration: theme.transitions.duration.shorter,
+          duration: theme.transitions.duration.shorter
         }),
         ...(lgUp && {
           height: HEADER.H_DESKTOP,
@@ -139,21 +139,21 @@ export default function Header({ onOpenNav }: Props) {
           backgroundBlendMode: 'overlay',
           boxShadow: '0px 14px 60px 0px rgba(0, 0, 0, 0.25)',
           ...(offsetTop && {
-            height: HEADER.H_DESKTOP_OFFSET,
+            height: HEADER.H_DESKTOP_OFFSET
           }),
           ...(isNavHorizontal && {
             width: 1,
             bgcolor: 'background.default',
             height: HEADER.H_DESKTOP_OFFSET,
-            borderBottom: `dashed 1px ${theme.palette.divider}`,
-          }),
-        }),
+            borderBottom: `dashed 1px ${theme.palette.divider}`
+          })
+        })
       }}
     >
       <Toolbar
         sx={{
           height: 1,
-          px: { lg: 5 },
+          px: { lg: 5 }
         }}
       >
         {renderContent}
