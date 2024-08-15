@@ -9,9 +9,9 @@ import {
   IconButton,
   DialogTitle,
   Typography,
-  InputBase
+  InputBase,
+  TextField
 } from '@mui/material';
-import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import QRCode from 'qrcode.react';
@@ -45,72 +45,89 @@ interface Currency {
 
 const _CoinsData = [
   {
-    id: 'bitcoin',
-    name: 'BITCOIN'
+    icon: 'bitcoin',
+    name: 'BITCOIN',
+    symbol: 'BTC'
   },
   {
-    id: 'litecoin',
-    name: 'LITECOIN'
+    icon: 'ethereum',
+    name: 'ETHEREUM',
+    symbol: 'ETH'
   },
   {
-    id: 'ethereum',
-    name: 'ETHEREUM'
+    icon: 'bnb',
+    name: 'BNB',
+    symbol: 'BNB'
   },
   {
-    id: 'bnb',
-    name: 'BNB'
+    icon: 'usdt',
+    name: 'USDT',
+    symbol: 'USDT'
   },
   {
-    id: 'usdc',
-    name: 'USDC'
+    icon: 'usdc',
+    name: 'USDC',
+    symbol: 'USDC'
   },
   {
-    id: 'usdt',
-    name: 'USDT'
+    icon: 'tron',
+    name: 'TRON',
+    symbol: 'TRX'
   },
   {
-    id: 'dogecoin',
-    name: 'DOGECOIN'
+    icon: 'polygon',
+    name: 'Polygon',
+    symbol: 'MATIC'
   },
   {
-    id: 'polygon',
-    name: 'Polygon'
+    icon: 'bitcoin-cash',
+    name: 'Bitcoin Cash',
+    symbol: 'BCH'
   },
   {
-    id: 'tron',
-    name: 'TRON'
+    icon: 'litecoin',
+    name: 'LITECOIN',
+    symbol: 'LTC'
   },
   {
-    id: 'arbitrum',
-    name: 'Arbitrum'
+    icon: 'dogecoin',
+    name: 'DOGECOIN',
+    symbol: 'DOGE'
   },
   {
-    id: 'avax',
-    name: 'Avalanche'
+    icon: 'arbitrum',
+    name: 'Arbitrum',
+    symbol: 'ARB'
   },
   {
-    id: 'dai',
-    name: 'Dai'
+    icon: 'avax',
+    name: 'Avalanche',
+    symbol: 'AVAX'
   },
   {
-    id: 'bitcoin-cash',
-    name: 'Bitcoin Cash'
+    icon: 'dai',
+    name: 'Dai',
+    symbol: 'DAI'
   },
   {
-    id: 'shiba',
-    name: 'Shiba'
+    icon: 'shiba',
+    name: 'Shiba',
+    symbol: 'SHIB'
   },
   {
-    id: 'uniswap',
-    name: 'Uniswap'
+    icon: 'uniswap',
+    name: 'Uniswap',
+    symbol: 'UNI'
   },
   {
-    id: 'aptos',
-    name: 'Aptos'
+    icon: 'aptos',
+    name: 'Aptos',
+    symbol: 'APT'
   },
   {
-    id: 'solana',
-    name: 'Solana'
+    icon: 'solana',
+    name: 'Solana',
+    symbol: 'SOL'
   }
 ];
 
@@ -165,7 +182,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="adopt-me-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `800px` },
+            maxWidth: { xm: '100%', sm: '100%', md: `600px` },
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
@@ -208,176 +225,137 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent sx={{ p: 0 }}>
-          <StyledScrollbar>
-            <Stack spacing={3} p={3} direction="row">
-              {_CoinsData.map((item, key) => (
-                <Grid key={key} item xs={1.7} md={1.7}>
-                  <Button
-                    onClick={() => setCurrency(item)}
-                    sx={{
-                      pt: 3,
-                      px: 2,
-                      gap: 0.5,
-                      width: '120px',
-                      height: '100%',
-                      borderRadius: 1.25,
-                      background: '#131528',
-                      flexDirection: 'column',
-                      border: `1px solid #454779`,
-                      boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)'
-                    }}
-                  >
-                    <Image
-                      src={`assets/icons/coins/${item.id}.png`}
-                      alt={item.name}
+        <StyledScrollbar>
+          <DialogContent sx={{ p: 0 }}>
+            <StyledScrollbar>
+              <Stack p={3} direction="row">
+                {_CoinsData.map((item, key) => (
+                  <Grid key={key} item xs={1.7} md={1.7} pr={3}>
+                    <Button
+                      onClick={() => setCurrency(item)}
                       sx={{
-                        width: 45,
-                        height: 45
+                        pt: 3,
+                        px: 2,
+                        gap: 0.5,
+                        width: '120px',
+                        height: '100%',
+                        borderRadius: 1.25,
+                        background: '#131528',
+                        flexDirection: 'column',
+                        border: `1px solid #454779`,
+                        boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)'
                       }}
-                    />
-                    <Typography sx={{ textAlign: 'center', color: 'white', mt: 1.5 }}>
-                      {item.name}
-                    </Typography>
-                  </Button>
-                </Grid>
-              ))}
-            </Stack>
-          </StyledScrollbar>
-          <Stack
-            sx={{
-              px: 3,
-              py: 2,
-              gap: 2
-            }}
-          >
-            <Stack sx={{ flexDirection: 'row', gap: 1, alignItems: 'center' }}>
-              <Typography sx={{ fontSize: 17 }}>
-                You have selected&nbsp;
-                <Box component="span" color="#6C56F5">
-                  {currency?.symbol}
-                </Box>
-              </Typography>
-            </Stack>
-            <InputBase
-              value={amount}
-              onChange={handleChangeAmount}
-              placeholder="0.00"
-              type="number"
-              inputProps={{ step: 0.01, min: 0 }}
-              startAdornment={
-                <Typography sx={{ opacity: 0.6, fontSize: 12, width: 130, textAlign: 'center' }}>
-                  SEND AMOUNT:
-                </Typography>
-              }
-              endAdornment={
-                <Stack
-                  sx={{
-                    gap: 2,
-                    width: 40,
-                    flexDirection: 'row',
-                    alignItems: 'flex-end'
-                  }}
-                >
-                  <Image
-                    src={`assets/icons/coins/${currency?.icon}`}
-                    alt="ethereum"
-                    sx={{
-                      width: 23,
-                      height: 23
-                    }}
-                  />
-                </Stack>
-              }
-              sx={{
-                px: 1.7,
-                py: 0.8,
-                border: `1px solid #34386c`,
-                bgcolor: `rgba(0, 0, 0, 0.27)`,
-                borderRadius: 1.25,
-                width: '100%',
-                gap: 1.25,
-                '& input': {
-                  width: '70%'
-                }
-              }}
-            />
+                    >
+                      <Image
+                        src={`assets/icons/coins/${item.icon}.png`}
+                        alt={item.name}
+                        sx={{
+                          width: 45,
+                          height: 45
+                        }}
+                      />
+                      <Typography sx={{ textAlign: 'center', color: 'white', mt: 1.5 }}>
+                        {item.name}
+                      </Typography>
+                    </Button>
+                  </Grid>
+                ))}
+              </Stack>
+            </StyledScrollbar>
             <Stack
               sx={{
-                gap: 3,
-                flexDirection: 'row',
-                alignItems: 'center'
+                px: 3,
+                pt: 1.2,
+                pb: 3,
+                gap: 2
               }}
             >
-              <InputBase
-                value={Number(amount) * (currency?.price || 0)}
-                placeholder="0.00"
-                type="number"
-                readOnly
-                startAdornment={
-                  <AttachMoneyIcon
+              <Stack sx={{ flexDirection: 'column', gap: 0.4 }}>
+                <Typography sx={{ fontSize: 16 }}>Network</Typography>
+                <TextField
+                  select
+                  value={0}
+                  onChange={(event) => {}}
+                  SelectProps={{
+                    native: true
+                  }}
+                >
+                  {[0, 4, 8, 12, 16, 20, 24].map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </TextField>
+              </Stack>
+              <Stack sx={{ flexDirection: 'column', gap: 0.4 }}>
+                <Typography sx={{ fontSize: 18 }}>
+                  Your{' '}
+                  <Box component="span" color="#6C56F5">
+                    {currency?.symbol}
+                  </Box>{' '}
+                  deposit address
+                </Typography>
+                <Stack sx={{ flexDirection: 'column', gap: 2, alignItems: 'center' }}>
+                  <Stack
                     sx={{
-                      width: 23,
-                      height: 23
+                      pl: 2,
+                      pr: 1,
+                      py: 0.8,
+                      gap: 2,
+                      borderRadius: 1.25,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      border: `1px solid #34386c`,
+                      bgcolor: `rgba(0, 0, 0, 0.27)`,
+                      width: `100%`
                     }}
-                  />
-                }
-                sx={{
-                  px: 1.7,
-                  py: 0.8,
-                  gap: 1.25,
-                  width: '100%',
-                  borderRadius: 1.25,
-                  border: `1px solid #34386c`,
-                  bgcolor: `rgba(0, 0, 0, 0.27)`,
-                  '& input': {
-                    width: '70%'
-                  }
-                }}
-              />
-              <Typography>=</Typography>
-              <InputBase
-                value={amount}
-                placeholder="0.00"
-                readOnly
-                type="number"
-                startAdornment={
-                  <Image
-                    src={`assets/icons/coins/${currency?.icon}`}
-                    alt="ethereum"
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: 14
+                      }}
+                    >
+                      {'0x18B6b2433B11ba1a1f0CC960CBD2cB7C95d5FCFD' || address}
+                    </Typography>
+                    <IconButton onClick={handleCopy}>
+                      <Iconify icon="octicon:link-16" />
+                    </IconButton>
+                  </Stack>
+                  <Box
                     sx={{
-                      width: 23,
-                      height: 23
+                      pt: 1.2,
+                      pb: 0.4,
+                      px: 1.2,
+                      borderRadius: 1.2,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      border: `1px solid #34386c`,
+                      bgcolor: `white`
                     }}
-                  />
-                }
-                sx={{
-                  px: 1.7,
-                  py: 0.8,
-                  gap: 1.25,
-                  width: '100%',
-                  borderRadius: 1.25,
-                  border: `1px solid #34386c`,
-                  bgcolor: `rgba(0, 0, 0, 0.27)`,
-                  '& input': {
-                    width: '70%'
-                  }
-                }}
-              />
+                  >
+                    <QRCode
+                      value={'0x18B6b2433B11ba1a1f0CC960CBD2cB7C95d5FCFD' || address}
+                      renderAs="svg"
+                      size={150}
+                    />
+                  </Box>
+                  <Typography
+                    sx={{
+                      opacity: 0.8,
+                      fontSize: 14,
+                      textAlign: 'center'
+                    }}
+                  >
+                    Only send {currency?.symbol} to the address or QR above, do not send other
+                    currencies. Three confirmations must occur before you receive your balance.
+                  </Typography>
+                </Stack>
+              </Stack>
             </Stack>
-            <Button
-              variant="contained"
-              size="medium"
-              color="primary"
-              sx={{ fontSize: 16 }}
-              onClick={() => (transactionType === 'deposit' ? onDeposit() : onWithdraw())}
-            >
-              {transactionType === 'deposit' ? 'Deposit' : 'Withdraw'}
-            </Button>
-          </Stack>
-        </DialogContent>
+          </DialogContent>
+        </StyledScrollbar>
       </Dialog>
-
       <Dialog
         open={openDeposit}
         onClose={() => setOpenDeposit(!openDeposit)}
@@ -449,6 +427,121 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
               Three confirmations must occur before you receive your balance.
             </Typography>
           </Stack>
+          {/* <InputBase
+              value={amount}
+              onChange={handleChangeAmount}
+              placeholder="0.00"
+              type="number"
+              inputProps={{ step: 0.01, min: 0 }}
+              startAdornment={
+                <Typography sx={{ opacity: 0.6, fontSize: 12, width: 130, textAlign: 'center' }}>
+                  SEND AMOUNT:
+                </Typography>
+              }
+              endAdornment={
+                <Stack
+                  sx={{
+                    gap: 2,
+                    width: 40,
+                    flexDirection: 'row',
+                    alignItems: 'flex-end'
+                  }}
+                >
+                  <Image
+                    src={`assets/icons/coins/${currency?.icon}.png`}
+                    alt="ethereum"
+                    sx={{
+                      width: 23,
+                      height: 23
+                    }}
+                  />
+                </Stack>
+              }
+              sx={{
+                px: 1.7,
+                py: 0.8,
+                border: `1px solid #34386c`,
+                bgcolor: `rgba(0, 0, 0, 0.27)`,
+                borderRadius: 1.25,
+                width: '100%',
+                gap: 1.25,
+                '& input': {
+                  width: '70%'
+                }
+              }}
+            />
+            <Stack
+              sx={{
+                gap: 3,
+                flexDirection: 'row',
+                alignItems: 'center'
+              }}
+            >
+              <InputBase
+                value={Number(amount) * (currency?.price || 0)}
+                placeholder="0.00"
+                type="number"
+                readOnly
+                startAdornment={
+                  <AttachMoneyIcon
+                    sx={{
+                      width: 23,
+                      height: 23
+                    }}
+                  />
+                }
+                sx={{
+                  px: 1.7,
+                  py: 0.8,
+                  gap: 1.25,
+                  width: '100%',
+                  borderRadius: 1.25,
+                  border: `1px solid #34386c`,
+                  bgcolor: `rgba(0, 0, 0, 0.27)`,
+                  '& input': {
+                    width: '70%'
+                  }
+                }}
+              />
+              <Typography>=</Typography>
+              <InputBase
+                value={amount}
+                placeholder="0.00"
+                readOnly
+                type="number"
+                startAdornment={
+                  <Image
+                    src={`assets/icons/coins/${currency?.icon}.png`}
+                    alt="ethereum"
+                    sx={{
+                      width: 23,
+                      height: 23
+                    }}
+                  />
+                }
+                sx={{
+                  px: 1.7,
+                  py: 0.8,
+                  gap: 1.25,
+                  width: '100%',
+                  borderRadius: 1.25,
+                  border: `1px solid #34386c`,
+                  bgcolor: `rgba(0, 0, 0, 0.27)`,
+                  '& input': {
+                    width: '70%'
+                  }
+                }}
+              />
+            </Stack> */}
+          {/* <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              sx={{ fontSize: 16 }}
+              onClick={() => (transactionType === 'deposit' ? onDeposit() : onWithdraw())}
+            >
+              {transactionType === 'deposit' ? 'Deposit' : 'Withdraw'}
+            </Button> */}
         </DialogContent>
       </Dialog>
     </>
