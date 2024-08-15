@@ -96,6 +96,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
       }
       setloading(false);
     } catch (err: any) {
+      setloading(false);
       enqueueSnackbar(`${err.response.data.message}!`, { variant: 'error' });
     }
   };
@@ -131,6 +132,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
       }
       setloading(false);
     } catch (err: any) {
+      setloading(false);
       enqueueSnackbar(`${err.response.data.message}!`, { variant: 'error' });
     }
   };
