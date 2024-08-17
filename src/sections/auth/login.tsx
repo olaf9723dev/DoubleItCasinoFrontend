@@ -237,8 +237,8 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                         <TextField
                           sx={{
                             width: '100%',
+                            backgroundColor: `rgba(0, 0, 0, 0.27)`,
                             borderRadius: 1.25,
-                            background: '#17182E',
                             marginTop: 1.25
                           }}
                           type={loginForm[key].type}
