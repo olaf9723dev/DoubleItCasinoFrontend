@@ -10,6 +10,7 @@ import {
   DialogTitle,
   Typography,
   InputBase,
+  MenuItem,
   TextField
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -137,6 +138,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
   const { copy } = useCopyToClipboard();
 
   const [transactionType, setTransactionType] = useState<'deposit' | 'withdraw'>('deposit');
+  const [network, setNetwork] = useState<string>('');
   const [currency, setCurrency] = useState<Partial<Currency>>({});
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [amount, setAmount] = useState<string>('0');
@@ -182,11 +184,11 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="adopt-me-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `600px` },
-            width: `100%`,
+            maxWidth: { xm: '100%', sm: '100%', md: '600px' },
+            width: '100%',
             border: '2px solid #32366a',
-            position: `relative`,
-            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+            position: 'relative',
+            background: 'linear-gradient(180deg, #191B35 0%, #1F203C 100%)'
           }
         }}
       >
@@ -242,7 +244,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                         borderRadius: 1.25,
                         background: '#131528',
                         flexDirection: 'column',
-                        border: `1px solid #454779`,
+                        border: '1px solid #454779',
                         boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)'
                       }}
                     >
@@ -274,16 +276,67 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 <Typography sx={{ fontSize: 16 }}>Network</Typography>
                 <TextField
                   select
-                  value={0}
-                  onChange={(event) => {}}
+                  value={network}
+                  onChange={(e: any) => setNetwork(e.target.value)}
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '60px'
+                    },
+                    '& .MuiSelect-select': {
+                      display: 'flex'
+                    }
+                  }}
                   SelectProps={{
-                    native: true
+                    native: false,
+                    MenuProps: {
+                      PaperProps: {
+                        sx: {
+                          backgroundColor: 'rgba(0, 0, 0, 0.27)',
+                          border: '1px solid #33374f',
+                          borderRadius: 1.25,
+                          maxHeight: '300px',
+                          option: {
+                            width: '100%',
+                            px: 2,
+                            py: 1,
+                            '&:hover': {
+                              cursor: 'pointer',
+                              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                              borderRadius: 0.8
+                            }
+                          }
+                        }
+                      }
+                    },
+                    inputProps: {
+                      sx: {
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 1.25,
+                        backgroundColor: 'rgba(0, 0, 0, 0.27)',
+                        borderRadius: 1.25
+                      }
+                    }
                   }}
                 >
-                  {[0, 4, 8, 12, 16, 20, 24].map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
+                  {_CoinsData.map((item, key) => (
+                    <MenuItem
+                      key={key}
+                      value={item.symbol}
+                      sx={{ gap: 1.25, alignItems: 'center' }}
+                    >
+                      <Image
+                        src={`assets/icons/coins/${item.icon}.png`}
+                        alt={item.name}
+                        sx={{
+                          width: 25,
+                          height: 25
+                        }}
+                      />
+                      <Typography sx={{ textAlign: 'center', color: 'white' }}>
+                        {item.name}
+                      </Typography>
+                    </MenuItem>
                   ))}
                 </TextField>
               </Stack>
@@ -300,15 +353,19 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     sx={{
                       pl: 2,
                       pr: 1,
-                      py: 0.8,
                       gap: 2,
+                      height: '60px',
                       borderRadius: 1.25,
                       flexDirection: 'row',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      border: `1px solid #34386c`,
-                      bgcolor: `rgba(0, 0, 0, 0.27)`,
-                      width: `100%`
+                      border: '1px solid #33374f',
+                      bgcolor: 'rgba(0, 0, 0, 0.27)',
+                      width: '100%',
+                      '&:hover': {
+                        borderColor: 'white',
+                        cursor: 'pointer'
+                      }
                     }}
                   >
                     <Typography
@@ -330,8 +387,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                       borderRadius: 1.2,
                       flexDirection: 'row',
                       alignItems: 'center',
-                      border: `1px solid #34386c`,
-                      bgcolor: `white`
+                      border: '1px solid #34386c',
+                      bgcolor: 'white'
                     }}
                   >
                     <QRCode
@@ -356,6 +413,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
           </DialogContent>
         </StyledScrollbar>
       </Dialog>
+
       <Dialog
         open={openDeposit}
         onClose={() => setOpenDeposit(!openDeposit)}
@@ -363,11 +421,11 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="adopt-me-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `500px` },
-            width: `100%`,
+            maxWidth: { xm: '100%', sm: '100%', md: '500px' },
+            width: '100%',
             border: '2px solid #32366a',
-            position: `relative`,
-            background: `linear-gradient(180deg, #191B35 0%, #1F203C 100%)`
+            position: 'relative',
+            background: 'linear-gradient(180deg, #191B35 0%, #1F203C 100%)'
           }
         }}
       >
@@ -398,8 +456,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 borderRadius: 1.25,
                 flexDirection: 'row',
                 alignItems: 'center',
-                border: `1px solid #34386c`,
-                bgcolor: `rgba(0, 0, 0, 0.27)`
+                border: '1px solid #34386c',
+                bgcolor: 'rgba(0, 0, 0, 0.27)'
               }}
             >
               <Typography sx={{ fontSize: 12, opacity: 0.6 }}>
@@ -460,8 +518,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
               sx={{
                 px: 1.7,
                 py: 0.8,
-                border: `1px solid #34386c`,
-                bgcolor: `rgba(0, 0, 0, 0.27)`,
+                border: '1px solid #34386c',
+                bgcolor: 'rgba(0, 0, 0, 0.27)',
                 borderRadius: 1.25,
                 width: '100%',
                 gap: 1.25,
@@ -496,8 +554,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                   gap: 1.25,
                   width: '100%',
                   borderRadius: 1.25,
-                  border: `1px solid #34386c`,
-                  bgcolor: `rgba(0, 0, 0, 0.27)`,
+                  border: '1px solid #34386c',
+                  bgcolor: 'rgba(0, 0, 0, 0.27)',
                   '& input': {
                     width: '70%'
                   }
@@ -525,8 +583,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                   gap: 1.25,
                   width: '100%',
                   borderRadius: 1.25,
-                  border: `1px solid #34386c`,
-                  bgcolor: `rgba(0, 0, 0, 0.27)`,
+                  border: '1px solid #34386c',
+                  bgcolor: 'rgba(0, 0, 0, 0.27)',
                   '& input': {
                     width: '70%'
                   }
