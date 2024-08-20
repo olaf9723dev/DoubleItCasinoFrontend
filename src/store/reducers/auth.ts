@@ -5,7 +5,8 @@ type UserType = {
   description: string;
   email: string;
   password: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   userName: string;
   role: string;
   avatar: string;
@@ -28,12 +29,13 @@ type initialStateType = {
 
 const initialUser: UserType = {
   _id: '',
-  description: '',
+  firstName: '',
+  lastName: '',
   email: '',
   password: '',
-  name: '',
   userName: '',
   role: '',
+  description: '',
   avatar: '',
   balance: 0,
   status: false,
