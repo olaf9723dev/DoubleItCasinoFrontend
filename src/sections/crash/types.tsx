@@ -6,7 +6,8 @@ export type TabPanelProps = 'manual' | 'auto';
 
 export type PlayerProps = {
   id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   avatar: string;
   userName: string;
@@ -23,7 +24,8 @@ export type RowProps = {
 };
 
 export type PlayerType = {
-  name: string;
+  firstName: string;
+  lastName: string;
   avatar: string;
   status: number;
   playerID: string;
