@@ -340,7 +340,6 @@ export default function GameContent() {
       setLoading(true);
       try {
         const res = await getCrashSchema();
-        console.log('!!!!!!!!!!!', res.data);
         if (!res?.data) return;
         const schema = res.data;
 
@@ -644,14 +643,18 @@ export default function GameContent() {
                         width: '60%'
                       }}
                     >
-                      <Avatar alt={row.userName} src={row.avatar} sx={{ width: 32, height: 32 }} />
+                      <Avatar alt={row.avatar} src={row.avatar} sx={{ width: 32, height: 32 }}>
+                        {`${row.firstName?.charAt(0).toUpperCase()}${row.lastName
+                          ?.charAt(0)
+                          .toUpperCase()}`}
+                      </Avatar>
                       <Typography
                         sx={{
                           fontSize: 11,
                           ml: 1.1
                         }}
                       >
-                        {row.userName}
+                        {`${row.firstName} ${row.lastName} (${row.userName})`}
                       </Typography>
                     </Stack>
                     <Stack

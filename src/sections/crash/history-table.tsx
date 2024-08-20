@@ -62,8 +62,12 @@ function GameHistoryTableRow({ row, headLabel }: GameHistoryTableRowProps) {
         <TableCell align={label.align ?? 'left'} key={label.id}>
           {label.avatar ? (
             <Stack sx={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Avatar alt={row._id} src={row.user.avatar} sx={{ mr: 2 }} />
-              {row.user.userName}
+              <Avatar alt={row.user.avatar} src={row.user.avatar} sx={{ mr: 2 }}>
+                {`${row.user.firstName?.charAt(0).toUpperCase()}${row.user.lastName
+                  ?.charAt(0)
+                  .toUpperCase()}`}
+              </Avatar>
+              {`${row.user.firstName} ${row.user.lastName} (${row.user.userName})`}
             </Stack>
           ) : (
             <Typography
