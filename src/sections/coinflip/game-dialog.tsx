@@ -67,8 +67,8 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
           maxWidth: { xm: '100%', sm: '100%', md: `770px` },
           height: `60%`,
           width: `100%`,
-          position: `relative`,
-        },
+          position: `relative`
+        }
       }}
     >
       <IconButton
@@ -82,7 +82,7 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
         sx={{
           width: '100%',
           height: '100%',
-          flexDirection: 'row',
+          flexDirection: 'row'
         }}
       >
         <Stack
@@ -90,16 +90,22 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
             width: '50%',
             bgcolor: (theme) => theme.palette.grey[100],
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'center'
           }}
         >
           <Stack sx={{ gap: 1.6, alignItems: 'center' }}>
             <Avatar
-              alt={data.creator.name}
+              alt={data.creator.avatar}
               src={data.creator.avatar}
-              sx={{ width: 130, height: 130 }}
-            />
-            <Typography fontSize={20}>{data.creator.name}</Typography>
+              sx={{ width: 130, height: 130, fontSize: 50 }}
+            >
+              {`${data.creator.firstName?.charAt(0).toUpperCase()}${data.creator.lastName
+                ?.charAt(0)
+                .toUpperCase()}`}
+            </Avatar>
+            <Typography fontSize={20}>
+              {`${data.creator.firstName} ${data.creator.lastName} (${data.creator.userName})`}
+            </Typography>
           </Stack>
         </Stack>
         <Stack
@@ -107,17 +113,23 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
             width: '50%',
             bgcolor: (theme) => theme.palette.grey[200],
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'center'
           }}
         >
           <Stack sx={{ gap: 1.6, alignItems: 'center' }}>
             <Avatar
-              alt={!data?.joiner?._id ? data.creator.name : data.joiner.name}
+              alt={!data?.joiner?._id ? unknownImg : data.joiner.avatar}
               src={!data?.joiner?._id ? unknownImg : data.joiner.avatar}
-              sx={{ width: 130, height: 130 }}
-            />
+              sx={{ width: 130, height: 130, fontSize: 50 }}
+            >
+              {`${data?.joiner?.firstName?.charAt(0).toUpperCase()}${data?.joiner?.lastName
+                ?.charAt(0)
+                .toUpperCase()}`}
+            </Avatar>
             <Typography fontSize={20}>
-              {!data?.joiner?._id ? 'Waiting...' : data.joiner.name}
+              {!data?.joiner?._id
+                ? 'Waiting...'
+                : `${data.joiner.firstName} ${data.joiner.lastName} (${data.joiner.userName})`}
             </Typography>
           </Stack>
         </Stack>
@@ -126,7 +138,7 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
         sx={{
           position: 'absolute',
           width: '100%',
-          height: '100%',
+          height: '100%'
         }}
       >
         <Stack
@@ -135,7 +147,7 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
             alignItems: 'center',
             position: 'absolute',
             width: '100%',
-            height: '100%',
+            height: '100%'
           }}
         >
           {data.state === 'end' && <ResultVideoComponent data={data} />}
@@ -147,7 +159,7 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
               display: 'flex',
               flexDirection: 'row',
               gap: '30px',
-              width: '100%',
+              width: '100%'
             }}
           >
             <Typography sx={{ fontSize: '11px', opacity: '0.3', flex: '1', textAlign: 'right' }}>
@@ -164,7 +176,7 @@ const GameDialog = ({ open, onClose, data }: GameDialogProps) => {
               bottom: '20%',
               display: 'flex',
               flexDirection: 'row',
-              gap: '10px',
+              gap: '10px'
             }}
           >
             <Stack

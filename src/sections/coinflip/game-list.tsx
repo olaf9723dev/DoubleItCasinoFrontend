@@ -31,7 +31,7 @@ export default function GameListComponent({ games, openView, ...other }: ListPro
       <Card
         {...other}
         sx={{
-          background: `transparent`,
+          background: `transparent`
         }}
       >
         <Scrollbar>
@@ -84,21 +84,21 @@ function GameListRow({ row, openView }: GameListRowProps) {
             ? `linear-gradient(90deg, #21223E 0%, #21223E 100%)`
             : `rgba(0, 0, 0, 0.15)`,
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
       }}
     >
       <Stack
         sx={{
           flexDirection: 'row',
           alignItems: 'center',
-          gap: 3,
+          gap: 3
         }}
       >
         <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
-            width: 200,
+            width: 200
           }}
         >
           <Badge
@@ -113,10 +113,14 @@ function GameListRow({ row, openView }: GameListRowProps) {
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           >
             <Avatar
-              alt={row.creator.name}
+              alt={row.creator.avatar}
               src={row.creator.avatar}
               sx={{ width: 48, height: 48, borderRadius: `5px`, border: `2px solid #FFB802` }}
-            />
+            >
+              {`${row.creator.firstName?.charAt(0).toUpperCase()}${row.creator.lastName
+                ?.charAt(0)
+                .toUpperCase()}`}
+            </Avatar>
           </Badge>
           <Typography
             sx={{
@@ -124,10 +128,10 @@ function GameListRow({ row, openView }: GameListRowProps) {
               WebkitBackgroundClip: `text`,
               WebkitTextFillColor: `transparent`,
               fontWeight: 700,
-              ml: 2,
+              ml: 2
             }}
           >
-            {row.creator.name}
+            {`${row.creator.firstName} ${row.creator.lastName} (${row.creator.userName})`}
           </Typography>
         </Box>
 
@@ -140,7 +144,7 @@ function GameListRow({ row, openView }: GameListRowProps) {
             display: 'flex',
             alignItems: 'center',
             width: 200,
-            ml: 2,
+            ml: 2
           }}
         >
           <Badge
@@ -155,18 +159,22 @@ function GameListRow({ row, openView }: GameListRowProps) {
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           >
             <Avatar
-              alt={row.joiner?.name}
+              alt={row.joiner?.avatar}
               src={!row.joiner?.avatar ? unknownImg : row.joiner.avatar}
               sx={{ width: 48, height: 48, borderRadius: `5px`, border: `2px solid #FFB802` }}
-            />
+            >
+              {`${row?.joiner?.firstName?.charAt(0).toUpperCase()}${row?.joiner?.lastName
+                ?.charAt(0)
+                .toUpperCase()}`}
+            </Avatar>
           </Badge>
           <Typography
             sx={{
               fontWeight: 700,
-              ml: 2,
+              ml: 2
             }}
           >
-            {!row.joiner?.name ? 'Waiting...' : row.joiner?.name}
+            {!row.joiner?.firstName ? 'Waiting...' : row.joiner?.firstName}
           </Typography>
         </Box>
       </Stack>
@@ -175,7 +183,7 @@ function GameListRow({ row, openView }: GameListRowProps) {
         sx={{
           flexDirection: 'row',
           alignItems: 'center',
-          gap: 9,
+          gap: 9
         }}
       >
         <Stack sx={{ textAlign: 'center', width: 100 }}>
