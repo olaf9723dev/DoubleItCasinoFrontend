@@ -21,7 +21,8 @@ export type IChatAttachment = {
 
 export type UserType = {
   _id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   avatar: string;
   userId: string;
   balance: number;
@@ -73,7 +74,13 @@ export type Event = {
 export type ApiContextType = {
   initialize: () => Promise<any>;
   login: (emailOrUsername: string, password: string) => Promise<any>;
-  register: (email: string, userName: string, password: string) => Promise<any>;
+  register: (
+    firstName: string,
+    lastName: string,
+    email: string,
+    userName: string,
+    password: string
+  ) => Promise<any>;
   getUsers: () => Promise<any>;
   getUserId: (data: string) => Promise<any>;
   confirmPhrase: (data: number) => Promise<any>;
