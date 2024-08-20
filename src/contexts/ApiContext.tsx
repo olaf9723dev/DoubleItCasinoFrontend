@@ -21,8 +21,16 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return await axios.post(API_PATH.AUTH_LOGIN, { emailOrUsername, password });
   };
 
-  const register = async (email: string, userName: string, password: string) => {
+  const register = async (
+    firstName: string,
+    lastName: string,
+    email: string,
+    userName: string,
+    password: string
+  ) => {
     return await axios.post(API_PATH.AUTH_REGISTER, {
+      firstName,
+      lastName,
       email,
       userName,
       password
