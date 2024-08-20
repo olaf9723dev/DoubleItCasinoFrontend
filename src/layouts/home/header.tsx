@@ -17,8 +17,7 @@ import { DepositIcon } from 'src/components/icons';
 import { useSettingsContext } from 'src/components/settings';
 // reduce
 import { useSelector } from 'src/store';
-import AdoptMeDialog from 'src/sections/deposit/adopt-me';
-import DepositMethodDialog from 'src/sections/deposit/method-dialog';
+import DepositMethodDialog from 'src/sections/payment/method-dialog';
 import { HEADER } from '../config-layout';
 import { HeaderMenu, LoginButton, AccountPopover } from '../_common';
 
@@ -112,7 +111,6 @@ export default function Header({ onOpenNav }: Props) {
               {user?.balance?.toFixed(2) || 0}
             </Button>
             <AccountPopover />
-            {/* <AdoptMeDialog open={open} onClose={handleSetOpen} /> */}
             <DepositMethodDialog open={open} onClose={handleSetOpen} />
           </>
         ) : (
