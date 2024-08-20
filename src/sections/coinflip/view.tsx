@@ -97,33 +97,34 @@ export default function CoinflipView() {
   const events: Event[] = [
     {
       name: SOCKET_PATH.COINFLIP_CREATE,
-      handler: onUpdateRoomList,
-    },
+      handler: onUpdateRoomList
+    }
   ];
 
   useSocketEvents(events, [games]);
-
-  console.log(':start');
 
   return (
     <Stack sx={{ height: `100%` }}>
       <Stack
         sx={{
-          paddingTop: "25px",
-          paddingBottom: "25px",
+          paddingTop: '25px',
+          paddingBottom: '25px',
           alignItems: 'center',
-          borderBottom: `1px solid #272951`,
+          borderBottom: `1px solid #272951`
         }}
       >
         <Container maxWidth={settings.themeStretch ? false : 'xl'}>
-          <Stack sx={{ justifyContent: 'space-between', flexDirection: 'row' }} className='coinflip_div'>
+          <Stack
+            sx={{ justifyContent: 'space-between', flexDirection: 'row' }}
+            className="coinflip_div"
+          >
             <Stack
               sx={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                textAlign: 'center',
+                textAlign: 'center'
               }}
-              className='coinflip_content'
+              className="coinflip_content"
             >
               <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Coinflip</Typography>
               <Stack>
@@ -136,7 +137,7 @@ export default function CoinflipView() {
                     background: `linear-gradient(268deg, #C8CAFF -5.8%, #7C83C5 137%)`,
                     backgroundClip: `text`,
                     WebkitBackgroundClip: `text`,
-                    WebkitTextFillColor: `transparent`,
+                    WebkitTextFillColor: `transparent`
                   }}
                 >
                   TOTAL VALUE
@@ -155,7 +156,7 @@ export default function CoinflipView() {
                     background: `linear-gradient(268deg, #C8CAFF -5.8%, #7C83C5 137%)`,
                     backgroundClip: `text`,
                     WebkitBackgroundClip: `text`,
-                    WebkitTextFillColor: `transparent`,
+                    WebkitTextFillColor: `transparent`
                   }}
                 >
                   GAMES
@@ -174,7 +175,7 @@ export default function CoinflipView() {
                     background: `linear-gradient(268deg, #C8CAFF -5.8%, #7C83C5 137%)`,
                     backgroundClip: `text`,
                     WebkitBackgroundClip: `text`,
-                    WebkitTextFillColor: `transparent`,
+                    WebkitTextFillColor: `transparent`
                   }}
                 >
                   JOINABLE
@@ -191,7 +192,7 @@ export default function CoinflipView() {
           mt: 4,
           width: 1,
           height: '85%',
-          borderRadius: 2,
+          borderRadius: 2
         }}
       >
         <GameListComponent games={games} openView={setDialog} />
