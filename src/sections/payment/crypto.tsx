@@ -180,7 +180,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
       sx={{
         '& .MuiPaper-root': {
           maxWidth: { xm: '100%', sm: '600px' },
-          minHeight: { xm: '100%', sm: '740px' },
+          minHeight: { xm: '100%', sm: '732px' },
           width: '100%',
           border: '2px solid #32366a',
           position: 'relative',
@@ -275,8 +275,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
               onChange={(e: any) => setNetwork(e.target.value)}
               placeholder="Select network"
               sx={{
-                '& .MuiInputBase-root': {
-                  height: '60px'
+                '& .MuiFormControl-root': {
+                  height: '54px'
                 },
                 '& .MuiSelect-select': {
                   display: 'flex'
@@ -345,7 +345,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     pl: 2,
                     pr: 1,
                     gap: 2,
-                    height: '60px',
+                    height: '54px',
                     borderRadius: 1.25,
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -407,6 +407,9 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 <Typography sx={{ fontSize: 16 }}>Amount to withdraw *</Typography>
                 <TextField
                   sx={{
+                    '& .MuiInputBase-root': {
+                      height: '54px'
+                    },
                     width: '100%',
                     borderRadius: 1.25,
                     background: '#17182E'
@@ -421,6 +424,9 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                 <Typography sx={{ fontSize: 16 }}>Withdraw to *</Typography>
                 <TextField
                   sx={{
+                    '& .MuiInputBase-root': {
+                      height: '54px'
+                    },
                     width: '100%',
                     borderRadius: 1.25,
                     background: '#17182E'

@@ -11,14 +11,13 @@ import {
   Typography
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-
 import Image from 'src/components/image';
-
+import { StyledScrollbar } from 'src/components/scrollbar/styles';
+import { MethodDialogProps, MethodOpenProps } from './types';
 import MM2Dialog from './mm2';
 import PSXDialog from './psx';
 import CryptoDialog from './crypto';
 import AdoptMeDialog from './adopt-me';
-import { MethodDialogProps, MethodOpenProps } from './types';
 
 const _MethodData = [
   {
@@ -67,7 +66,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="method-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `900px` },
+            maxWidth: { xm: '100%', sm: '100%', md: `920px` },
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
@@ -94,50 +93,54 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
           <Stack
             sx={{
               py: 3,
-              px: 3,
+              px: { xm: 1.8, sm: 3 },
               gap: 1.5
             }}
           >
-            <Grid container spacing={3}>
-              {_MethodData.map((row) => (
-                <Grid key={row.id} item xs={3} md={3}>
-                  <Button
-                    onClick={() => handleSelectMethod(row.id)}
-                    sx={{
-                      py: 3,
-                      px: 2,
-                      gap: 0.5,
-                      borderRadius: 1.25,
-                      flexDirection: 'column',
-                      border: `1px solid #454779`,
-                      boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
-                      background:
-                        'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)'
-                    }}
-                  >
-                    <Box
+            <StyledScrollbar>
+              <Stack px={1.25} py={2} direction="row">
+                {_MethodData.map((row) => (
+                  <Grid key={row.id} item xs={3} md={3} pr={2.4}>
+                    <Button
+                      onClick={() => handleSelectMethod(row.id)}
                       sx={{
-                        p: 2,
-                        borderRadius: 0.5,
-                        border: `2px solid #303462`,
-                        bgcolor: '#1a1c36'
+                        py: 3,
+                        px: 2,
+                        gap: 0.5,
+                        borderRadius: 1.25,
+                        flexDirection: 'column',
+                        border: `1px solid #454779`,
+                        boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
+                        background:
+                          'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)'
                       }}
                     >
-                      <Image
-                        src={`/assets/icons/deposit/${row.id}.png`}
-                        alt={row.id}
+                      <Box
                         sx={{
-                          width: 116,
-                          height: 116
+                          p: 2,
+                          borderRadius: 0.5,
+                          border: `2px solid #303462`,
+                          bgcolor: '#1a1c36'
                         }}
-                      />
-                    </Box>
-                    <Typography sx={{ textAlign: 'center', color: 'white' }}>{row.name}</Typography>
-                  </Button>
-                </Grid>
-              ))}
-            </Grid>
-            <Typography sx={{ fontSize: 12, textAlign: 'center', mt: 6 }}>
+                      >
+                        <Image
+                          src={`/assets/icons/deposit/${row.id}.png`}
+                          alt={row.id}
+                          sx={{
+                            width: 116,
+                            height: 116
+                          }}
+                        />
+                      </Box>
+                      <Typography sx={{ textAlign: 'center', color: 'white' }}>
+                        {row.name}
+                      </Typography>
+                    </Button>
+                  </Grid>
+                ))}
+              </Stack>
+            </StyledScrollbar>
+            <Typography sx={{ fontSize: 14, textAlign: 'center', mt: 6 }}>
               By depositing, you acknowledge that you are at least 18 years of age and agree to our
               Terms of Service.
             </Typography>
