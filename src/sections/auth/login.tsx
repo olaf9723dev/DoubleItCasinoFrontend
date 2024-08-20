@@ -12,9 +12,10 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSnackbar } from 'notistack';
-import useApi from 'src/hooks/use-api';
 import { useDispatch } from 'src/store';
+import Scrollbar from 'src/components/scrollbar';
 import { signin } from 'src/store/reducers/auth';
+import useApi from 'src/hooks/use-api';
 import { emailValidator } from 'src/utils';
 import { authenticateSockets } from 'src/utils/socket';
 import { useTheme } from '@mui/material/styles';
@@ -37,6 +38,20 @@ const initLoginForm = {
   }
 };
 const initRegisterForm = {
+  firstName: {
+    label: 'Firstname *',
+    type: 'text',
+    placeholder: 'Enter your firstname',
+    value: 'Elli',
+    message: ''
+  },
+  lastName: {
+    label: 'Lastname *',
+    type: 'text',
+    placeholder: 'Enter your lastname',
+    value: 'Kassis',
+    message: ''
+  },
   email: {
     label: 'Email *',
     type: 'email',
@@ -103,8 +118,16 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
 
   const Register = async () => {
     try {
-      const { email, userName, password } = registerForm;
+      const { firstName, lastName, email, userName, password } = registerForm;
 
+      if (!firstName.value) {
+        enqueueSnackbar('Empty FirstName!', { variant: 'warning' });
+        return;
+      }
+      if (!lastName.value) {
+        enqueueSnackbar('Empty LastName!', { variant: 'warning' });
+        return;
+      }
       if (!email.value) {
         enqueueSnackbar('Empty Email!', { variant: 'warning' });
         return;
@@ -114,7 +137,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
         return;
       }
       if (!userName.value) {
-        enqueueSnackbar('Empty Username!', { variant: 'warning' });
+        enqueueSnackbar('Empty UserName!', { variant: 'warning' });
         return;
       }
       if (!password.value) {
@@ -123,7 +146,13 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
       }
 
       setloading(true);
-      const res = await register(email.value, userName.value, password.value);
+      const res = await register(
+        firstName.value,
+        lastName.value,
+        email.value,
+        userName.value,
+        password.value
+      );
 
       if (res && res.status === 201) {
         enqueueSnackbar(res.data, { variant: 'success' });
@@ -286,40 +315,42 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
               )}
               {active === 'register' && (
                 <>
-                  <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    {Object.keys(registerForm).map((key: any, ind: number) => (
-                      <Stack key={ind}>
-                        <Typography sx={{ fontSize: 15 }}>{registerForm[key].label}</Typography>
-                        <TextField
-                          sx={{
-                            width: '100%',
-                            borderRadius: 1.25,
-                            background: '#17182E',
-                            marginTop: 1.25
-                          }}
-                          type={registerForm[key].type}
-                          value={registerForm[key].value}
-                          placeholder={registerForm[key].placeholder}
-                          onKeyDown={(e) => {
-                            if (
-                              key === 'password' &&
-                              (e.code === 'Enter' || e.code === 'NumpadEnter')
-                            )
-                              Register();
-                          }}
-                          onChange={(e: any) =>
-                            setRegisterForm({
-                              ...registerForm,
-                              [key]: {
-                                ...registerForm[key],
-                                value: e.target.value
-                              }
-                            })
-                          }
-                        />
-                      </Stack>
-                    ))}
-                  </Stack>
+                  <Scrollbar sx={{ height: 290, pr: 1 }}>
+                    <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      {Object.keys(registerForm).map((key: any, ind: number) => (
+                        <Stack key={ind}>
+                          <Typography sx={{ fontSize: 15 }}>{registerForm[key].label}</Typography>
+                          <TextField
+                            sx={{
+                              width: '100%',
+                              borderRadius: 1.25,
+                              background: '#17182E',
+                              marginTop: 1.25
+                            }}
+                            type={registerForm[key].type}
+                            value={registerForm[key].value}
+                            placeholder={registerForm[key].placeholder}
+                            onKeyDown={(e) => {
+                              if (
+                                key === 'password' &&
+                                (e.code === 'Enter' || e.code === 'NumpadEnter')
+                              )
+                                Register();
+                            }}
+                            onChange={(e: any) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                [key]: {
+                                  ...registerForm[key],
+                                  value: e.target.value
+                                }
+                              })
+                            }
+                          />
+                        </Stack>
+                      ))}
+                    </Stack>
+                  </Scrollbar>
                   <Button
                     sx={{
                       py: 2,
