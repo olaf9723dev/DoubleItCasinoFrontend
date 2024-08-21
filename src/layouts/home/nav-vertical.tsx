@@ -41,12 +41,12 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     <Scrollbar
       sx={{
         height: 1,
-        paddingY: 5,
+        paddingY: 2,
         '& .simplebar-content': {
           height: 1,
           display: 'flex',
-          flexDirection: 'column',
-        },
+          flexDirection: 'column'
+        }
       }}
     >
       {/* <Logo sx={{ mt: 3, ml: 4, mb: 1 }} /> */}
@@ -54,7 +54,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       <NavSectionVertical
         data={navData}
         config={{
-          currentRole: user?.role || 'admin',
+          currentRole: user?.role || 'admin'
         }}
       />
 
@@ -70,7 +70,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       sx={{
         flexShrink: { lg: 0 },
         width: { lg: NAV.W_VERTICAL },
-        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` },
+        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` }
       }}
     >
       <NavToggleButton />
@@ -83,7 +83,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
             // height: 1,
             position: 'fixed',
             width: NAV.W_VERTICAL,
-            borderRight: (theme) => `dashed 1px ${theme.palette.divider}`,
+            borderRight: (theme) => `dashed 1px ${theme.palette.divider}`
           }}
         >
           {renderContent}
@@ -96,8 +96,8 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
             sx: {
               width: NAV.W_VERTICAL,
               top: HEADER.H_MOBILE,
-              height: `calc(100% - ${HEADER.H_MOBILE + 1}px)`,
-            },
+              height: `calc(100% - ${HEADER.H_MOBILE + 1}px)`
+            }
           }}
         >
           {renderContent}
