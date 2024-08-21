@@ -30,7 +30,7 @@ const GREY = {
   600: '#637381',
   700: '#241f3e',
   800: '#7058ff',
-  900: '#0F121F',
+  900: '#0F121F'
 };
 
 const PRIMARY = {
@@ -39,7 +39,7 @@ const PRIMARY = {
   main: '#6C56F5',
   dark: '#282644',
   darker: '#004B50',
-  contrastText: '#FFFFFF',
+  contrastText: '#FFFFFF'
 };
 
 const SECONDARY = {
@@ -48,7 +48,7 @@ const SECONDARY = {
   main: '#FFFFFF',
   dark: '#5851a6',
   darker: '#27097A',
-  contrastText: '#FFFFFF',
+  contrastText: '#FFFFFF'
 };
 
 const INFO = {
@@ -57,7 +57,7 @@ const INFO = {
   main: '#00B8D9',
   dark: '#006C9C',
   darker: '#003768',
-  contrastText: '#FFFFFF',
+  contrastText: '#FFFFFF'
 };
 
 const SUCCESS = {
@@ -66,7 +66,7 @@ const SUCCESS = {
   main: '#22C55E',
   dark: '#118D57',
   darker: '#065E49',
-  contrastText: '#ffffff',
+  contrastText: '#ffffff'
 };
 
 const WARNING = {
@@ -75,7 +75,7 @@ const WARNING = {
   main: '#FFAB00',
   dark: '#B76E00',
   darker: '#7A4100',
-  contrastText: GREY[800],
+  contrastText: GREY[800]
 };
 
 const ERROR = {
@@ -84,13 +84,13 @@ const ERROR = {
   main: '#FF5630',
   dark: '#B71D18',
   darker: '#7A0916',
-  contrastText: '#FFFFFF',
+  contrastText: '#FFFFFF'
 };
 
 const COMMON = {
   common: {
     black: '#000000',
-    white: '#FFFFFF',
+    white: '#FFFFFF'
   },
   primary: PRIMARY,
   secondary: SECONDARY,
@@ -107,8 +107,8 @@ const COMMON = {
     disabledBackground: alpha(GREY[500], 0.24),
     focus: alpha(GREY[500], 0.24),
     hoverOpacity: 0.08,
-    disabledOpacity: 0.48,
-  },
+    disabledOpacity: 0.48
+  }
 };
 
 export function palette(mode: 'light' | 'dark') {
@@ -118,17 +118,17 @@ export function palette(mode: 'light' | 'dark') {
     text: {
       primary: GREY[800],
       secondary: GREY[600],
-      disabled: GREY[500],
+      disabled: GREY[500]
     },
     background: {
       paper: '#FFFFFF',
       default: '#FFFFFF',
-      neutral: GREY[200],
+      neutral: GREY[200]
     },
     action: {
       ...COMMON.action,
-      active: GREY[600],
-    },
+      active: GREY[600]
+    }
   };
 
   const dark = {
@@ -137,17 +137,17 @@ export function palette(mode: 'light' | 'dark') {
     text: {
       primary: '#FFFFFF',
       secondary: GREY[500],
-      disabled: GREY[600],
+      disabled: GREY[600]
     },
     background: {
       paper: GREY[800],
       default: GREY[900],
-      neutral: alpha(GREY[500], 0.12),
+      neutral: alpha(GREY[500], 0.12)
     },
     action: {
       ...COMMON.action,
-      active: GREY[500],
-    },
+      active: GREY[500]
+    }
   };
 
   return mode === 'light' ? light : dark;
