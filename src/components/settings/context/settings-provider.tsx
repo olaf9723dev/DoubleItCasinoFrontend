@@ -10,7 +10,7 @@ import { SettingsContext } from './settings-context';
 
 // ----------------------------------------------------------------------
 
-const STORAGE_KEY = 'psx-bet-settings';
+const STORAGE_KEY = 'doubleit-bet-settings';
 
 type SettingsProviderProps = {
   children: React.ReactNode;
@@ -62,7 +62,7 @@ export function SettingsProvider({ children, defaultSettings }: SettingsProvider
       // Drawer
       open: openDrawer,
       onToggle: onToggleDrawer,
-      onClose: onCloseDrawer,
+      onClose: onCloseDrawer
     }),
     [
       reset,
@@ -72,7 +72,7 @@ export function SettingsProvider({ children, defaultSettings }: SettingsProvider
       openDrawer,
       onCloseDrawer,
       onToggleDrawer,
-      onChangeDirectionByLang,
+      onChangeDirectionByLang
     ]
   );
 
