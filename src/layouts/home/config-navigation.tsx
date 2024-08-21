@@ -33,7 +33,7 @@ const ICONS = {
   crash: icon('ic_crash'),
   coinflip: icon('ic_coinflip'),
   discord: icon('ic_discord'),
-  twitter: icon('ic_twitter'),
+  twitter: icon('ic_twitter')
 };
 // ----------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ export function useNavData() {
           { title: 'Coinflip', path: paths.home.coinflip, icon: ICONS.coinflip, type: 'desktop' },
           { title: 'Withdraw', path: paths.home.withdraw, type: 'mobile' },
           { title: 'FAQ', path: paths.home.faq, type: 'mobile' },
-          { title: 'Terms of Service', path: paths.home.terms, type: 'mobile' },
+          { title: 'Terms of Service', path: paths.home.terms, type: 'mobile' }
           // {
           //   title: 'Discord',
           //   path: paths.home.discord,
@@ -60,8 +60,8 @@ export function useNavData() {
           //   path: paths.home.twitter,
           //   icon: ICONS.twitter,
           // },
-        ],
-      },
+        ]
+      }
     ],
     []
   );

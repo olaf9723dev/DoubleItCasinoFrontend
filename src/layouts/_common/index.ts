@@ -1,7 +1,5 @@
 export { default as Searchbar } from './searchbar';
-// psx bet
 export { default as HeaderMenu } from './header-menu';
-// psx bet
 export { default as NavUpgrade } from './nav-upgrade';
 export { default as LoginButton } from './login-button';
 export { default as HeaderShadow } from './header-shadow';
