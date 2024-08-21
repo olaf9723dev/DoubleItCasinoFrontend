@@ -180,7 +180,8 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
       sx={{
         '& .MuiPaper-root': {
           maxWidth: { xm: '100%', sm: '600px' },
-          minHeight: { xm: '100%', sm: '732px' },
+          maxHeight: { xm: '100%', sm: '732px' },
+          height: { xm: '100%', sm: '90%' },
           width: '100%',
           border: '2px solid #32366a',
           position: 'relative',
