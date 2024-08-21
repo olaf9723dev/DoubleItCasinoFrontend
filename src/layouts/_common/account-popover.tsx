@@ -79,6 +79,7 @@ export default function AccountPopover() {
         sx={{
           borderRadius: '5px',
           padding: '10px',
+          maxHeight: '44px',
           background: (theme) =>
             `linear-gradient(180deg, ${alpha(theme.palette.grey[700], 0.51)} 0%,${alpha(
               theme.palette.grey[700],
@@ -97,9 +98,10 @@ export default function AccountPopover() {
           src={avatar}
           alt={avatar}
           sx={{
-            width: 43,
-            height: 43,
-            borderRadius: `5px`
+            width: 32,
+            height: 32,
+            borderRadius: '100%',
+            fontSize: '14px'
           }}
         >
           {`${user?.firstName?.charAt(0).toUpperCase()}${user?.lastName
@@ -107,7 +109,7 @@ export default function AccountPopover() {
             .toUpperCase()}` || ''}
         </Avatar>
         <Box sx={{ textAlign: 'left' }}>
-          <Typography sx={{ fontSize: 15, fontWeight: 600 }}>{user?.userName}</Typography>
+          <Typography sx={{ fontSize: 14, fontWeight: 600 }}>{user?.userName}</Typography>
         </Box>
         <ExpandMoreIcon sx={{ ml: 1 }} />
       </Button>
