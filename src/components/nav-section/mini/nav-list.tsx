@@ -96,13 +96,13 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
                 mt: 0.5,
                 width: 160,
                 ...(open && {
-                  pointerEvents: 'auto',
-                }),
-              },
-            },
+                  pointerEvents: 'auto'
+                })
+              }
+            }
           }}
           sx={{
-            pointerEvents: 'none',
+            pointerEvents: 'none'
           }}
         >
           <NavSubList data={data.children} depth={depth} config={config} />
@@ -125,15 +125,19 @@ function NavSubList({ data, depth, config }: NavListSubProps) {
   const mediaDown = useMediaQuery(theme.breakpoints.down('lg'));
   return (
     <Stack spacing={0.5}>
-      {data.map((list) => list.type === 'mobile' && mediaDown ? (
-        <NavList
-          key={list.title + list.path}
-          data={list}
-          depth={depth + 1}
-          hasChild={!!list.children}
-          config={config}
-        />
-      ) : <></>)}
+      {data.map((list) =>
+        list.type === 'mobile' && mediaDown ? (
+          <NavList
+            key={list.title + list.path}
+            data={list}
+            depth={depth + 1}
+            hasChild={!!list.children}
+            config={config}
+          />
+        ) : (
+          <></>
+        )
+      )}
     </Stack>
   );
 }

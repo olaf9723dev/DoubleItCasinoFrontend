@@ -59,11 +59,14 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
             onClick={handleToggle}
             config={config}
             sx={{
-              padding: `28px`,
-              background: active ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)` : ``,
+              px: `24px`,
+              py: `14px`,
+              background: active
+                ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)`
+                : ``,
               borderLeft: active ? '4px solid' : ``,
               borderColor: (theme) => theme.palette.primary.main,
-              borderRadius: `1.1px !important`,
+              borderRadius: `1.1px !important`
             }}
           />
 
@@ -86,11 +89,14 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
           onClick={handleToggle}
           config={config}
           sx={{
-            padding: `28px`,
-            background: active ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)` : ``,
+            px: `24px`,
+            py: `14px`,
+            background: active
+              ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)`
+              : ``,
             borderLeft: active ? '4px solid' : ``,
             borderColor: (theme) => theme.palette.primary.main,
-            borderRadius: `1.1px !important`,
+            borderRadius: `1.1px !important`
           }}
         />
 
