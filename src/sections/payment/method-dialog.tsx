@@ -66,7 +66,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="method-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `920px` },
+            maxWidth: { xm: '100%', sm: '100%', md: `640px` },
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
@@ -82,7 +82,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
             borderBottom: '2px dashed #32366a'
           }}
         >
-          <Typography sx={{ fontSize: 24, fontWeight: 700, color: 'white' }}>
+          <Typography sx={{ fontSize: 20, fontWeight: 700, color: 'white' }}>
             Deposit Method
           </Typography>
           <IconButton sx={{ position: 'absolute', top: 1, right: 1.25 }} onClick={onClose}>
@@ -93,19 +93,19 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
           <Stack
             sx={{
               py: 3,
-              px: { xm: 1.8, sm: 3 },
-              gap: 1.5
+              px: { xm: 1.4, sm: 2 },
+              gap: 1.25
             }}
           >
             <StyledScrollbar>
-              <Stack px={1.25} py={2} direction="row">
+              <Stack p={1.25} direction="row">
                 {_MethodData.map((row) => (
-                  <Grid key={row.id} item xs={3} md={3} pr={2.4}>
+                  <Grid key={row.id} item xs={3} md={3} pr={2}>
                     <Button
                       onClick={() => handleSelectMethod(row.id)}
                       sx={{
-                        py: 3,
-                        px: 2,
+                        py: 2.4,
+                        px: 1.8,
                         gap: 0.5,
                         borderRadius: 1.25,
                         flexDirection: 'column',
@@ -117,7 +117,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
                     >
                       <Box
                         sx={{
-                          p: 2,
+                          p: 1.2,
                           borderRadius: 0.5,
                           border: `2px solid #303462`,
                           bgcolor: '#1a1c36'
@@ -127,12 +127,12 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
                           src={`/assets/icons/deposit/${row.id}.png`}
                           alt={row.id}
                           sx={{
-                            width: 116,
-                            height: 116
+                            width: 70,
+                            height: 70
                           }}
                         />
                       </Box>
-                      <Typography sx={{ textAlign: 'center', color: 'white' }}>
+                      <Typography sx={{ fontSize: 14, textAlign: 'center', color: 'white' }}>
                         {row.name}
                       </Typography>
                     </Button>
@@ -140,14 +140,13 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
                 ))}
               </Stack>
             </StyledScrollbar>
-            <Typography sx={{ fontSize: 14, textAlign: 'center', mt: 6 }}>
+            <Typography sx={{ fontSize: 12, textAlign: 'center', mt: 4 }}>
               By depositing, you acknowledge that you are at least 18 years of age and agree to our
               Terms of Service.
             </Typography>
           </Stack>
         </DialogContent>
       </Dialog>
-
       {state.psx && <PSXDialog open={state.psx} onClose={onCloseDialog} />}
       {state.mm2 && <MM2Dialog open={state.mm2} onClose={onCloseDialog} />}
       {state.crypto && <CryptoDialog open={state.crypto} onClose={onCloseDialog} />}
