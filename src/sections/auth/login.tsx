@@ -201,7 +201,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
         </IconButton>
         <Stack
           sx={{
-            p: mediaDown ? '0 0 0 0%' : '0 0 0 48%',
+            p: mediaDown ? '0 0 0 0%' : '0 0 0 50%',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
@@ -216,14 +216,14 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
             }}
           >
             <Box>
-              <Typography sx={{ fontSize: 32 }}>
+              <Typography sx={{ fontSize: 24 }}>
                 {active === 'login' ? 'Login' : 'Register'}
               </Typography>
             </Box>
             <Stack
               sx={{
-                pb: 3.8,
-                gap: 2.8,
+                pb: 2.8,
+                gap: 2,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 borderBottom: '1px solid #33355F'
@@ -233,8 +233,9 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                 variant="contained"
                 color="secondary"
                 sx={{
-                  py: 1.5,
+                  py: 1.25,
                   width: '50%',
+                  fontSize: 14,
                   borderRadius: 0.5,
                   bgcolor: active === 'login' ? '#303158' : 'transparent'
                 }}
@@ -246,8 +247,9 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                 variant="contained"
                 color="secondary"
                 sx={{
-                  py: 1.5,
+                  py: 1.25,
                   width: '50%',
+                  fontSize: 14,
                   borderRadius: 0.5,
                   bgcolor: active === 'register' ? '#303158' : 'transparent'
                 }}
@@ -262,13 +264,17 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                   <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                     {Object.keys(loginForm).map((key: any, ind: number) => (
                       <Stack key={ind}>
-                        <Typography sx={{ fontSize: 15 }}>{loginForm[key].label}</Typography>
+                        <Typography sx={{ fontSize: 13 }}>{loginForm[key].label}</Typography>
                         <TextField
                           sx={{
+                            '& .MuiInputBase-root': {
+                              height: '48px'
+                            },
+                            fontSize: 12,
                             width: '100%',
                             backgroundColor: `rgba(0, 0, 0, 0.27)`,
                             borderRadius: 1.25,
-                            marginTop: 1.25
+                            marginTop: 0.5
                           }}
                           type={loginForm[key].type}
                           value={loginForm[key].value}
@@ -300,8 +306,8 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                   </Stack>
                   <Button
                     sx={{
-                      py: 2,
-                      mt: 8,
+                      py: 1.8,
+                      mt: 6,
                       borderRadius: 0.5
                     }}
                     variant="contained"
@@ -315,17 +321,21 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
               )}
               {active === 'register' && (
                 <>
-                  <Scrollbar sx={{ height: 290, pr: 1 }}>
+                  <Scrollbar sx={{ height: 242, pr: 1 }}>
                     <Stack sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                       {Object.keys(registerForm).map((key: any, ind: number) => (
                         <Stack key={ind}>
-                          <Typography sx={{ fontSize: 15 }}>{registerForm[key].label}</Typography>
+                          <Typography sx={{ fontSize: 13 }}>{registerForm[key].label}</Typography>
                           <TextField
                             sx={{
+                              '& .MuiInputBase-root': {
+                                height: '48px'
+                              },
+                              fontSize: 12,
                               width: '100%',
                               borderRadius: 1.25,
                               background: '#17182E',
-                              marginTop: 1.25
+                              marginTop: 0.5
                             }}
                             type={registerForm[key].type}
                             value={registerForm[key].value}
