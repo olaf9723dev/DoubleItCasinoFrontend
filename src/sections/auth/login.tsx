@@ -81,7 +81,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
   const { login, register } = useApi();
 
   const theme = useTheme();
-  const mediaDown = useMediaQuery(theme.breakpoints.down('lg'));
+  const mediaDown = useMediaQuery(theme.breakpoints.down('md'));
   const [active, setActive] = useState<ActiveProps>('login');
   const [loading, setloading] = useState(false);
 
@@ -210,7 +210,7 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
         >
           <Stack
             sx={{
-              p: 5.7,
+              p: { xs: 3, sm: 4, md: 5.7 },
               gap: 3,
               width: '100%'
             }}
