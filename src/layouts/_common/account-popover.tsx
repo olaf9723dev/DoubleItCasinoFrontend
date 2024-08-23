@@ -1,10 +1,19 @@
 import { useState } from 'react';
 // @mui
-import { alpha } from '@mui/material/styles';
-import { Box, Button, Stack, Avatar, Divider, MenuItem, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import {
+  alpha,
+  Box,
+  Button,
+  Stack,
+  Avatar,
+  Divider,
+  MenuItem,
+  Typography,
+  useMediaQuery
+} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { enqueueSnackbar } from 'notistack';
-
 // routes
 import { useRouter } from 'src/routes/hooks';
 // hooks
@@ -30,7 +39,9 @@ const OPTIONS = [
 ];
 
 export default function AccountPopover() {
+  const theme1 = useTheme();
   const router = useRouter();
+  const isMobile = useMediaQuery(theme1.breakpoints.down('sm'));
 
   const { user, avatar } = useSelector((state: any) => state.auth);
 
@@ -108,10 +119,14 @@ export default function AccountPopover() {
             ?.charAt(0)
             .toUpperCase()}` || ''}
         </Avatar>
-        <Box sx={{ textAlign: 'left' }}>
-          <Typography sx={{ fontSize: 14, fontWeight: 600 }}>{user?.userName}</Typography>
-        </Box>
-        <ExpandMoreIcon sx={{ ml: 1 }} />
+        {!isMobile && (
+          <>
+            <Box sx={{ textAlign: 'left' }}>
+              <Typography sx={{ fontSize: 14, fontWeight: 600 }}>{user?.userName}</Typography>
+            </Box>
+            <ExpandMoreIcon sx={{ ml: 1 }} />
+          </>
+        )}
       </Button>
 
       <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
