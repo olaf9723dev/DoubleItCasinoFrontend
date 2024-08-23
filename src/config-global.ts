@@ -34,7 +34,7 @@ export const API_PATH = {
   CRASH_ME: 'crash/me',
   CRASH_HISTORY: 'crash/history',
 
-  CURRENCY: 'currency/available',
+  CURRENCY: 'currency',
   DEPOSIT: 'payment/deposit',
 
   WITHDRAW: 'payment/withdraw',
