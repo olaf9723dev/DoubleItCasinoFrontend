@@ -36,7 +36,7 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
       sx={{
         width: 1,
         height: 1,
-        overflow: 'hidden',
+        overflow: 'hidden'
       }}
     >
       <ChatMessageList
@@ -55,7 +55,7 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
       sx={{
         flexShrink: { lg: 0 },
         width: { lg: CHAT.W_DESKTOP },
-        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` },
+        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` }
       }}
     >
       {lgUp ? (
@@ -66,21 +66,26 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
             // height: 1,
             position: 'fixed',
             width: CHAT.W_DESKTOP,
-            borderLeft: (theme) => `1px solid ${theme.palette.secondary.dark}`,
+            borderLeft: (theme) => `1px solid ${theme.palette.secondary.dark}`
           }}
         >
           {renderMessages}
         </Stack>
       ) : (
         <>
-          {!mobileState &&
-            <IconButton onClick={() => { setMobileState(true) }} sx={{ position: 'fixed', bottom: 50, right: 30 }}>
+          {!mobileState && (
+            <IconButton
+              onClick={() => {
+                setMobileState(true);
+              }}
+              sx={{ position: 'fixed', bottom: 20, right: 20 }}
+            >
               <Iconify icon="cryptocurrency-color:chat" width={50} height={50} />
             </IconButton>
-          }
-          {mobileState &&
+          )}
+          {mobileState && (
             <Stack
-              className='chat_div'
+              className="chat_div"
               sx={{
                 top: HEADER.H_DESKTOP,
                 height: `calc(100% - ${HEADER.H_DESKTOP + 1}px)`,
@@ -89,14 +94,23 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
                 width: CHAT.W_DESKTOP,
                 right: 0,
                 zIndex: 2099999,
-                background: 'radial-gradient(91.15% 56.56% at 21.54% -0.84%, rgba(88, 105, 255, 0.11) 0%, rgba(0, 0, 0, 0.00) 100%),radial-gradient(81.52% 52.52% at 75.96% 76.81%, rgba(112, 88, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 100%),linear-gradient(69deg, #151727 0%, #141122 100%)',
-                borderLeft: (theme) => `1px solid ${theme.palette.secondary.dark}`,
+                background:
+                  'radial-gradient(91.15% 56.56% at 21.54% -0.84%, rgba(88, 105, 255, 0.11) 0%, rgba(0, 0, 0, 0.00) 100%),radial-gradient(81.52% 52.52% at 75.96% 76.81%, rgba(112, 88, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 100%),linear-gradient(69deg, #151727 0%, #141122 100%)',
+                borderLeft: (theme) => `1px solid ${theme.palette.secondary.dark}`
               }}
             >
-              <Iconify onClick={() => { setMobileState(false) }} icon="icon-park:right-c" width={35} height={35} sx={{ cursor: 'pointer', ml: "-18px", position: 'fixed', bottom: 88 }} />
+              <Iconify
+                onClick={() => {
+                  setMobileState(false);
+                }}
+                icon="icon-park:right-c"
+                width={35}
+                height={35}
+                sx={{ cursor: 'pointer', ml: '-18px', position: 'fixed', bottom: 88 }}
+              />
               {renderMessages}
             </Stack>
-          }
+          )}
         </>
         // <Drawer
         //   open={openNav}
