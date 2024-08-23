@@ -91,7 +91,6 @@ export type ApiContextType = {
   getUserCrashData: () => Promise<any>;
   getCurrencies: () => Promise<any>;
   deposit: (currency: string, amount: number) => Promise<any>;
-
   getWithdrawalItems: () => Promise<any>;
   withdraw: (itemIds: string[]) => Promise<any>;
 };
