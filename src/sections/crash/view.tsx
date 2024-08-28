@@ -10,7 +10,7 @@ import GameHistory from './game-history';
 
 // ----------------------------------------------------------------------
 
-export default function OneView() {
+export default function CrashView() {
   const settings = useSettingsContext();
 
   return (
@@ -19,7 +19,7 @@ export default function OneView() {
         sx={{
           height: `121px`,
           alignItems: 'center',
-          borderBottom: `1px solid #272951`,
+          borderBottom: `1px solid #272951`
         }}
       >
         <Container maxWidth={settings.themeStretch ? false : 'xl'}>
@@ -28,7 +28,7 @@ export default function OneView() {
               height: `121px`,
               flexDirection: 'row',
               alignItems: 'center',
-              gap: 5,
+              gap: 5
             }}
           >
             <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Crash</Typography>
