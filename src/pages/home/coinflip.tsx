@@ -5,7 +5,7 @@ import CoinflipView from 'src/sections/coinflip/view';
 
 // ----------------------------------------------------------------------
 
-export default function Page() {
+export default function CoinflipPage() {
   return (
     <>
       <Helmet>
