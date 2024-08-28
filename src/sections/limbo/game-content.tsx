@@ -82,24 +82,26 @@ export default function GameContent() {
   };
 
   useEffect(() => {
-    // Fetch crash schema from API
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await getLimboSchema(user._id);
-        if (!res?.data) return;
-        const schema = res.data;
-        setHistory(schema.reverse().slice(0, 8));
-        setLoading(false);
-      } catch (error1) {
-        console.log('There was an error while loading crash schema:', error1);
-      }
-    };
+    if (isLoggedIn) {
+      // Fetch crash schema from API
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const res = await getLimboSchema(user?._id);
+          if (!res?.data) return;
+          const schema = res.data;
+          setHistory(schema.reverse().slice(0, 8));
+          setLoading(false);
+        } catch (error1) {
+          console.log('There was an error while loading crash schema:', error1);
+        }
+      };
 
-    // Initially, fetch data
-    fetchData();
+      // Initially, fetch data
+      fetchData();
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [isLoggedIn, user, getLimboSchema]);
 
   return (
     <Grid container spacing={3.5}>
