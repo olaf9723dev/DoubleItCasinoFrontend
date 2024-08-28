@@ -16,7 +16,7 @@ export default function Router() {
   return useRoutes([
     {
       path: '/',
-      element: <Navigate to={PATH_AFTER_LOGIN} replace />,
+      element: <Navigate to={PATH_AFTER_LOGIN} replace />
     },
 
     // // Auth routes
@@ -38,6 +38,6 @@ export default function Router() {
     ...mainRoutes,
 
     // No match 404
-    { path: '*', element: <Navigate to="/404" replace /> },
+    { path: '*', element: <Navigate to="/404" replace /> }
   ]);
 }
