@@ -7,7 +7,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import 'aos/dist/aos.css';
-
+import 'src/assets/scss/games.scss';
 import './index.css';
 
 import AOS from 'aos';
@@ -49,7 +49,7 @@ export default function App() {
         themeContrast: 'default', // 'default' | 'bold'
         themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
         themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-        themeStretch: false,
+        themeStretch: false
       }}
     >
       <ThemeProvider>
