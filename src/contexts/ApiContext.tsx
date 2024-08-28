@@ -64,6 +64,14 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
   const getUserCrashData = async () => {
     return await axios.get(API_PATH.CRASH_ME);
   };
+  
+  const getLimboSchema = async (userId: string) => {
+    return await axios.get(`${API_PATH.LIMBO}/${userId}`);
+  };
+
+  const betLimbo = async (userId: string, betAmount: number, cashOut: number) => {
+    return axios.post(API_PATH.LIMBO_BET, { userId, betAmount, cashOut });
+  };
 
   const getGameHistory = async () => {
     return await axios.get(API_PATH.CRASH_HISTORY);
@@ -84,6 +92,7 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
   const withdraw = async (itemIds: string[]) => {
     return await axios.post(API_PATH.WITHDRAW, { itemIds });
   };
+
   return (
     <ApiContext.Provider
       value={{
@@ -97,6 +106,8 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getChatHistory,
         getCoinFlip,
         getCrashSchema,
+        getLimboSchema,
+        betLimbo,
         getGameHistory,
         getUserCrashData,
         getCurrencies,
