@@ -101,7 +101,7 @@ export default function GameContent() {
       fetchData();
     }
     // eslint-disable-next-line
-  }, [isLoggedIn, user, getLimboSchema]);
+  }, [isLoggedIn]);
 
   return (
     <Grid container spacing={3.5}>
