@@ -37,6 +37,13 @@ export const API_PATH = {
   LIMBO: 'limbo',
   LIMBO_BET: 'limbo/bet',
 
+  MINE: 'mine',
+  MINE_BET_START: 'mine/start',
+  MINE_BET_CANCEL: 'mine/cancel',
+  MINE_BET_CASHOUT: 'mine/cashout',
+  MINE_BET_CHECK: 'mine/check',
+  MINE_BET_PROFIT_SETTING_LIST: 'mine/profit-setting-list',
+
   CURRENCY: 'currency',
   DEPOSIT: 'payment/deposit',
 
