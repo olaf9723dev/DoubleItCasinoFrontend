@@ -1,4 +1,4 @@
-const ToggleBox = ({ isMobile, playStatus, value, setValue }: any) => {
+export default function ToggleBox({ isMobile, playStatus, value, setValue }: any) {
   return (
     <>
       {isMobile === 'desktop' ? (
@@ -31,6 +31,4 @@ const ToggleBox = ({ isMobile, playStatus, value, setValue }: any) => {
       )}
     </>
   );
-};
-
-export default ToggleBox;
+}
