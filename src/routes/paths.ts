@@ -18,6 +18,7 @@ export const paths = {
     crash: `${ROOTS.HOME}/crash`,
     coinflip: `${ROOTS.HOME}/coinflip`,
     limbo: `${ROOTS.HOME}/limbo`,
+    mine: `${ROOTS.HOME}/mine`,
     withdraw: `${ROOTS.WITHDRAW}`,
     faq: `${ROOTS.FAQ}`,
     terms: `${ROOTS.TERMS_OF_SERVICE}`,
