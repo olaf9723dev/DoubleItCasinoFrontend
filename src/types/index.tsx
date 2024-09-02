@@ -91,6 +91,18 @@ export type ApiContextType = {
   getUserCrashData: () => Promise<any>;
   getLimboSchema: (userId: string) => Promise<any>;
   betLimbo: (userId: string, betAmount: number, cashOut: number) => Promise<any>;
+  startBetMine: (
+    userId: string,
+    betAmount: number,
+    gridCount: number,
+    mineCount: number,
+    playType: string,
+    turboList: number[]
+  ) => Promise<any>;
+  cancelBetMine: (userId: string, playId: string) => Promise<any>;
+  cashoutBetMine: (userId: string, playId: string) => Promise<any>;
+  checkMine: (userId: string, playId: string, order: number) => Promise<any>;
+  getMineProfitSetting: (gridCount: number, mineCount: number) => Promise<any>;
   getCurrencies: () => Promise<any>;
   deposit: (currency: string, amount: number) => Promise<any>;
   getWithdrawalItems: () => Promise<any>;
