@@ -49,6 +49,7 @@ export function useNavData() {
           { title: 'Crash', path: paths.home.root, icon: ICONS.crash, type: 'desktop' },
           { title: 'Coinflip', path: paths.home.coinflip, icon: ICONS.coinflip, type: 'desktop' },
           { title: 'Limbo', path: paths.home.limbo, icon: ICONS.crash, type: 'desktop' },
+          { title: 'Mine', path: paths.home.mine, icon: ICONS.coinflip, type: 'desktop' },
           { title: 'Withdraw', path: paths.home.withdraw, type: 'mobile' },
           { title: 'FAQ', path: paths.home.faq, type: 'mobile' },
           { title: 'Terms of Service', path: paths.home.terms, type: 'mobile' }
