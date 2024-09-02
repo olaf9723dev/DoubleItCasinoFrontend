@@ -64,13 +64,47 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
   const getUserCrashData = async () => {
     return await axios.get(API_PATH.CRASH_ME);
   };
-  
+
   const getLimboSchema = async (userId: string) => {
     return await axios.get(`${API_PATH.LIMBO}/${userId}`);
   };
 
   const betLimbo = async (userId: string, betAmount: number, cashOut: number) => {
     return axios.post(API_PATH.LIMBO_BET, { userId, betAmount, cashOut });
+  };
+
+  const startBetMine = async (
+    userId: string,
+    betAmount: number,
+    gridCount: number,
+    mineCount: number,
+    playType: string,
+    turboList: number[]
+  ) => {
+    return axios.post(API_PATH.MINE_BET_START, {
+      userId,
+      betAmount,
+      gridCount,
+      mineCount,
+      playType,
+      turboList
+    });
+  };
+
+  const cancelBetMine = async (userId: string, playId: string) => {
+    return axios.post(API_PATH.MINE_BET_CANCEL, { userId, playId });
+  };
+
+  const cashoutBetMine = async (userId: string, playId: string) => {
+    return axios.post(API_PATH.MINE_BET_CASHOUT, { userId, playId });
+  };
+
+  const checkMine = async (userId: string, playId: string, order: number) => {
+    return axios.post(API_PATH.MINE_BET_CHECK, { userId, playId, order });
+  };
+
+  const getMineProfitSetting = async (gridCount: number, mineCount: number) => {
+    return axios.post(API_PATH.MINE_BET_PROFIT_SETTING_LIST, { gridCount, mineCount });
   };
 
   const getGameHistory = async () => {
@@ -108,6 +142,11 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getCrashSchema,
         getLimboSchema,
         betLimbo,
+        startBetMine,
+        cancelBetMine,
+        cashoutBetMine,
+        checkMine,
+        getMineProfitSetting,
         getGameHistory,
         getUserCrashData,
         getCurrencies,
