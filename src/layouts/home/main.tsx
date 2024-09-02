@@ -32,8 +32,8 @@ export default function Main({ children, sx, ...other }: BoxProps) {
           pb: 10,
           ...(lgUp && {
             pt: `${HEADER.H_MOBILE * 2 + 40}px`,
-            pb: 1.5,
-          }),
+            pb: 1.5
+          })
         }}
       >
         {children}
@@ -57,10 +57,10 @@ export default function Main({ children, sx, ...other }: BoxProps) {
           pb: 5,
           width: `calc(100% - ${NAV.W_VERTICAL}px)`,
           ...(isNavMini && {
-            width: `calc(100% - ${NAV.W_MINI}px)`,
-          }),
+            width: `calc(100% - ${NAV.W_MINI}px)`
+          })
         }),
-        ...sx,
+        ...sx
       }}
       {...other}
     >
