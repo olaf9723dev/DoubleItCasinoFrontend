@@ -44,6 +44,9 @@ export const API_PATH = {
   MINE_BET_CHECK: 'mine/check',
   MINE_BET_PROFIT_SETTING_LIST: 'mine/profit-setting-list',
 
+  ROULETTE: 'roulette',
+  ROULETTE_BET: 'roulette/bet',
+
   CURRENCY: 'currency',
   DEPOSIT: 'payment/deposit',
 
