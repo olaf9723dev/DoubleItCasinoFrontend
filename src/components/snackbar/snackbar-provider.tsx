@@ -51,17 +51,17 @@ export default function SnackbarProvider({ children }: Props) {
           <StyledIcon color="error">
             <Iconify icon="solar:danger-bold" width={24} />
           </StyledIcon>
-        ),
+        )
       }}
       Components={{
         default: StyledNotistack,
         info: StyledNotistack,
         success: StyledNotistack,
         warning: StyledNotistack,
-        error: StyledNotistack,
+        error: StyledNotistack
       }}
       // with close as default
-      action={(snackbarId) => (
+      action={(snackbarId: any) => (
         <IconButton size="small" onClick={() => closeSnackbar(snackbarId)} sx={{ p: 0.5 }}>
           <Iconify width={16} icon="mingcute:close-line" />
         </IconButton>
