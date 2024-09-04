@@ -19,6 +19,7 @@ export const paths = {
     coinflip: `${ROOTS.HOME}/coinflip`,
     limbo: `${ROOTS.HOME}/limbo`,
     mine: `${ROOTS.HOME}/mine`,
+    roulette: `${ROOTS.HOME}/roulette`,
     withdraw: `${ROOTS.WITHDRAW}`,
     faq: `${ROOTS.FAQ}`,
     terms: `${ROOTS.TERMS_OF_SERVICE}`,
