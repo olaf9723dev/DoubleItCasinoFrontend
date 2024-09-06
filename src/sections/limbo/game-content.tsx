@@ -28,7 +28,7 @@ export default function GameContent() {
   const startBet = async () => {
     try {
       if (!isLoggedIn) {
-        enqueueSnackbar('Need login to create game!', { variant: 'error' });
+        enqueueSnackbar('Need login to start game!', { variant: 'error' });
         return;
       }
       if (parseFloat(betAmount) <= 0 || parseFloat(target) <= 0) return;
