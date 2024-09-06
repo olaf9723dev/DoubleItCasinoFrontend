@@ -107,6 +107,10 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return axios.post(API_PATH.MINE_BET_PROFIT_SETTING_LIST, { gridCount, mineCount });
   };
 
+  const startBetRoulette = async (userId: string, bet: any, betAmount: number) => {
+    return axios.post(API_PATH.ROULETTE_BET, { userId, bet, betAmount });
+  };
+
   const getGameHistory = async () => {
     return await axios.get(API_PATH.CRASH_HISTORY);
   };
@@ -140,13 +144,17 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getChatHistory,
         getCoinFlip,
         getCrashSchema,
+        // limbo
         getLimboSchema,
         betLimbo,
+        // mine
         startBetMine,
         cancelBetMine,
         cashoutBetMine,
         checkMine,
         getMineProfitSetting,
+        // roulette
+        startBetRoulette,
         getGameHistory,
         getUserCrashData,
         getCurrencies,

@@ -103,6 +103,7 @@ export type ApiContextType = {
   cashoutBetMine: (userId: string, playId: string) => Promise<any>;
   checkMine: (userId: string, playId: string, order: number) => Promise<any>;
   getMineProfitSetting: (gridCount: number, mineCount: number) => Promise<any>;
+  startBetRoulette: (userId: string, bet: any, betAmount: number) => Promise<any>;
   getCurrencies: () => Promise<any>;
   deposit: (currency: string, amount: number) => Promise<any>;
   getWithdrawalItems: () => Promise<any>;
