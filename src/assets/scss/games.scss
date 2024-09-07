@@ -1,3 +1,67 @@
+// primary
+$primaryLight: #e3f2fd;
+$primaryMain: #2196f3;
+$primaryDark: #1e88e5;
+$primary200: #90caf9;
+$primary300: #1b6f96;
+$primary400: #00bcd4;
+$primary700: #3984ff;
+$primary800: #1565c0;
+
+$cheap1: #29b6f6;
+$cheap2: #155472;
+$cheap3: #4caf50;
+$cheap4: #265727;
+$cheap5: #8bc34a;
+$cheap6: #3a5220;
+$cheap7: #cddc39;
+$cheap8: #3d4212;
+$cheap9: #c0ca33;
+$cheap10: #383b0f;
+$cheap11: #ffeb3b;
+$cheap12: #575014;
+$cheap13: #fbc02d;
+$cheap14: #685013;
+$cheap15: #ffb300;
+$cheap16: #553c02;
+$cheap17: #fb8c00;
+$cheap18: #633701;
+$cheap19: #f4511e;
+$cheap20: #75270f;
+$cheap21: #aa88ff;
+$cheap22: #443766;
+
+// error
+$errorLight: #ef9a9a;
+$errorMain: #f44336;
+$errorDark: #c62828;
+$error500: #fe3955;
+$error600: #e74c3c;
+$error700: #d8354b;
+$error800: #e61f48;
+$error900: #ed1d49;
+
+// grey
+$grey50: #fafafa;
+$grey100: #f5f5f5;
+$grey200: #eeeeee;
+$grey300: #e0e0e0;
+$gray400: #4e5154;
+$grey500: #9e9e9e;
+$grey600: #757575;
+$grey700: #616161;
+$gray800: #1a191e;
+$grey900: #212121;
+
+// success Colors
+$successLight: #b9f6ca;
+$success200: #69f0ae;
+$success300: #7cd044;
+$success600: #62ca5b;
+$success700: #87c260;
+$successMain: #00e676;
+$successDark: #00c853;
+
 .game-limbo {
   .bg-star {
     height: 9.375rem;
@@ -2757,6 +2821,333 @@
     }
     ._win3 {
       @apply bg-yellow before:border-yellow after:border-yellow;
+    }
+  }
+}
+
+.customHistory {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 180px;
+  width: 45px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(darken(lighten($gray800, 3.33%), 10%), 0.5);
+
+  .element {
+    padding: 0.955em 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: black;
+    min-height: 45px;
+  }
+}
+
+.game-roulette {
+  .game-content-roulette {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    .customHistory {
+      top: 25px;
+      transform: unset;
+      right: 25px;
+    }
+
+    .roulette-wheel {
+      width: 250px;
+      height: 250px;
+      animation: rotating 15s linear infinite;
+    }
+
+    .roulette-field {
+      width: 100%;
+      padding: 10px;
+
+      .header {
+        padding: 8px;
+        z-index: 500;
+        text-shadow: 0 0 2px lighten($gray800, 3.33%);
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .chip {
+      display: 'flex';
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 0;
+      border-radius: 2px;
+      cursor: pointer;
+      opacity: 1;
+      position: relative;
+      transition: opacity 0.3s ease;
+      user-select: none;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+
+      .bet-stack {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(black, 0.65);
+
+        .user-chip {
+          position: absolute;
+          z-index: 2;
+          width: 25px;
+          height: 25px;
+          background: url(../roulette/chip.svg) 0 0 / cover no-repeat $grey500;
+          border-radius: 50%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .chip-disabled {
+      opacity: 0.5 !important;
+      filter: brightness(0.3) !important;
+    }
+
+    .chip.bordered {
+      border: 1px solid rgba(white, 0.3) !important;
+      color: white !important;
+    }
+
+    .chip.red {
+      background: $error500 !important;
+      color: white !important;
+    }
+
+    .chip.black {
+      background: $gray400 !important;
+      color: white !important;
+    }
+
+    .chip.green {
+      background: $success600 !important;
+      color: white !important;
+    }
+  }
+
+  [data-display-value='1'] {
+    background-color: $cheap1 !important;
+    box-shadow: $cheap2 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='10'] {
+    background-color: $primary400 !important;
+    box-shadow: $cheap2 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='100'] {
+    background-color: $cheap3 !important;
+    box-shadow: $cheap4 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='1000'] {
+    background-color: $cheap5 !important;
+    box-shadow: $cheap6 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='10000'] {
+    background-color: $cheap7 !important;
+    box-shadow: $cheap8 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='100000'] {
+    background-color: $cheap9 !important;
+    box-shadow: $cheap10 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='1000000'] {
+    background-color: $cheap11 !important;
+    box-shadow: $cheap12 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='10000000'] {
+    background-color: $cheap13 !important;
+    box-shadow: $cheap14 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='100000000'] {
+    background-color: $cheap15 !important;
+    box-shadow: $cheap16 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='1000000000'] {
+    background-color: $cheap17 !important;
+    box-shadow: $cheap18 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='10000000000'] {
+    background-color: $cheap19 !important;
+    box-shadow: $cheap20 0px 0.125rem 0px 0px;
+  }
+
+  [data-display-value='100000000000'] {
+    background-color: $cheap21 !important;
+    box-shadow: $cheap22 0px 0.125rem 0px 0px;
+  }
+
+  .overview-render-target {
+    .roulette-wheel {
+      width: 200px;
+      margin-left: 50%;
+      transform: translate(-50%);
+      margin-top: 10px;
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .roulette-field {
+      padding: 2px !important;
+    }
+
+    .game-content-roulette {
+      .roulette-wheel {
+        width: 200px;
+        height: 200px;
+      }
+
+      .chip {
+        font-size: 0.7rem;
+        padding: 3px !important;
+        margin: 1px !important;
+      }
+
+      .side:first-child {
+        margin-right: 2px !important;
+      }
+
+      .customHistory {
+        right: 10px;
+        top: 10px;
+        transform: scale(0.7) translate(20%, -20%);
+      }
+    }
+  }
+
+  .wager-chip {
+    .chip {
+      margin: 5px;
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      max-width: 35px;
+      max-height: 35px;
+      min-height: 35px;
+      background: url(../roulette/chip.svg) 0 0 / cover no-repeat $grey500;
+      border-radius: 50%;
+      margin-right: 5px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 0 1px 4px transparent;
+      transition: box-shadow 0.3s ease;
+      color: white !important;
+      text-transform: uppercase;
+      box-shadow: $primary300 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(2) {
+      background-color: $cheap1;
+      box-shadow: $cheap2 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(3) {
+      background-color: $primary400;
+      box-shadow: $cheap2 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(4) {
+      background-color: $cheap3;
+      box-shadow: $cheap4 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(5) {
+      background-color: $cheap5;
+      box-shadow: $cheap6 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(6) {
+      background-color: $cheap7;
+      box-shadow: $cheap8 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(7) {
+      background-color: $cheap9;
+      box-shadow: $cheap10 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(8) {
+      background-color: $cheap11;
+      box-shadow: $cheap12 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(9) {
+      background-color: $cheap13;
+      box-shadow: $cheap14 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(10) {
+      background-color: $cheap15;
+      box-shadow: $cheap16 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(11) {
+      background-color: $cheap17;
+      box-shadow: $cheap18 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(12) {
+      background-color: rgb(244, 81, 30);
+      box-shadow: $cheap20 0px 0.125rem 0px 0px;
+    }
+
+    .chip:nth-child(13) {
+      background-color: $cheap21;
+      box-shadow: $cheap22 0px 0.125rem 0px 0px;
+    }
+
+    .chip.active {
+      box-shadow: rgb(255 255 255) 0px 0.02rem 0px 0.2rem;
     }
   }
 }
