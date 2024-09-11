@@ -46,7 +46,8 @@ export function useNavData() {
       {
         subheader: '',
         items: [
-          { title: 'Crash', path: paths.home.root, icon: ICONS.crash, type: 'desktop' },
+          { title: 'Home', path: paths.home.root, icon: ICONS.dashboard, type: 'desktop' },
+          { title: 'Crash', path: paths.home.crash, icon: ICONS.crash, type: 'desktop' },
           { title: 'Coinflip', path: paths.home.coinflip, icon: ICONS.coinflip, type: 'desktop' },
           { title: 'Limbo', path: paths.home.limbo, icon: ICONS.crash, type: 'desktop' },
           { title: 'Mine', path: paths.home.mine, icon: ICONS.coinflip, type: 'desktop' },
