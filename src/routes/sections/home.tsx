@@ -7,6 +7,7 @@ import { SplashScreen } from 'src/components/loading-screen';
 
 // ----------------------------------------------------------------------
 
+const IndexPage = lazy(() => import('src/pages/home'));
 const PageCrash = lazy(() => import('src/pages/home/crash'));
 const PageCoinflip = lazy(() => import('src/pages/home/coinflip'));
 const PageLimbo = lazy(() => import('src/pages/home/limbo'));
@@ -28,7 +29,8 @@ export const homeRoutes = [
       </HomeLayout>
     ),
     children: [
-      { element: <PageCrash />, index: true },
+      { element: <IndexPage />, index: true },
+      { path: 'crash', element: <PageCrash /> },
       { path: 'coinflip', element: <PageCoinflip /> },
       { path: 'limbo', element: <PageLimbo /> },
       { path: 'mine', element: <PageMine /> },
