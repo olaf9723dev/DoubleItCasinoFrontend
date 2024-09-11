@@ -20,21 +20,21 @@ export default function FAQView() {
     <Stack sx={{ height: `100%` }}>
       <Stack
         sx={{
-          height: `121px`,
+          height: `90px`,
           alignItems: 'center',
-          borderBottom: `1px solid #272951`,
+          borderBottom: `1px solid #272951`
         }}
       >
         <Container maxWidth={settings.themeStretch ? false : 'xl'}>
           <Stack sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Stack
               sx={{
-                height: `121px`,
+                height: `90px`,
                 flexDirection: 'row',
                 alignItems: 'center',
                 borderBottom: `1px solid #272951`,
                 textAlign: 'center',
-                gap: 5,
+                gap: 5
               }}
             >
               <Typography sx={{ fontSize: 28, fontWeight: 400 }}>FAQ</Typography>
@@ -43,7 +43,7 @@ export default function FAQView() {
               sx={{
                 alignItems: 'center',
                 flexDirection: 'row',
-                gap: 5.8,
+                gap: 5.8
               }}
             >
               <Typography>Provably Fair</Typography>
@@ -62,7 +62,7 @@ export default function FAQView() {
             height: '85%',
             borderRadius: 2,
             background: `linear-gradient(180deg, rgb(255 255 255 / 5%) 0%, rgb(255 255 255 / 12%) 100%)`,
-            gap: 1,
+            gap: 1
           }}
         >
           {[...Array(24)].map((_, index) => (
@@ -74,7 +74,7 @@ export default function FAQView() {
                   borderRadius: 1,
                   bgcolor: '#19182f',
                   fontSize: 15,
-                  justifyContent: 'space-between',
+                  justifyContent: 'space-between'
                 }}
               >
                 <Typography>{index + 1} question, enter a question here?</Typography>
@@ -87,12 +87,12 @@ export default function FAQView() {
                     bgcolor: '#19182f',
                     gap: 2,
                     p: 2.8,
-                    mt: 1,
+                    mt: 1
                   }}
                 >
                   <Typography
                     sx={{
-                      fontSize: 15,
+                      fontSize: 15
                     }}
                   >
                     Second question, enter a question here?
@@ -100,7 +100,7 @@ export default function FAQView() {
                   <Typography
                     sx={{
                       fontSize: 13,
-                      color: 'rgba(234, 234, 234, 0.60)',
+                      color: 'rgba(234, 234, 234, 0.60)'
                     }}
                   >
                     Lorem ipsum dolor sit amet. Ex omnis placeat et vitae molestiae et doloremque

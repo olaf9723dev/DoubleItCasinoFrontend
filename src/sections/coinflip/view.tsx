@@ -107,8 +107,8 @@ export default function CoinflipView() {
     <Stack sx={{ height: `100%` }}>
       <Stack
         sx={{
-          paddingTop: '25px',
-          paddingBottom: '25px',
+          paddingTop: '14px',
+          paddingBottom: '14px',
           alignItems: 'center',
           borderBottom: `1px solid #272951`
         }}

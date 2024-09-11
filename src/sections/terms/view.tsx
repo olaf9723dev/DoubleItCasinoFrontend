@@ -11,21 +11,21 @@ export default function TermsView() {
     <Stack sx={{ height: `100%` }}>
       <Stack
         sx={{
-          height: `121px`,
+          height: `90px`,
           alignItems: 'center',
-          borderBottom: `1px solid #272951`,
+          borderBottom: `1px solid #272951`
         }}
       >
         <Container maxWidth={settings.themeStretch ? false : 'xl'}>
           <Stack sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Stack
               sx={{
-                height: `121px`,
+                height: `90px`,
                 flexDirection: 'row',
                 alignItems: 'center',
                 borderBottom: `1px solid #272951`,
                 textAlign: 'center',
-                gap: 5,
+                gap: 5
               }}
             >
               <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Terms Of Service</Typography>
@@ -34,7 +34,7 @@ export default function TermsView() {
               sx={{
                 alignItems: 'center',
                 flexDirection: 'row',
-                gap: 5.8,
+                gap: 5.8
               }}
             >
               <Typography>FAQ</Typography>
@@ -53,7 +53,7 @@ export default function TermsView() {
             height: '85%',
             borderRadius: 2,
             background: `linear-gradient(180deg, rgb(255 255 255 / 5%) 0%, rgb(255 255 255 / 12%) 100%)`,
-            gap: 1,
+            gap: 1
           }}
         >
           <Typography>

@@ -17,7 +17,7 @@ export default function CrashView() {
     <Scrollbar sx={{ height: `100%` }}>
       <Stack
         sx={{
-          height: `121px`,
+          height: `90px`,
           alignItems: 'center',
           borderBottom: `1px solid #272951`
         }}
@@ -25,7 +25,7 @@ export default function CrashView() {
         <Container maxWidth={settings.themeStretch ? false : 'xl'}>
           <Stack
             sx={{
-              height: `121px`,
+              height: `90px`,
               flexDirection: 'row',
               alignItems: 'center',
               gap: 5
