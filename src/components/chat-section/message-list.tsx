@@ -4,6 +4,9 @@ import { Box, Stack, Avatar, Typography } from '@mui/material';
 // components
 import Scrollbar from 'src/components/scrollbar';
 
+// utils
+import { fDateTime } from 'src/utils/format-time';
+
 // hooks
 import { Event, IChatParticipant, IChatMessage } from 'src/types';
 import useSocketEvents from 'src/hooks/use-socket-events';
@@ -41,7 +44,7 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
         ref={messagesEndRef}
         sx={{
           height: 1,
-          padding: 3,
+          padding: 2,
           overflowX: 'hidden',
           '& .simplebar-content-wrapper': {
             display: 'flex',
@@ -59,11 +62,7 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
                   component={m.div}
                   variants={varSlide().inRight}
                   sx={{
-                    mt: 1,
-                    background: `linear-gradient(180deg, #1c1c35 0%, #1d1d37 100%)`,
-                    borderRadius: `10px`,
-                    boxShadow: `0px 10px 40px 0px rgba(0, 0, 0, 0.15)`,
-                    padding: 1,
+                    mt: 1.25,
                     flexDirection: 'row',
                     gap: 1.25
                   }}
@@ -72,19 +71,36 @@ export default function ChatMessageList({ messageList = [], setMessageList, part
                     src={data.sender.avatar}
                     alt={data.sender.userName}
                     sx={{
-                      width: 50,
-                      height: 50,
-                      borderRadius: `10px`,
+                      width: 40,
+                      height: 40,
+                      borderRadius: `100%`,
                       background: '#32366a !important'
                     }}
                   >
                     {data.sender.userName.charAt(0).toUpperCase()}
                   </Avatar>
-                  <Stack gap={0.75} sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
-                    <Typography sx={{ fontSize: 13, fontWeight: 500 }}>
-                      {data.sender.userName}
-                    </Typography>
-                    <Typography sx={{ fontSize: 11, fontWeight: 300 }}>{data.content}</Typography>
+                  <Stack gap={0.25} sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+                      <Typography sx={{ fontSize: 11, fontWeight: 500 }}>
+                        {data.sender.userName}
+                      </Typography>
+                      <Typography sx={{ fontSize: 11, fontWeight: 500 }}>
+                        {fDateTime(data.createdAt, 'p dd/mm/yyyy')}
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        padding: 1,
+                        maxWidth: 'min-content',
+                        background: `linear-gradient(180deg, #1c1c35 0%, #1d1d37 100%)`,
+                        borderRadius: `8px`,
+                        boxShadow: `0px 10px 40px 0px rgba(0, 0, 0, 0.15)`
+                      }}
+                    >
+                      <Typography sx={{ fontSize: 13, fontWeight: 300, whiteSpace: 'nowrap' }}>
+                        {data.content}
+                      </Typography>
+                    </Box>
                   </Stack>
                 </Stack>
               ))}
