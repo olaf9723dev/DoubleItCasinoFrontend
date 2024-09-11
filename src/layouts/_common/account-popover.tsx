@@ -90,7 +90,7 @@ export default function AccountPopover() {
         sx={{
           borderRadius: '5px',
           padding: '10px',
-          maxHeight: '44px',
+          maxHeight: '40px',
           background: (theme) =>
             `linear-gradient(180deg, ${alpha(theme.palette.grey[700], 0.51)} 0%,${alpha(
               theme.palette.grey[700],
