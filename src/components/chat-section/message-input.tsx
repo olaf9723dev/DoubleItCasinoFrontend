@@ -2,8 +2,8 @@ import { useRef, useState, useCallback } from 'react';
 // @mui
 import { Stack, InputBase, IconButton } from '@mui/material';
 // emoji
-import Picker, { EmojiClickData } from "emoji-picker-react";
-import InputEmoji from 'react-input-emoji'
+import Picker, { EmojiClickData } from 'emoji-picker-react';
+import InputEmoji from 'react-input-emoji';
 
 // hooks
 import useSocket from 'src/hooks/use-socket';
@@ -22,13 +22,13 @@ type Props = {
 export default function ChatMessageInput({ disabled }: Props) {
   const { connected, send } = useSocket();
   const { isLoggedIn } = useSelector((state) => state.auth);
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
   console.log(text);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [message, setMessage] = useState('');
 
-  const [inputStr, setInputStr] = useState("");
+  const [inputStr, setInputStr] = useState('');
   const [showPicker, setShowPicker] = useState(false);
 
   const handleChangeMessage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,12 +62,13 @@ export default function ChatMessageInput({ disabled }: Props) {
 
   const handleOnEnter = (val: string) => {
     console.log(val);
-  }
+  };
   return (
     <Stack
       sx={{
-        padding: 3,
-        borderTop: (theme) => `solid 1px ${theme.palette.divider}`,
+        paddingX: 1.8,
+        paddingY: 1.4,
+        borderTop: (theme) => `solid 1px ${theme.palette.divider}`
       }}
     >
       {/* <InputEmoji
@@ -87,7 +88,7 @@ export default function ChatMessageInput({ disabled }: Props) {
         placeholder="Send a message..."
         disabled={disabled}
         inputProps={{
-          maxLength: 200,
+          maxLength: 200
         }}
         endAdornment={
           <Stack direction="row" sx={{ flexShrink: 0 }}>
@@ -100,17 +101,17 @@ export default function ChatMessageInput({ disabled }: Props) {
           </Stack>
         }
         sx={{
-          padding: 3,
-          height: 56,
+          paddingY: 1.8,
+          paddingLeft: 1.8,
+          paddingRight: 1,
+          height: 48,
           flexShrink: 0,
-          borderRadius: `15px`,
+          borderRadius: `8px`,
           background: `rgba(255, 255, 255, 0.05)`,
-          // borderTop: (theme) => `solid 1px ${theme.palette.divider}`,
+          borderTop: (theme) => `solid 1px ${theme.palette.divider}`
         }}
       />
-      {showPicker && (
-        <Picker onEmojiClick={onEmojiClick} style={{ width: 'calc(100% - 1px)' }} />
-      )}
+      {showPicker && <Picker onEmojiClick={onEmojiClick} style={{ width: 'calc(100% - 1px)' }} />}
       <input type="file" ref={fileRef} style={{ display: 'none' }} />
     </Stack>
   );
