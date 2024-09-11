@@ -17,7 +17,7 @@ const GAME_STATES = {
   InProgress: 3,
   Over: 4,
   Blocking: 5,
-  Refunded: 6,
+  Refunded: 6
 };
 
 const crashImage = new Image();
@@ -43,7 +43,7 @@ const GAME_INFO: any = {
   angle: -Math.PI / 6,
   X_RULER: [],
   Y_RULER: [],
-  PARTICLES: [],
+  PARTICLES: []
 };
 
 let TIME_DT: number = 0;
@@ -137,7 +137,7 @@ const GameCanvas = (_infos: propsState) => {
                 y: GAME_INFO.y + Math.random() * 3,
                 t: 10 + Math.random() * 50,
                 a: Math.random() * Math.PI * 2,
-                s: 40 + Math.random() * 40,
+                s: 40 + Math.random() * 40
               });
             }
           }
@@ -148,12 +148,12 @@ const GameCanvas = (_infos: propsState) => {
         ctx.textAlign = 'center';
         ctx.fillStyle = 'white';
         ctx.save();
-        ctx.font = `${height * 0.12}px Public Sans,sans-serif`;
+        ctx.font = `${height * 0.12}px Unlock`;
         ctx.fillText(statusText, width / 2, height * 0.23);
-        ctx.font = `${height * 0.04}px Public Sans,sans-serif`;
+        ctx.font = `${height * 0.04}px Unlock`;
         ctx.fillText(subText, width / 2, height * 0.33);
         ctx.restore();
-        ctx.font = '15px Arial';
+        ctx.font = '15px Unlock';
         ctx.lineWidth = 2;
         ctx.strokeStyle = 'white';
         ctx.textBaseline = 'middle';
@@ -285,7 +285,7 @@ const GameCanvas = (_infos: propsState) => {
           x: GAME_INFO.x - width + Math.random() * width * 2,
           y: GAME_INFO.y - height + Math.random() * height * 2,
           size: Math.random() * 20,
-          t: Math.random() * 500,
+          t: Math.random() * 500
         });
       }
     }
@@ -328,7 +328,7 @@ const GameCanvas = (_infos: propsState) => {
         backgroundColor: 'rgb(19 15 35)',
         backgroundImage:
           'url(https://img.freepik.com/premium-photo/vector-christmas-snow-overlay-banner-mountain-snow_1000408-559.jpg)',
-        backgroundSize: 'cover',
+        backgroundSize: 'cover'
       }}
     />
   );
