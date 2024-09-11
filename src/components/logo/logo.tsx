@@ -23,7 +23,7 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
       <Stack flexDirection="row" sx={{ cursor: 'pointer', minWidth: 60, ...sx }}>
         {!loading && !isMobile && (
           <>
-            <Box style={{ height: '44px' }} component="img" src="/logo/logo_desktop.png" />
+            <Box style={{ height: '40px' }} component="img" src="/logo/logo_desktop.png" />
           </>
         )}
         {isMobile && (
