@@ -75,7 +75,7 @@ export default function Header({ onOpenNav }: Props) {
     <>
       <Logo />
       {!lgUp && (
-        <IconButton onClick={onOpenNav} sx={{ ml: 1 }}>
+        <IconButton onClick={onOpenNav} sx={{ ml: { sm: 0, md: 2 } }}>
           <SvgColor src="/assets/icons/navbar/ic_menu_item.svg" />
         </IconButton>
       )}
@@ -95,7 +95,7 @@ export default function Header({ onOpenNav }: Props) {
               color="primary"
               startIcon={<DepositIcon />}
               onClick={handleSetOpen}
-              sx={{ maxHeight: '44px !important' }}
+              sx={{ maxHeight: '40px !important' }}
             >
               Wallet
             </Button>
@@ -104,7 +104,7 @@ export default function Header({ onOpenNav }: Props) {
               disabled
               size={isMobile ? 'small' : 'medium'}
               startIcon={<MoneyIcon />}
-              sx={{ color: 'white !important', maxHeight: '44px !important' }}
+              sx={{ color: 'white !important', maxHeight: '40px !important' }}
             >
               {user?.balance?.toFixed(2) || 0}
             </Button>

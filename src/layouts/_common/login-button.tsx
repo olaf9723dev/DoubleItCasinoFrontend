@@ -6,12 +6,12 @@ export default function LoginButton() {
   const [showLogin, setShowLogin] = useState<boolean>(false);
 
   return (
-    <Stack flexDirection="row" sx={{ gap: '20px', paddingX: 3, borderColor: '#282644' }}>
+    <Stack flexDirection="row" sx={{ gap: '20px', borderColor: '#282644' }}>
       <Button
         variant="contained"
         color="primary"
         onClick={() => setShowLogin(true)}
-        sx={{ maxHeight: '44px !important' }}
+        sx={{ maxHeight: '40px !important' }}
       >
         Login
       </Button>
