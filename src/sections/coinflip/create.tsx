@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 // @mui
 import { Stack, InputBase, IconButton, Button, Avatar } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 // components
-import Iconify from 'src/components/iconify';
 import { useSelector, dispatch } from 'src/store';
 import { enqueueSnackbar } from 'notistack';
 import useSocket from 'src/hooks/use-socket';
@@ -11,6 +12,7 @@ import { setbalance } from 'src/store/reducers/auth';
 import { SOCKET_PATH } from 'src/config-global';
 
 export default function CreateCoinflip() {
+  const o_theme = useTheme();
   const { connected, send } = useSocket();
   const { isLoggedIn, user } = useSelector((state) => state.auth);
 
@@ -43,7 +45,7 @@ export default function CreateCoinflip() {
 
     send(SOCKET_PATH.COINFLIP_CREATE, {
       amount: betAmount,
-      side: selectedCoin,
+      side: selectedCoin
     });
 
     dispatch(setbalance(user.balance - betAmount));
@@ -55,9 +57,9 @@ export default function CreateCoinflip() {
       sx={{
         flexDirection: 'row',
         alignItems: 'center',
-        textAlign: 'center',
+        textAlign: 'center'
       }}
-      className='coinflip_content creatcontent'
+      className="coinflip_content creatcontent"
     >
       <Stack sx={{ gap: 0.55, alignItems: 'center' }}>
         <InputBase
@@ -67,17 +69,15 @@ export default function CreateCoinflip() {
           type="number"
           inputProps={{ step: 0.01, min: 0 }}
           startAdornment={
-            <IconButton>
-              <Iconify icon="mdi:attach-money" />
-            </IconButton>
+            <AttachMoneyIcon fontSize="small" sx={{ color: o_theme.palette.primary.main }} />
           }
-          className='coinflip_input'
+          className="coinflip_input"
           sx={{
-            px: 1,
+            p: 0.75,
             width: 140,
             flexShrink: 0,
             borderRadius: `5px`,
-            background: `#303158`,
+            background: `#303158`
           }}
         />
         <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
@@ -121,7 +121,7 @@ export default function CreateCoinflip() {
           <Avatar
             sx={{
               width: selectedCoin ? '50px' : '40px',
-              height: selectedCoin ? '50px' : '40px',
+              height: selectedCoin ? '50px' : '40px'
             }}
             src="/assets/icons/coins/t_coin.png"
           />
@@ -130,7 +130,7 @@ export default function CreateCoinflip() {
           <Avatar
             sx={{
               width: !selectedCoin ? '50px' : '40px',
-              height: !selectedCoin ? '50px' : '40px',
+              height: !selectedCoin ? '50px' : '40px'
             }}
             src="/assets/icons/coins/h_coin.png"
           />
@@ -139,7 +139,7 @@ export default function CreateCoinflip() {
       <Button
         variant="contained"
         color="primary"
-        className='create_btn'
+        className="create_btn"
         sx={{ py: 1.5 }}
         onClick={() => {
           CreatNewGame();
