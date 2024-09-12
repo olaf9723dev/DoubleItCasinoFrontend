@@ -64,14 +64,14 @@ export default function NavItem({
             typography: 'body2',
             textTransform: 'capitalize',
             fontWeight: active ? 'fontWeightSemiBold' : 'fontWeightMedium',
-            fontSize: 18,
+            fontSize: 14,
           }}
           secondaryTypographyProps={{
             noWrap: true,
             component: 'span',
             typography: 'caption',
             color: 'text.disabled',
-            fontSize: 18,
+            fontSize: 14,
           }}
         />
       )}
