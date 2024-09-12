@@ -59,8 +59,8 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
             onClick={handleToggle}
             config={config}
             sx={{
-              px: `24px`,
-              py: `14px`,
+              px: `18px`,
+              py: `10px`,
               background: active
                 ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)`
                 : ``,
@@ -89,8 +89,8 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
           onClick={handleToggle}
           config={config}
           sx={{
-            px: `24px`,
-            py: `14px`,
+            px: `18px`,
+            py: `10px`,
             background: active
               ? `linear-gradient(90deg, rgb(41 37 83) 0%, rgb(19 20 38) 100%)`
               : ``,
