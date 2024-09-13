@@ -7,6 +7,7 @@ import { useSettingsContext } from 'src/components/settings';
 import { _mock } from 'src/_mock';
 //
 import BannerCarousel from './banner-carousel';
+import GameCarousel from './game-carousel';
 import GameSort from './game-sort';
 import GameHistory from './game-history';
 
@@ -18,8 +19,6 @@ const _carouselsExample = [...Array(20)].map((_, index) => ({
 }));
 
 export default function HomeView() {
-  const settings = useSettingsContext();
-
   return (
     <Scrollbar sx={{ height: `100%` }}>
       <Grid container gap={5} sx={{ px: 3, py: 2 }}>
@@ -28,6 +27,15 @@ export default function HomeView() {
         </Grid>
         <Grid item xs={12}>
           <GameSort />
+        </Grid>
+        <Grid item xs={12}>
+          <GameCarousel data={_carouselsExample.slice(8, 16)} title="Casino Games" />
+        </Grid>
+        <Grid item xs={12}>
+          <GameCarousel data={_carouselsExample.slice(8, 16)} title="CS Games" />
+        </Grid>
+        <Grid item xs={12}>
+          <GameCarousel data={_carouselsExample.slice(8, 16)} title="PVP Games" />
         </Grid>
         <Grid item xs={12}>
           <GameHistory />
