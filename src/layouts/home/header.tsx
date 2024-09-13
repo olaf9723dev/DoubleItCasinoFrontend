@@ -95,7 +95,14 @@ export default function Header({ onOpenNav }: Props) {
               color="primary"
               startIcon={<DepositIcon />}
               onClick={handleSetOpen}
-              sx={{ maxHeight: '40px !important' }}
+              sx={{
+                maxHeight: '40px !important',
+                borderRadius: 0.5,
+                background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`,
+                '&:hover': {
+                  background: `linear-gradient(180deg, #663399 0%, #6c56f5 100%)`
+                }
+              }}
             >
               Wallet
             </Button>
@@ -104,7 +111,11 @@ export default function Header({ onOpenNav }: Props) {
               disabled
               size={isMobile ? 'small' : 'medium'}
               startIcon={<MoneyIcon />}
-              sx={{ color: 'white !important', maxHeight: '40px !important' }}
+              sx={{
+                color: 'white !important',
+                maxHeight: '40px !important',
+                borderRadius: 0.5
+              }}
             >
               {user?.balance?.toFixed(2) || 0}
             </Button>
