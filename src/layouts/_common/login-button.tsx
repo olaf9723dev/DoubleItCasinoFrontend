@@ -11,7 +11,14 @@ export default function LoginButton() {
         variant="contained"
         color="primary"
         onClick={() => setShowLogin(true)}
-        sx={{ maxHeight: '40px !important' }}
+        sx={{
+          maxHeight: '40px !important',
+          borderRadius: 0.5,
+          background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`,
+          '&:hover': {
+            background: `linear-gradient(180deg, #663399 0%, #6c56f5 100%)`
+          }
+        }}
       >
         Login
       </Button>
