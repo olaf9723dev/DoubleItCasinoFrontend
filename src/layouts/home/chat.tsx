@@ -78,9 +78,15 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
               onClick={() => {
                 setMobileState(true);
               }}
-              sx={{ position: 'fixed', bottom: 20, right: 20 }}
+              sx={{
+                position: 'fixed',
+                bottom: 20,
+                right: 20,
+                borderRadius: '100%',
+                background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`
+              }}
             >
-              <Iconify icon="cryptocurrency-color:chat" width={50} height={50} />
+              <Iconify icon="mdi:chat" width={35} height={35} sx={{ color: 'white' }} />
             </IconButton>
           )}
           {mobileState && (
@@ -99,15 +105,22 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
                 borderLeft: (theme) => `1px solid ${theme.palette.secondary.dark}`
               }}
             >
-              <Iconify
+              <IconButton
                 onClick={() => {
                   setMobileState(false);
                 }}
-                icon="icon-park:right-c"
-                width={35}
-                height={35}
-                sx={{ cursor: 'pointer', ml: '-18px', position: 'fixed', bottom: 88 }}
-              />
+                sx={{
+                  cursor: 'pointer',
+                  ml: '-18px',
+                  position: 'fixed',
+                  bottom: 88,
+                  borderRadius: '100%',
+                  background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`
+                }}
+              >
+                <Iconify icon="mdi:arrow-right" width={15} height={15} sx={{ color: 'white' }} />
+              </IconButton>
+
               {renderMessages}
             </Stack>
           )}
