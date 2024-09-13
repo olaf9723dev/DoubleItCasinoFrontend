@@ -308,7 +308,11 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                     sx={{
                       py: 1.8,
                       mt: 6,
-                      borderRadius: 0.5
+                      borderRadius: 0.5,
+                      background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`,
+                      '&:hover': {
+                        background: `linear-gradient(180deg, #663399 0%, #6c56f5 100%)`
+                      }
                     }}
                     variant="contained"
                     color="primary"
@@ -365,7 +369,11 @@ export default function LoginDialog({ open, onClose }: LoginDialogProps) {
                     sx={{
                       py: 2,
                       mt: 4,
-                      borderRadius: 0.5
+                      borderRadius: 0.5,
+                      background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`,
+                      '&:hover': {
+                        background: `linear-gradient(180deg, #663399 0%, #6c56f5 100%)`
+                      }
                     }}
                     variant="contained"
                     color="primary"
