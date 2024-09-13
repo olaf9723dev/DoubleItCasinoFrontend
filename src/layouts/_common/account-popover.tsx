@@ -129,7 +129,11 @@ export default function AccountPopover() {
         )}
       </Button>
 
-      <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
+      <CustomPopover
+        open={popover.open}
+        onClose={popover.onClose}
+        sx={{ width: 200, p: 0, background: `linear-gradient(180deg, #663399 0%, #6c56f5 100%)` }}
+      >
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
             {`${user?.firstName} ${user?.lastName} (${user?.userName})`}
