@@ -52,7 +52,7 @@ const MoneyIcon = () => (
 export default function Header({ onOpenNav }: Props) {
   const theme = useTheme();
   const settings = useSettingsContext();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { isLoggedIn, user } = useSelector((state: any) => state.auth);
 
   const [open, setOpen] = useState<boolean>(false);
