@@ -88,8 +88,9 @@ export default function AccountPopover() {
       <Button
         onClick={popover.onOpen}
         sx={{
-          borderRadius: '5px',
-          padding: '10px',
+          borderRadius: 0.5,
+          padding: { xs: 0, sm: 2 },
+          minWidth: { xs: 0, sm: 2 },
           maxHeight: '40px',
           background: (theme) =>
             `linear-gradient(180deg, ${alpha(theme.palette.grey[700], 0.51)} 0%,${alpha(
