@@ -51,7 +51,9 @@ export const API_PATH = {
   DEPOSIT: 'payment/deposit',
 
   WITHDRAW: 'payment/withdraw',
-  WITHDRAW_ITEMS: 'payment/withdraw-items'
+  WITHDRAW_ITEMS: 'payment/withdraw-items',
+
+  HOME_GET_BANNER: 'setting/banners'
 };
 
 export const SOCKET_PATH = {
