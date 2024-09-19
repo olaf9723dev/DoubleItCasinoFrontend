@@ -131,6 +131,10 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return await axios.post(API_PATH.WITHDRAW, { itemIds });
   };
 
+  const getBanners = async (filter: boolean) => {
+    return await axios.post(API_PATH.HOME_GET_BANNER, { filter });
+  };
+
   return (
     <ApiContext.Provider
       value={{
@@ -159,7 +163,9 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getUserCrashData,
         getCurrencies,
         getWithdrawalItems,
-        withdraw
+        withdraw,
+        // setting
+        getBanners
       }}
     >
       {children}
