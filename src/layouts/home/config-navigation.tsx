@@ -33,6 +33,8 @@ const ICONS = {
   crash: icon('ic_crash'),
   coinflip: icon('ic_coinflip'),
   limbo: icon('ic_limbo'),
+  mine: icon('ic_mine'),
+  roulette: icon('ic_roulette'),
   discord: icon('ic_discord'),
   twitter: icon('ic_twitter')
 };
@@ -49,9 +51,9 @@ export function useNavData() {
           { title: 'Home', path: paths.home.root, icon: ICONS.dashboard, type: 'desktop' },
           { title: 'Crash', path: paths.home.crash, icon: ICONS.crash, type: 'desktop' },
           { title: 'Coinflip', path: paths.home.coinflip, icon: ICONS.coinflip, type: 'desktop' },
-          { title: 'Limbo', path: paths.home.limbo, icon: ICONS.crash, type: 'desktop' },
-          { title: 'Mine', path: paths.home.mine, icon: ICONS.coinflip, type: 'desktop' },
-          { title: 'Roulette', path: paths.home.roulette, icon: ICONS.coinflip, type: 'desktop' },
+          { title: 'Limbo', path: paths.home.limbo, icon: ICONS.limbo, type: 'desktop' },
+          { title: 'Mine', path: paths.home.mine, icon: ICONS.mine, type: 'desktop' },
+          { title: 'Roulette', path: paths.home.roulette, icon: ICONS.roulette, type: 'desktop' },
           { title: 'Withdraw', path: paths.home.withdraw, type: 'mobile' },
           { title: 'FAQ', path: paths.home.faq, type: 'mobile' },
           { title: 'Terms of Service', path: paths.home.terms, type: 'mobile' }
