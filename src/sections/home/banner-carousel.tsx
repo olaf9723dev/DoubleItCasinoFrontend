@@ -9,16 +9,17 @@ import { bgGradient } from 'src/theme/css';
 import Image from 'src/components/image';
 import { MotionContainer, varFade } from 'src/components/animate';
 import Carousel, { CarouselDots, CarouselArrows, useCarousel } from 'src/components/carousel';
+// config
+import { ASSETS_API } from 'src/config-global';
 //
 import LoginDialog from 'src/sections/auth/login';
 // ----------------------------------------------------------------------
 
 type Props = {
   data: {
-    id: string;
+    _id: string;
     title: string;
     coverUrl: string;
-    description: string;
   }[];
 };
 
@@ -47,7 +48,7 @@ export default function BannerCarousel({ data }: Props) {
       <CarouselArrows filled shape="rounded" onNext={carousel.onNext} onPrev={carousel.onPrev}>
         <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
           {data.map((item, index) => (
-            <CarouselItem key={item.id} item={item} active={index === carousel.currentIndex} />
+            <CarouselItem key={item._id} item={item} active={index === carousel.currentIndex} />
           ))}
         </Carousel>
       </CarouselArrows>
@@ -60,7 +61,6 @@ export default function BannerCarousel({ data }: Props) {
 type CarouselItemProps = {
   item: {
     title: string;
-    description: string;
     coverUrl: string;
   };
   active: boolean;
@@ -81,7 +81,7 @@ function CarouselItem({ item, active }: CarouselItemProps) {
         <Image
           dir="ltr"
           alt={title}
-          src={coverUrl}
+          src={`${ASSETS_API}/${coverUrl}`}
           ratio="16/9"
           sx={{ height: { xs: '260px', sm: '360px' } }}
         />
