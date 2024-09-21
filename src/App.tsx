@@ -12,6 +12,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import 'aos/dist/aos.css';
 import 'src/assets/scss/games.scss';
+import 'src/assets/scss/styles.scss';
 import './index.css';
 
 import AOS from 'aos';
