@@ -3,12 +3,12 @@ import { m } from 'framer-motion';
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Box, Paper, Button, Typography, CardContent, useMediaQuery } from '@mui/material';
-// theme
-import { bgGradient } from 'src/theme/css';
 // components
 import Image from 'src/components/image';
 import { MotionContainer, varFade } from 'src/components/animate';
 import Carousel, { CarouselDots, CarouselArrows, useCarousel } from 'src/components/carousel';
+// theme
+import { bgGradient } from 'src/theme/css';
 // config
 import { ASSETS_API } from 'src/config-global';
 //
@@ -47,7 +47,7 @@ export default function BannerCarousel({ data }: Props) {
     >
       <CarouselArrows filled shape="rounded" onNext={carousel.onNext} onPrev={carousel.onPrev}>
         <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <CarouselItem key={item._id} item={item} active={index === carousel.currentIndex} />
           ))}
         </Carousel>
