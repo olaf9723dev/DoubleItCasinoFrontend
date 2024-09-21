@@ -1,4 +1,3 @@
-import React, { useState, useCallback, useEffect } from 'react';
 // @mui
 import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -6,41 +5,43 @@ import { alpha, useTheme } from '@mui/material/styles';
 import Image from 'src/components/image';
 // theme
 import { bgGradient } from 'src/theme/css';
+// config
+import { ASSETS_API } from 'src/config-global';
 //
-import CasinoImg from 'src/assets/sort/casino_game.png';
-import CSImg from 'src/assets/sort/cs_game.png';
-import PVPImg from 'src/assets/sort/pvp_game.png';
 
-const game_sorts = [
-  { coverUrl: CasinoImg, title: 'Casino Games' },
-  { coverUrl: CSImg, title: 'CS Games' },
-  { coverUrl: PVPImg, title: 'PVP Games' }
-];
+type Props = {
+  data: {
+    _id: string;
+    title: string;
+    coverUrl: string;
+  }[];
+};
 
-export default function GameSort() {
+export default function GameSort({ data }: Props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container spacing={3}>
-      {game_sorts.map((item: any, ind: number) => (
+      {data?.map((item: any, ind: number) => (
         <Grid key={ind} item xs={12} sm={4}>
           <Box
             sx={{
               boxShadow: theme.customShadows.z16,
               position: 'relative',
-              borderRadius: 2,
+              borderRadius: 2.4,
               cursor: 'pointer',
               transition: 'transform 0.2s',
               '&:hover': {
                 transform: 'scale(1.05)'
               }
             }}
+            className="game-sort-item"
           >
             <Image
               dir="ltr"
               alt={item.title}
-              src={item.coverUrl}
+              src={`${ASSETS_API}/${item.coverUrl}`}
               ratio="1/1"
               sx={{
                 borderRadius: 2
