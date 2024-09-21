@@ -53,7 +53,7 @@ export const API_PATH = {
   WITHDRAW: 'payment/withdraw',
   WITHDRAW_ITEMS: 'payment/withdraw-items',
 
-  HOME_GET_BANNER: 'setting/banners'
+  HOME_GET_SETTING: 'setting/home'
 };
 
 export const SOCKET_PATH = {
