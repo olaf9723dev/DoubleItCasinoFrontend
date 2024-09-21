@@ -108,7 +108,7 @@ export type ApiContextType = {
   deposit: (currency: string, amount: number) => Promise<any>;
   getWithdrawalItems: () => Promise<any>;
   withdraw: (itemIds: string[]) => Promise<any>;
-  getBanners: (filter: boolean) => Promise<any>;
+  getHomeSettings: () => Promise<any>;
 };
 
 export type SocketContextType = {

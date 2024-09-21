@@ -131,8 +131,8 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return await axios.post(API_PATH.WITHDRAW, { itemIds });
   };
 
-  const getBanners = async (filter: boolean) => {
-    return await axios.post(API_PATH.HOME_GET_BANNER, { filter });
+  const getHomeSettings = async () => {
+    return await axios.get(API_PATH.HOME_GET_SETTING);
   };
 
   return (
@@ -165,7 +165,7 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         getWithdrawalItems,
         withdraw,
         // setting
-        getBanners
+        getHomeSettings
       }}
     >
       {children}
