@@ -82,6 +82,7 @@ export default function ChatWrapper({ openNav, onCloseNav }: Props) {
                 position: 'fixed',
                 bottom: 20,
                 right: 20,
+                zIndex: 2099999,
                 borderRadius: '100%',
                 background: `linear-gradient(90deg, #663399 0%, #6c56f5 100%)`
               }}
