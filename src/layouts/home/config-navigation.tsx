@@ -30,6 +30,7 @@ const ICONS = {
   ecommerce: icon('ic_ecommerce'),
   analytics: icon('ic_analytics'),
   dashboard: icon('ic_dashboard'),
+  home: icon('ic_home'),
   crash: icon('ic_crash'),
   coinflip: icon('ic_coinflip'),
   limbo: icon('ic_limbo'),
@@ -48,7 +49,7 @@ export function useNavData() {
       {
         subheader: '',
         items: [
-          { title: 'Home', path: paths.home.root, icon: ICONS.dashboard, type: 'desktop' },
+          { title: 'Home', path: paths.home.root, icon: ICONS.home, type: 'desktop' },
           { title: 'Crash', path: paths.home.crash, icon: ICONS.crash, type: 'desktop' },
           { title: 'Coinflip', path: paths.home.coinflip, icon: ICONS.coinflip, type: 'desktop' },
           { title: 'Limbo', path: paths.home.limbo, icon: ICONS.limbo, type: 'desktop' },
