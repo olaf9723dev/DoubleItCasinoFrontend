@@ -36,6 +36,9 @@ const ICONS = {
   limbo: icon('ic_limbo'),
   mine: icon('ic_mine'),
   roulette: icon('ic_roulette'),
+  withdraw: icon('ic_withdraw'),
+  faq: icon('ic_faq'),
+  terms: icon('ic_terms'),
   discord: icon('ic_discord'),
   twitter: icon('ic_twitter')
 };
@@ -55,9 +58,9 @@ export function useNavData() {
           { title: 'Limbo', path: paths.home.limbo, icon: ICONS.limbo, type: 'desktop' },
           { title: 'Mine', path: paths.home.mine, icon: ICONS.mine, type: 'desktop' },
           { title: 'Roulette', path: paths.home.roulette, icon: ICONS.roulette, type: 'desktop' },
-          { title: 'Withdraw', path: paths.home.withdraw, type: 'mobile' },
-          { title: 'FAQ', path: paths.home.faq, type: 'mobile' },
-          { title: 'Terms of Service', path: paths.home.terms, type: 'mobile' }
+          { title: 'Withdraw', path: paths.home.withdraw, icon: ICONS.withdraw, type: 'mobile' },
+          { title: 'FAQ', path: paths.home.faq, icon: ICONS.faq, type: 'mobile' },
+          { title: 'Terms of Service', path: paths.home.terms, icon: ICONS.terms, type: 'mobile' }
           // {
           //   title: 'Discord',
           //   path: paths.home.discord,
