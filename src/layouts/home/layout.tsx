@@ -57,14 +57,14 @@ export default function HomeLayout({ children }: Props) {
           sx={{
             minHeight: 1,
             display: 'flex',
-            flexDirection: { xs: 'column', lg: 'row' },
+            flexDirection: { xs: 'column', lg: 'row' }
           }}
         >
           {lgUp ? renderNavMini : renderNavVertical}
 
           <Main
             sx={{
-              background: `radial-gradient(91.15% 56.56% at 21.54% -0.84%, rgba(88, 105, 255, 0.11) 0%, rgba(0, 0, 0, 0.00) 100%), radial-gradient(81.52% 52.52% at 75.96% 76.81%, rgba(112, 88, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(69deg, #151727 0%, #141122 100%)`,
+              background: `radial-gradient(91.15% 56.56% at 21.54% -0.84%, rgba(88, 105, 255, 0.11) 0%, rgba(0, 0, 0, 0.00) 100%), radial-gradient(81.52% 52.52% at 75.96% 76.81%, rgba(112, 88, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(69deg, #151727 0%, #141122 100%)`
             }}
           >
             {children}
@@ -84,7 +84,7 @@ export default function HomeLayout({ children }: Props) {
         sx={{
           minHeight: 1,
           display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
+          flexDirection: { xs: 'column', lg: 'row' }
         }}
       >
         {renderNavVertical}
@@ -92,7 +92,7 @@ export default function HomeLayout({ children }: Props) {
         <Main
           sx={{
             background: `radial-gradient(91.15% 56.56% at 21.54% -0.84%, rgba(88, 105, 255, 0.11) 0%, rgba(0, 0, 0, 0.00) 100%), radial-gradient(81.52% 52.52% at 75.96% 76.81%, rgba(112, 88, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(69deg, #151727 0%, #141122 100%)`,
-            height: `100vh`,
+            height: `100vh`
           }}
         >
           {children}

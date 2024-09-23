@@ -24,13 +24,13 @@ export default function NavMini() {
       sx={{
         flexShrink: { lg: 0 },
         width: { lg: NAV.W_MINI },
-        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` },
+        height: { lg: `calc(100% - ${HEADER.H_DESKTOP + 1}px)` }
       }}
     >
       <NavToggleButton
         sx={{
           top: HEADER.H_DESKTOP + 22,
-          left: NAV.W_MINI - 12,
+          left: NAV.W_MINI - 12
         }}
       />
 
@@ -44,7 +44,7 @@ export default function NavMini() {
           position: 'fixed',
           width: NAV.W_MINI,
           borderRight: (theme) => `dashed 1px ${theme.palette.divider}`,
-          ...hideScroll.x,
+          ...hideScroll.x
         }}
       >
         {/* <Logo sx={{ mx: 'auto', my: 2 }} /> */}
@@ -52,7 +52,7 @@ export default function NavMini() {
         <NavSectionMini
           data={navData}
           config={{
-            currentRole: user?.role || 'admin',
+            currentRole: user?.role || 'admin'
           }}
         />
       </Stack>
