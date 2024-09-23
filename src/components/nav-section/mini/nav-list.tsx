@@ -70,43 +70,47 @@ export default function NavList({ data, depth, hasChild, config }: NavListRootPr
 
   return (
     <>
-      <NavItem
-        ref={navRef}
-        item={data}
-        depth={depth}
-        open={open}
-        active={active}
-        externalLink={externalLink}
-        onMouseEnter={handleOpen}
-        onMouseLeave={handleClose}
-        config={config}
-      />
+      {data?.type === 'desktop' && (
+        <>
+          <NavItem
+            ref={navRef}
+            item={data}
+            depth={depth}
+            open={open}
+            active={active}
+            externalLink={externalLink}
+            onMouseEnter={handleOpen}
+            onMouseLeave={handleClose}
+            config={config}
+          />
 
-      {hasChild && (
-        <Popover
-          open={open}
-          anchorEl={navRef.current}
-          anchorOrigin={{ vertical: 'center', horizontal: 'right' }}
-          transformOrigin={{ vertical: 'center', horizontal: 'left' }}
-          slotProps={{
-            paper: {
-              onMouseEnter: handleOpen,
-              onMouseLeave: handleClose,
-              sx: {
-                mt: 0.5,
-                width: 160,
-                ...(open && {
-                  pointerEvents: 'auto'
-                })
-              }
-            }
-          }}
-          sx={{
-            pointerEvents: 'none'
-          }}
-        >
-          <NavSubList data={data.children} depth={depth} config={config} />
-        </Popover>
+          {hasChild && (
+            <Popover
+              open={open}
+              anchorEl={navRef.current}
+              anchorOrigin={{ vertical: 'center', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'center', horizontal: 'left' }}
+              slotProps={{
+                paper: {
+                  onMouseEnter: handleOpen,
+                  onMouseLeave: handleClose,
+                  sx: {
+                    mt: 0.5,
+                    width: 160,
+                    ...(open && {
+                      pointerEvents: 'auto'
+                    })
+                  }
+                }
+              }}
+              sx={{
+                pointerEvents: 'none'
+              }}
+            >
+              <NavSubList data={data.children} depth={depth} config={config} />
+            </Popover>
+          )}
+        </>
       )}
     </>
   );
