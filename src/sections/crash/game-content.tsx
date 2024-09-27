@@ -39,7 +39,7 @@ const successAudio = new Audio(success);
 const crashAudio = new Audio(crash);
 
 const playSound = (audioFile: any) => {
-  // audioFile.play();
+  audioFile.play();
 };
 
 gsap.registerPlugin(MotionPathPlugin);
