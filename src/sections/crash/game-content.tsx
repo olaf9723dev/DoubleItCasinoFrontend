@@ -424,7 +424,7 @@ export default function GameContent() {
 
   return (
     <Grid container spacing={3.5}>
-      <Grid item xs={12} md={4} sm={3.5}>
+      <Grid item xs={12} sm={12} md={4}>
         <Stack
           sx={{
             maxHeight: 550,
@@ -690,7 +690,7 @@ export default function GameContent() {
           </Stack>
         </Stack>
       </Grid>
-      <Grid item xs={12} md={8} sm={8.5}>
+      <Grid item xs={12} sm={12} md={8}>
         <Box
           sx={{
             borderRadius: `25px`,
