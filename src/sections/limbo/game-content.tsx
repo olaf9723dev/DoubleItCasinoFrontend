@@ -23,7 +23,6 @@ export default function GameContent() {
   const [target, setTarget] = useState('2');
   const [history, setHistory] = useState<any[]>([]);
   const [betAmount, setBetAmount] = useState('0.00');
-  const [betTab, setBetTab] = useState<TabPanelProps>('manual');
 
   const startBet = async () => {
     try {
@@ -31,9 +30,19 @@ export default function GameContent() {
         enqueueSnackbar('Need login to start game!', { variant: 'error' });
         return;
       }
-      if (parseFloat(betAmount) <= 0 || parseFloat(target) <= 0) return;
+
       if (user.balance < parseFloat(betAmount)) {
         enqueueSnackbar('Not enough funds!', { variant: 'error' });
+        return;
+      }
+
+      if (parseFloat(betAmount) <= 0) {
+        enqueueSnackbar('Please enter bet amount!', { variant: 'error' });
+        return;
+      }
+
+      if (parseFloat(target) <= 1) {
+        enqueueSnackbar('Multiplier must be over 1', { variant: 'error' });
         return;
       }
 
@@ -83,7 +92,6 @@ export default function GameContent() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      // Fetch crash schema from API
       const fetchData = async () => {
         setLoading(true);
         try {
@@ -97,7 +105,6 @@ export default function GameContent() {
         }
       };
 
-      // Initially, fetch data
       fetchData();
     }
     // eslint-disable-next-line
@@ -105,175 +112,135 @@ export default function GameContent() {
 
   return (
     <Grid container spacing={3.5}>
-      <Grid item xs={12} md={4} sm={3.5}>
+      <Grid item xs={12} sm={12} md={4}>
         <Stack
           sx={{
             maxHeight: 550,
             borderRadius: `15px`,
             bgcolor: 'rgba(255, 255, 255, 0.04)',
             boxShadow: `0px 0px 15px 0px rgba(0, 0, 0, 0.25)`,
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            gap: 2,
+            px: 2.5,
+            py: 3.5
           }}
         >
-          <Stack
-            sx={{
-              borderRadius: `15px`,
-              bgcolor: 'rgba(255, 255, 255, 0.04)',
-              boxShadow: `0px 0px 2px 0px rgba(0, 0, 0, 0.25)`,
-              gap: 2,
-              px: 2.5,
-              py: 3.5
-            }}
-          >
-            <Stack sx={{ flexDirection: 'row', gap: 1.9 }}>
-              <Button
-                variant="contained"
-                color="secondary"
-                sx={{
-                  py: 0.8,
-                  width: '50%',
-                  borderRadius: 1.5,
-                  bgcolor: betTab === 'manual' ? '#303158' : 'transparent'
-                }}
-                onClick={() => setBetTab('manual')}
-              >
-                Manual
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                sx={{
-                  py: 0.8,
-                  width: '50%',
-                  borderRadius: 1.5,
-                  bgcolor: betTab === 'auto' ? '#303158' : 'transparent'
-                }}
-                onClick={() => setBetTab('auto')}
-              >
-                Auto
-              </Button>
-            </Stack>
-            <Stack gap={0.4}>
-              <Typography sx={{ fontSize: 11 }}>Bet Amount:</Typography>
-              <InputBase
-                value={betAmount}
-                onChange={(e: any) => setBetAmount(e.target.value)}
-                placeholder="0.00"
-                type="number"
-                error={parseFloat(betAmount) <= 0 ?? true}
-                inputProps={{ step: 0.01, min: 0 }}
-                startAdornment={
-                  <AttachMoneyIcon fontSize="small" sx={{ color: theme.palette.primary.main }} />
-                }
-                endAdornment={
-                  <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                      onClick={() =>
-                        setBetAmount((state) => (parseFloat(state) / 2).toFixed(2) || '0.00')
-                      }
-                    >
-                      1/2
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                      onClick={() =>
-                        setBetAmount((state) => (parseFloat(state) * 2).toFixed(2) || '0.00')
-                      }
-                    >
-                      2x
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                    >
-                      Max
-                    </Button>
-                  </Stack>
-                }
-                sx={{
-                  px: 1.25,
-                  py: 0.85,
-                  borderRadius: 1.25,
-                  background: `#303158`
-                }}
-              />
-            </Stack>
-            <Stack gap={0.4}>
-              <Typography sx={{ fontSize: 11 }}>Multiplier</Typography>
-              <InputBase
-                value={target}
-                onChange={(e: any) => setTarget(e.target.value)}
-                placeholder="0.00"
-                type="number"
-                error={parseFloat(target) <= 1 ?? true}
-                inputProps={{ step: 0.01, min: 0 }}
-                startAdornment={
-                  <Typography fontSize="sm" sx={{ color: theme.palette.primary.main, mr: 1 }}>
-                    x
-                  </Typography>
-                }
-                endAdornment={
-                  <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                      onClick={() => {
-                        if (parseFloat(target) > 1)
-                          setTarget((state) => (parseFloat(state) / 2).toFixed(2) || '0');
-                      }}
-                    >
-                      1/2
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                      onClick={() =>
-                        setTarget((state) => (parseFloat(state) * 2).toFixed(2) || '0')
-                      }
-                    >
-                      2x
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="secondary"
-                      sx={{ bgcolor: theme.palette.grey[300] }}
-                      onClick={() =>
-                        setTarget((state) => (parseFloat(state) * 5).toFixed(2) || '0')
-                      }
-                    >
-                      5x
-                    </Button>
-                  </Stack>
-                }
-                sx={{
-                  px: 1.25,
-                  py: 0.85,
-                  borderRadius: 1.25,
-                  background: `#303158`
-                }}
-              />
-            </Stack>
-            <Button variant="contained" color="primary" sx={{ py: 1.5 }} onClick={startBet}>
-              Bet
-            </Button>
+          <Stack gap={0.4}>
+            <Typography sx={{ fontSize: 11 }}>Bet Amount:</Typography>
+            <InputBase
+              value={betAmount}
+              onChange={(e: any) => setBetAmount(e.target.value)}
+              placeholder="0.00"
+              type="number"
+              error={parseFloat(betAmount) <= 0 ?? true}
+              inputProps={{ step: 0.01, min: 0 }}
+              startAdornment={
+                <AttachMoneyIcon fontSize="small" sx={{ color: theme.palette.primary.main }} />
+              }
+              endAdornment={
+                <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                    onClick={() =>
+                      setBetAmount((state) => (parseFloat(state) / 2).toFixed(2) || '0.00')
+                    }
+                  >
+                    1/2
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                    onClick={() =>
+                      setBetAmount((state) => (parseFloat(state) * 2).toFixed(2) || '0.00')
+                    }
+                  >
+                    2x
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                  >
+                    Max
+                  </Button>
+                </Stack>
+              }
+              sx={{
+                px: 1.25,
+                py: 0.85,
+                borderRadius: 1.25,
+                background: `#303158`
+              }}
+            />
           </Stack>
+          <Stack gap={0.4}>
+            <Typography sx={{ fontSize: 11 }}>Multiplier</Typography>
+            <InputBase
+              value={target}
+              onChange={(e: any) => setTarget(e.target.value)}
+              placeholder="0.00"
+              type="number"
+              error={parseFloat(target) <= 1 ?? true}
+              inputProps={{ step: 0.01, min: 0 }}
+              startAdornment={
+                <Typography fontSize="sm" sx={{ color: theme.palette.primary.main, mr: 1 }}>
+                  x
+                </Typography>
+              }
+              endAdornment={
+                <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                    onClick={() => {
+                      if (parseFloat(target) > 1)
+                        setTarget((state) => (parseFloat(state) / 2).toFixed(2) || '0');
+                    }}
+                  >
+                    1/2
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                    onClick={() => setTarget((state) => (parseFloat(state) * 2).toFixed(2) || '0')}
+                  >
+                    2x
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ bgcolor: theme.palette.grey[300] }}
+                    onClick={() => setTarget((state) => (parseFloat(state) * 5).toFixed(2) || '0')}
+                  >
+                    5x
+                  </Button>
+                </Stack>
+              }
+              sx={{
+                px: 1.25,
+                py: 0.85,
+                borderRadius: 1.25,
+                background: `#303158`
+              }}
+            />
+          </Stack>
+          <Button variant="contained" color="primary" sx={{ py: 1.5 }} onClick={startBet}>
+            Bet
+          </Button>
         </Stack>
       </Grid>
-      <Grid item xs={12} md={8} sm={8.5}>
+      <Grid item xs={12} sm={12} md={8}>
         <Box
           sx={{
             borderRadius: `25px`,
