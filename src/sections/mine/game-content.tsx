@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
 import { useSelector } from 'src/store';
 import useApi from 'src/hooks/use-api';
+import click from 'src/assets/click.wav';
 import CardBoard from './card-board';
 import GridSetting from './grid-setting';
 import ProfitSetting from './profit-setting';
@@ -13,11 +14,16 @@ import AmountBox from './components/amount-box';
 import ToggleBox from './components/toggle-box';
 import BetBtn from './components/bet-btn';
 
+const playSound = (audioFile: any) => {
+  audioFile.play();
+};
+
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default function GameContent() {
+  const clickAudio = new Audio(click);
   const { isLoggedIn, user } = useSelector((status) => status.auth);
   const { startBetMine, cancelBetMine, cashoutBetMine, checkMine, getMineProfitSetting } = useApi();
 
@@ -81,7 +87,7 @@ export default function GameContent() {
       enqueueSnackbar('Need login to start game!', { variant: 'error' });
       return;
     }
-
+    playSound(clickAudio);
     if (turboMode) {
       const grids: any[] = [...gridDataList];
       let turbos: number[] = [...turboList];
@@ -155,6 +161,7 @@ export default function GameContent() {
   const handleBetSubmit = async () => {
     if (isLoggedIn) {
       try {
+        playSound(clickAudio);
         setLoading(true);
         await sleep(500);
         if (btnActionStatus === 'start') {
