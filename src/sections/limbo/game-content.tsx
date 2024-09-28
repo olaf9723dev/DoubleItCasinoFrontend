@@ -8,7 +8,8 @@ import { cutDecimalPoints, parseCommasToThousands } from 'src/utils';
 import { useSelector } from 'src/store';
 import useApi from 'src/hooks/use-api';
 
-import lanuch from 'src/assets/limbo/launch.wav';
+import click from 'src/assets/click.wav';
+import blast from 'src/assets/limbo/blast.wav';
 import Limbo1 from 'src/assets/limbo/limbo1.png';
 import Limbo2 from 'src/assets/limbo/limbo2.png';
 import Rocket from 'src/assets/limbo/rocket.png';
@@ -19,7 +20,8 @@ const playSound = (audioFile: any) => {
 };
 
 export default function GameContent() {
-  const lanuchAudio = new Audio(lanuch);
+  const blastAudio = new Audio(blast);
+  const clickAudio = new Audio(click);
 
   const { isLoggedIn, user } = useSelector((status) => status.auth);
   const { betLimbo, getLimboSchema } = useApi();
@@ -51,6 +53,7 @@ export default function GameContent() {
         enqueueSnackbar('Multiplier must be over 1', { variant: 'error' });
         return;
       }
+      playSound(clickAudio);
       const res = await betLimbo(user?._id, parseFloat(betAmount), parseFloat(target));
       if (!res?.data) return;
       const win = res.data.result.status === 'WIN';
@@ -73,9 +76,9 @@ export default function GameContent() {
       $('.rocket-payout').attr('class', 'rocket-payout');
       $('.counter').attr('class', 'counter');
       $('.rocket-wrap').addClass('flying');
-      playSound(lanuchAudio);
       setTimeout(() => {
         $('.rocket-wrap, .rocket-boom').addClass('boom');
+        playSound(blastAudio);
         setHistory((prevState: any) =>
           prevState.length >= 8
             ? [...prevState.slice(1, prevState.length), res.data.limbo]
