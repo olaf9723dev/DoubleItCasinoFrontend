@@ -274,6 +274,7 @@ export default function GameContent() {
       if (bet.playerID === user._id) {
         setCashedOut(true);
         if (ownBet) setOwnBet(Object.assign(ownBet, bet));
+        playSound(successAudio);
 
         // Reset betting state
         setTimeout(() => {
