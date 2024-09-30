@@ -9,7 +9,7 @@ import useApi from 'src/hooks/use-api';
 import BannerCarousel from './banner-carousel';
 import GameSort from './game-sort';
 import GameCarousel from './game-carousel';
-import GameHistory from './game-history';
+import GameHistory from '../histories/game-history';
 
 export default function HomeView() {
   const { getHomeSettings } = useApi();
