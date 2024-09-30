@@ -82,6 +82,8 @@ function GameHistoryTableRow({ row, headLabel }: GameHistoryTableRowProps) {
               {`${
                 label.date
                   ? moment(row[label.id]).startOf('s').tz(localTimezone).fromNow()
+                  : label.id === 'target'
+                  ? row[label.id].toFixed(2)
                   : row[label.id]
               }${label.unit ?? ''}`}
             </Typography>
