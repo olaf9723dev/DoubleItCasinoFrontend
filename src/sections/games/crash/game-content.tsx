@@ -20,7 +20,7 @@ import Scrollbar from 'src/components/scrollbar';
 import { crashSocket } from 'src/utils/socket';
 import { useSelector } from 'src/store';
 import useApi from 'src/hooks/use-api';
-import { cutDecimalPoints, parseCommasToThousands } from 'src/utils';
+import { cutDecimalPoints, parseCommasToThousands, playSound } from 'src/utils';
 
 import placebet from 'src/assets/crash/placebet.wav';
 import error from 'src/assets/crash/error.wav';
@@ -43,10 +43,6 @@ const errorAudio = new Audio(error);
 const placebetAudio = new Audio(placebet);
 const successAudio = new Audio(success);
 const crashAudio = new Audio(crash);
-
-const playSound = (audioFile: any) => {
-  audioFile.play();
-};
 
 gsap.registerPlugin(MotionPathPlugin);
 

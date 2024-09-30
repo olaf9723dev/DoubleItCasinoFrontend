@@ -4,7 +4,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { enqueueSnackbar } from 'notistack';
 import $ from 'jquery';
 
-import { cutDecimalPoints, parseCommasToThousands } from 'src/utils';
+import { cutDecimalPoints, parseCommasToThousands, playSound } from 'src/utils';
 import { useSelector } from 'src/store';
 import useApi from 'src/hooks/use-api';
 
@@ -14,10 +14,6 @@ import Limbo1 from 'src/assets/limbo/limbo1.png';
 import Limbo2 from 'src/assets/limbo/limbo2.png';
 import Rocket from 'src/assets/limbo/rocket.png';
 import Mountain from 'src/assets/limbo/mountain.png';
-
-const playSound = (audioFile: any) => {
-  audioFile.play();
-};
 
 export default function GameContent() {
   const blastAudio = new Audio(blast);

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Grid } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
 import { useSelector } from 'src/store';
+import { playSound } from 'src/utils';
 import useApi from 'src/hooks/use-api';
 import click from 'src/assets/click.wav';
 import CardBoard from './card-board';
@@ -13,10 +14,6 @@ import MineCounter from './components/mine-counter';
 import AmountBox from './components/amount-box';
 import ToggleBox from './components/toggle-box';
 import BetBtn from './components/bet-btn';
-
-const playSound = (audioFile: any) => {
-  audioFile.play();
-};
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
