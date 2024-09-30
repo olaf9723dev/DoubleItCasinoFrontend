@@ -392,10 +392,18 @@ export default function GameContent() {
         return;
       }
 
-      const res = await startBetRoulette(user._id, bet, totalBet);
+      if (user.balance < totalBet) {
+        enqueueSnackbar('Not enough funds!', { variant: 'error' });
+        return;
+      }
+
+      const res: any = await startBetRoulette(user._id, bet, totalBet);
       if (!res?.data) return;
-      const { result } = res.data;
-      putBallAtSlot(result.number, 2500);
+      const { number } = res.data;
+      putBallAtSlot(number, 2500);
+      setTimeout(() => {
+        setHistory([res?.data, ...history]);
+      }, 2500);
     } catch (err) {
       setLoading(false);
       enqueueSnackbar(`${err.response.data.message}!`, { variant: 'error' });
