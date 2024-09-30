@@ -23,3 +23,7 @@ export const abbreviate = (value: any, decimal = 2) => {
     suffix[index - 1]
   );
 };
+
+export const playSound = (audioFile: any) => {
+  audioFile.play();
+};
