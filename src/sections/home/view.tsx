@@ -28,17 +28,23 @@ export default function HomeView() {
   return (
     <Scrollbar sx={{ height: `100%` }}>
       <Grid container gap={5} sx={{ px: 3, py: 2 }}>
-        <Grid item xs={12}>
-          <BannerCarousel data={homeSettings?.banners} />
-        </Grid>
-        <Grid item xs={12}>
-          <GameSort data={homeSettings?.sorts} />
-        </Grid>
-        {homeSettings?.sorts?.map((item: any, ind: number) => (
-          <Grid key={ind} item xs={12}>
-            <GameCarousel data={item.games} title={item.title} />
+        {homeSettings?.banners?.length > 0 && (
+          <Grid item xs={12}>
+            <BannerCarousel data={homeSettings?.banners} />
           </Grid>
-        ))}
+        )}
+        {homeSettings?.sorts?.length > 0 && (
+          <>
+            <Grid item xs={12}>
+              <GameSort data={homeSettings?.sorts} />
+            </Grid>
+            {homeSettings?.sorts?.map((item: any, ind: number) => (
+              <Grid key={ind} item xs={12}>
+                <GameCarousel data={item.games} title={item.title} />
+              </Grid>
+            ))}
+          </>
+        )}
         <Grid item xs={12}>
           <GameHistory />
         </Grid>
