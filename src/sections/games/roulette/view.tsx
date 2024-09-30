@@ -6,7 +6,7 @@ import Scrollbar from 'src/components/scrollbar';
 import { useSettingsContext } from 'src/components/settings';
 
 import GameContent from './game-content';
-import GameHistory from '../histories/game-history';
+import GameHistory from '../../histories/game-history';
 
 // ----------------------------------------------------------------------
 

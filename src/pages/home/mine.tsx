@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 // sections
 import { APP_NAME } from 'src/config-global';
-import MineView from 'src/sections/mine/view';
+import MineView from 'src/sections/games/mine/view';
 
 // ----------------------------------------------------------------------
 

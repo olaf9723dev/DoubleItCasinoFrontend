@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import crash from '../../assets/crash/crash.png';
-import bgimg from '../../assets/crash/crash-game-bg.webp';
-import snowimg from '../../assets/crash/snow.png';
-import rocket_explosion from '../../assets/crash/rocket-explosion.png';
+import crash from '../../../assets/crash/crash.png';
+import bgimg from '../../../assets/crash/crash-game-bg.webp';
+import snowimg from '../../../assets/crash/snow.png';
+import rocket_explosion from '../../../assets/crash/rocket-explosion.png';
 
 interface propsState {
   status: number;

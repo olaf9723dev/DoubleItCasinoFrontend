@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 // sections
 import { APP_NAME } from 'src/config-global';
-import LimboView from 'src/sections/limbo/view';
+import LimboView from 'src/sections/games/limbo/view';
 
 // ----------------------------------------------------------------------
 

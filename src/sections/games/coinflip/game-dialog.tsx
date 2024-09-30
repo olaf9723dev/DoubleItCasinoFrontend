@@ -5,11 +5,11 @@ import useApi from 'src/hooks/use-api';
 import { GameDialogProps, CoinflipRoom } from 'src/types';
 import { useSelector } from 'src/store';
 
-import unknownImg from '../../assets/user.png';
-import Tails1Video from '../../assets/Tails1.mp4';
-import Heads1Video from '../../assets/Heads1.mp4';
-import Tails2Video from '../../assets/Tails2.mp4';
-import Heads2Video from '../../assets/Heads2.mp4';
+import unknownImg from '../../../assets/user.png';
+import Tails1Video from '../../../assets/Tails1.mp4';
+import Heads1Video from '../../../assets/Heads1.mp4';
+import Tails2Video from '../../../assets/Tails2.mp4';
+import Heads2Video from '../../../assets/Heads2.mp4';
 
 /* eslint-disable */
 const ResultVideoComponent = ({ data }: { data: CoinflipRoom }) => {

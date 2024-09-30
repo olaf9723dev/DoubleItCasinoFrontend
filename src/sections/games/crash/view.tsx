@@ -6,11 +6,11 @@ import Scrollbar from 'src/components/scrollbar';
 import { useSettingsContext } from 'src/components/settings';
 
 import GameContent from './game-content';
-import GameHistory from '../histories/game-history';
+import GameHistory from '../../histories/game-history';
 
 // ----------------------------------------------------------------------
 
-export default function MineView() {
+export default function CrashView() {
   const settings = useSettingsContext();
 
   return (
@@ -31,15 +31,11 @@ export default function MineView() {
               gap: 5
             }}
           >
-            <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Mine</Typography>
+            <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Crash</Typography>
           </Stack>
         </Container>
       </Stack>
-      <Grid
-        container
-        spacing={5}
-        sx={{ px: 3, py: 2, mt: { xs: 2, md: 0 }, width: 'calc(100% + 64px)' }}
-      >
+      <Grid container spacing={5} sx={{ px: 3, py: 2 }}>
         <Grid item xs={12}>
           <GameContent />
         </Grid>

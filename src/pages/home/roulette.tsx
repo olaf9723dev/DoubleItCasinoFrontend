@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 // sections
 import { APP_NAME } from 'src/config-global';
-import RouletteView from 'src/sections/roulette/view';
+import RouletteView from 'src/sections/games/roulette/view';
 
 // ----------------------------------------------------------------------
 

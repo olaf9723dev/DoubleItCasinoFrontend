@@ -1,5 +1,5 @@
-import CricketImg from '../../../assets/mine/cricket.png';
-import CricketShadowImg from '../../../assets/mine/shadow.webp';
+import CricketImg from '../../../../assets/mine/cricket.png';
+import CricketShadowImg from '../../../../assets/mine/shadow.webp';
 
 export default function BetBtn({
   isMobile,

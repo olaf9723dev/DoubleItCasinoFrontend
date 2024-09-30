@@ -6,11 +6,11 @@ import Scrollbar from 'src/components/scrollbar';
 import { useSettingsContext } from 'src/components/settings';
 
 import GameContent from './game-content';
-import GameHistory from '../histories/game-history';
+import GameHistory from '../../histories/game-history';
 
 // ----------------------------------------------------------------------
 
-export default function CrashView() {
+export default function LimboView() {
   const settings = useSettingsContext();
 
   return (
@@ -31,7 +31,7 @@ export default function CrashView() {
               gap: 5
             }}
           >
-            <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Crash</Typography>
+            <Typography sx={{ fontSize: 28, fontWeight: 400 }}>Limbo</Typography>
           </Stack>
         </Container>
       </Stack>

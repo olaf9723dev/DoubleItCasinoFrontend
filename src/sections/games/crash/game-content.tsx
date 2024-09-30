@@ -27,7 +27,13 @@ import error from 'src/assets/crash/error.wav';
 import success from 'src/assets/crash/success.wav';
 import crash from 'src/assets/crash/crash.wav';
 
-import { GameEndType, PlayerProps, TabPanelProps, BetType, PlayerType } from './types';
+import {
+  GameEndType,
+  PlayerProps,
+  TabPanelProps,
+  BetType,
+  PlayerType
+} from '../../histories/types';
 // ----------------------------------------------------------------------
 import GameCanvas from './game-canvas';
 // const multipliers = ['1.0', '1.4', '1.8', '2.0', '2.4', '2.8', '3.0', '3.2'];

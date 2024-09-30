@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 // sections
 import { APP_NAME } from 'src/config-global';
-import CoinflipView from 'src/sections/coinflip/view';
+import CoinflipView from 'src/sections/games/coinflip/view';
 
 // ----------------------------------------------------------------------
 

@@ -11,9 +11,9 @@ import { CardProps } from '@mui/material/Card';
 import { CoinflipRoom } from 'src/types';
 import { SOCKET_PATH } from 'src/config-global';
 
-import unknownImg from '../../assets/user.png';
-import TCoin from '../../assets/t_coin.png';
-import HCoin from '../../assets/h_coin.png';
+import unknownImg from '../../../assets/user.png';
+import TCoin from '../../../assets/t_coin.png';
+import HCoin from '../../../assets/h_coin.png';
 
 interface ListProps extends CardProps {
   games: CoinflipRoom[];
