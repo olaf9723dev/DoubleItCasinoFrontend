@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   Box,
-  Grid,
   Stack,
   Button,
   Dialog,
@@ -12,7 +11,6 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'src/components/image';
-import { StyledScrollbar } from 'src/components/scrollbar/styles';
 import { MethodDialogProps, MethodOpenProps } from './types';
 import MM2Dialog from './mm2';
 import PSXDialog from './psx';
@@ -22,19 +20,13 @@ import AdoptMeDialog from './adopt-me';
 const _MethodData = [
   {
     id: 'crypto',
-    name: 'Crypto'
+    name: 'Crypto',
+    icon: 'bitcoin'
   },
   {
     id: 'unicred',
-    name: 'UniCred'
-  },
-  {
-    id: 'visa',
-    name: 'Visa'
-  },
-  {
-    id: 'gift',
-    name: 'Gift'
+    name: 'UniCred',
+    icon: 'unicred'
   }
 ];
 
@@ -66,7 +58,7 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
         aria-describedby="method-dialog-description"
         sx={{
           '& .MuiPaper-root': {
-            maxWidth: { xm: '100%', sm: '100%', md: `640px` },
+            maxWidth: { xs: '100%', sm: '520px' },
             width: `100%`,
             border: '2px solid #32366a',
             position: `relative`,
@@ -93,53 +85,50 @@ export default function MethodDialog({ open, onClose }: MethodDialogProps) {
           <Stack
             sx={{
               py: 3,
-              px: { xm: 1.4, sm: 2 },
+              px: { xs: 1.4, sm: 2 },
               gap: 1.25
             }}
           >
-            <StyledScrollbar>
-              <Stack p={1.25} direction="row">
-                {_MethodData.map((row) => (
-                  <Grid key={row.id} item xs={3} md={3} pr={2}>
-                    <Button
-                      onClick={() => handleSelectMethod(row.id)}
+            <Stack p={1.25} spacing={2} direction="row" justifyContent="center" alignItems="center">
+              {_MethodData.map((row, ind) => (
+                <Button
+                  key={ind}
+                  onClick={() => handleSelectMethod(row.id)}
+                  sx={{
+                    py: 2.4,
+                    px: 1.8,
+                    gap: 0.5,
+                    borderRadius: 1.25,
+                    flexDirection: 'column',
+                    border: `1px solid #454779`,
+                    boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
+                    background:
+                      'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)'
+                  }}
+                >
+                  <Box
+                    sx={{
+                      p: 1.2,
+                      borderRadius: 0.5,
+                      border: `2px solid #303462`,
+                      bgcolor: '#1a1c36'
+                    }}
+                  >
+                    <Image
+                      src={`/assets/icons/coins/${row.icon}.png`}
+                      alt={row.id}
                       sx={{
-                        py: 2.4,
-                        px: 1.8,
-                        gap: 0.5,
-                        borderRadius: 1.25,
-                        flexDirection: 'column',
-                        border: `1px solid #454779`,
-                        boxShadow: '0px 7px 10px 1px rgb(2 2 2 / 49%)',
-                        background:
-                          'linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 95%),linear-gradient(180deg, rgb(80 88 167 / 29%) 0%, rgb(255 255 255 / 0%) 112.23%)'
+                        width: { xs: 50, sm: 70 },
+                        height: { xs: 50, sm: 70 }
                       }}
-                    >
-                      <Box
-                        sx={{
-                          p: 1.2,
-                          borderRadius: 0.5,
-                          border: `2px solid #303462`,
-                          bgcolor: '#1a1c36'
-                        }}
-                      >
-                        <Image
-                          src={`/assets/icons/deposit/${row.id}.png`}
-                          alt={row.id}
-                          sx={{
-                            width: 70,
-                            height: 70
-                          }}
-                        />
-                      </Box>
-                      <Typography sx={{ fontSize: 14, textAlign: 'center', color: 'white' }}>
-                        {row.name}
-                      </Typography>
-                    </Button>
-                  </Grid>
-                ))}
-              </Stack>
-            </StyledScrollbar>
+                    />
+                  </Box>
+                  <Typography sx={{ fontSize: 14, textAlign: 'center', color: 'white' }}>
+                    {row.name}
+                  </Typography>
+                </Button>
+              ))}
+            </Stack>
             <Typography sx={{ fontSize: 12, textAlign: 'center', mt: 4 }}>
               By depositing, you acknowledge that you are at least 18 years of age and agree to our
               Terms of Service.
