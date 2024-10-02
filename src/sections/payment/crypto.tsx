@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Grid,
@@ -89,10 +89,10 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
       aria-describedby="adopt-me-dialog-description"
       sx={{
         '& .MuiPaper-root': {
-          maxWidth: { xm: '100%', sm: '480px' },
-          maxHeight: { xm: '100%', sm: '680px' },
-          height: { xm: '100%', sm: '90%' },
+          maxWidth: { xs: '100%', sm: '480px' },
+          maxHeight: { xs: '90%', sm: '540px' },
           width: '100%',
+          height: { xs: '90%', sm: '540px' },
           border: '2px solid #32366a',
           position: 'relative',
           background: 'linear-gradient(180deg, #191B35 0%, #1F203C 100%)'
@@ -163,7 +163,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     }}
                   >
                     <Image
-                      src={`assets/icons/coins/${item.icon}.png`}
+                      src={`/assets/icons/coins/${item.icon}.png`}
                       alt={item.name}
                       sx={{
                         width: 38,
@@ -250,7 +250,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                         sx={{ gap: 1.25, alignItems: 'center' }}
                       >
                         <Image
-                          src={`assets/icons/coins/${item.icon}.png`}
+                          src={`/assets/icons/coins/${item.icon}.png`}
                           alt={item.name}
                           sx={{
                             width: 25,
@@ -307,9 +307,7 @@ export default function CryptoDialog({ open, onClose }: MethodDialogProps) {
                     </Stack>
                     <Box
                       sx={{
-                        pt: 1,
-                        pb: 0.2,
-                        px: 1,
+                        p: 1,
                         borderRadius: 1,
                         flexDirection: 'row',
                         alignItems: 'center',
