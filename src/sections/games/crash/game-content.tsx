@@ -172,7 +172,7 @@ export default function GameContent() {
     };
 
     // Success event handler
-    const joinSuccess = (bet: any) => {
+    const joinSuccess = (bet: { playerID: string; betAmount: number; target: number }) => {
       setJoining(false);
       setOwnBet(bet);
       setBetting(true);
