@@ -48,6 +48,7 @@ export const API_PATH = {
   ROULETTE_BET: 'roulette/bet',
 
   CURRENCY: 'currency',
+  MINAMOUNT: 'payment/get-min-amount',
   DEPOSIT: 'payment/deposit',
 
   WITHDRAW: 'payment/withdraw',
