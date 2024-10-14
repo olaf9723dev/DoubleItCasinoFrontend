@@ -119,8 +119,12 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return await axios.get(API_PATH.CURRENCY);
   };
 
-  const deposit = async (currency: string, amount: number) => {
-    return await axios.post(API_PATH.DEPOSIT, { userId: user._id, currency, amount });
+  const getMinAmount = async (currency: string) => {
+    return await axios.post(API_PATH.MINAMOUNT, { currency });
+  };
+
+  const deposit = async (currency: string) => {
+    return await axios.post(API_PATH.DEPOSIT, { userId: user._id, currency });
   };
 
   const getWithdrawalItems = async () => {
@@ -141,6 +145,7 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
         initialize,
         login,
         register,
+        getMinAmount,
         deposit,
         getUsers,
         getUserId,
