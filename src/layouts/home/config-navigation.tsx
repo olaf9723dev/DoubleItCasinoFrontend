@@ -58,8 +58,8 @@ export function useNavData() {
           { title: 'Limbo', path: paths.home.limbo, icon: ICONS.limbo, type: 'desktop' },
           { title: 'Mine', path: paths.home.mine, icon: ICONS.mine, type: 'desktop' },
           { title: 'Roulette', path: paths.home.roulette, icon: ICONS.roulette, type: 'desktop' },
-          { title: 'Withdraw', path: paths.home.withdraw, icon: ICONS.withdraw, type: 'mobile' },
-          { title: 'FAQ', path: paths.home.faq, icon: ICONS.faq, type: 'mobile' },
+          // { title: 'Withdraw', path: paths.home.withdraw, icon: ICONS.withdraw, type: 'mobile' },
+          // { title: 'FAQ', path: paths.home.faq, icon: ICONS.faq, type: 'mobile' },
           { title: 'Terms of Service', path: paths.home.terms, icon: ICONS.terms, type: 'mobile' }
           // {
           //   title: 'Discord',

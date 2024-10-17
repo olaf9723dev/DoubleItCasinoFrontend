@@ -14,23 +14,23 @@ const TABS = [
     value: 'home',
     label: 'Home',
     path: paths.home.root,
-    hasChildren: true,
+    hasChildren: true
   },
-  {
-    value: 'withdraw',
-    label: 'Withdraw',
-    path: paths.withdraw.root,
-  },
-  {
-    value: 'faq',
-    label: 'FAQ',
-    path: paths.faq.root,
-  },
+  // {
+  //   value: 'withdraw',
+  //   label: 'Withdraw',
+  //   path: paths.withdraw.root,
+  // },
+  // {
+  //   value: 'faq',
+  //   label: 'FAQ',
+  //   path: paths.faq.root,
+  // },
   {
     value: 'terms',
     label: 'Terms of Service',
-    path: paths.terms.root,
-  },
+    path: paths.terms.root
+  }
 ];
 
 // ----------------------------------------------------------------------
@@ -59,20 +59,20 @@ export default function HeaderMenu() {
 
   return (
     <Tabs
-      className='header_tab'
+      className="header_tab"
       value={currentTab}
       onChange={handleChangeTab}
       sx={{
         ml: { xs: 0, sm: 0, md: 0, lg: 8 },
         ...(lgUp && {
-          height: HEADER.H_DESKTOP,
+          height: HEADER.H_DESKTOP
         }),
         '& .MuiTabs-flexContainer': {
-          height: '100%',
+          height: '100%'
         },
         '& .MuiTabs-indicator': {
-          bgcolor: '#7058ff',
-        },
+          bgcolor: '#7058ff'
+        }
       }}
     >
       {TABS.map((tab) => (
