@@ -110,7 +110,7 @@ export default function Header({ onOpenNav }: Props) {
               variant="contained"
               disabled
               size={isMobile ? 'small' : 'medium'}
-              startIcon={<MoneyIcon />}
+              startIcon={<img src="/assets/unicred.png" alt="unicred" width={18} />}
               sx={{
                 color: 'white !important',
                 maxHeight: '40px !important',
