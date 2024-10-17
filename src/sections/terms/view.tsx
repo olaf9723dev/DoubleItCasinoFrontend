@@ -55,7 +55,7 @@ export default function TermsView() {
             gap: 1
           }}
         >
-          <Typography>
+          {/* <Typography>
             Doubleit.casino Terms of Service Effective: September 2024 Doubleit.casino is a social
             gaming platform owned and operated by True Polygon Entertainment Limited (“Company”,
             “We”, “Us”, “Our”, “doubleit.casino”) with registered offices at 30, Peirarios, FL.: 1,
@@ -63,8 +63,8 @@ export default function TermsView() {
             products and services (collectively known as the “Service(s)”) offered through
             Doubleit.casino and it’s affiliates is subject to the following Terms and Conditions
             (“Terms”, “Agreement”).
-          </Typography>
-          <Typography>
+          </Typography> */}
+          {/* <Typography>
             doubleit.casino reserves the right to change or modify this Agreement at anytime at Our
             discretion. Changes made to this Agreement will be in effect as of the date of posting,
             indicated above.
@@ -94,10 +94,10 @@ export default function TermsView() {
             Location: It is the Users responsibility to ensure the Services being offered and their
             use of them is legal in their respective jurisdiction. Currently doubleit.casino does
             not offer Services in Cyprus, or the states of Nevada and Washington.
-          </Typography>
+          </Typography> */}
           <Typography>
             Deposits: doubleit.casino offers a number of ways to fund the Users account. It is the
-            User’s responsibility to ensure they are only using their own funds to fund their
+            User&apos;s responsibility to ensure they are only using their own funds to fund their
             account. doubleit.casino can ban or suspend an account at anytime if financial fraud is
             suspected.
           </Typography>
@@ -119,13 +119,13 @@ export default function TermsView() {
             information to open an account or game, engaging in financial fraud, violating our terms
             of service or game rules, misrepresenting affiliation with any person or entity,
             attempting to investigate our software, threatening or harming other players or staff,
-            interfering with the service's functionality, providing unauthorized payment
+            interfering with the service&apos;s functionality, providing unauthorized payment
             information, engaging in unauthorized skin trading/buying/selling, or abusing rewards,
-            will result in immediate termination of the User's account.
+            will result in immediate termination of the User&apos;s account.
           </Typography>
           <Typography>
             In the event of any prohibited conduct, doubleit.casino reserves the right to suspend or
-            terminate the User's access to our Services immediately without prior notice or
+            terminate the User&apos;s access to our Services immediately without prior notice or
             liability for any reason.
           </Typography>
           <Typography>
@@ -133,15 +133,15 @@ export default function TermsView() {
             of suspected prohibited conduct.
           </Typography>
           <Typography>
-            If a User's account is terminated, they may lose access to their account including but
-            not limited to, all associated items, rewards, username, and play history.
+            If a User&apos;s account is terminated, they may lose access to their account including
+            but not limited to, all associated items, rewards, username, and play history.
           </Typography>
           <Typography>
             We, at doubleit.casino, take compliance seriously, and it is our commitment to providing
             a safe and responsible gaming experience for all our Users. By adhering to these Account
             Restrictions, Users contribute to maintaining the integrity and fairness of our online
             casino platform. Should you have any questions or concerns regarding these restrictions,
-            please don't hesitate to contact our dedicated support team.
+            please don&apos;t hesitate to contact our dedicated support team.
           </Typography>
           <Typography>3. Funds</Typography>
           <Typography>
@@ -149,20 +149,21 @@ export default function TermsView() {
             handling of funds. Please carefully read and understand the following points:
           </Typography>
           <Typography>
-            Receiving UNT "Credits": When a User is funding their account, they acknowledge that
-            they are acquiring UNT credits, which are strictly a monetary asset and cannot be
-            refunded, it is an asset therefore it can change in value.
+            Receiving UNT &ldquo;Credits&ldquo;: When a User is funding their account, they
+            acknowledge that they are acquiring UNT credits, which are strictly a monetary asset and
+            cannot be refunded, it is an asset therefore it can change in value.
           </Typography>
           <Typography>
-            Value of UNT "Credits": It is important to note that UNT credits hold monetary value,
-            and they are solely intended for use within doubleit.casino gaming platform.
+            Value of UNT &ldquo;Credits&ldquo;: It is important to note that UNT credits hold
+            monetary value, and they are solely intended for use within doubleit.casino gaming
+            platform.
           </Typography>
           <Typography>
             Third Party Funding: For certain funding options, doubleit.casino utilizes third-party
             providers. The User is responsible for providing accurate and lawful information to
             these third-party providers when using the third-party services. The information
-            provided by third-party services will be governed by the respected third-party’s Terms
-            of Service.
+            provided by third-party services will be governed by the respected third-party&apos;s
+            Terms of Service.
           </Typography>
           <Typography>
             Crypto Funding: We offer the convenience of funding your account with various
@@ -173,15 +174,16 @@ export default function TermsView() {
           <Typography>
             Non-Responsibility for Mainchain Accidents In Regards To Cryptocurrencies:
             doubleit.casino will not be held responsible for any accidental token transfers on a
-            mainchain, including but not limited to ERC20, TRC20, or BRC20 tokens. It is the User’s
-            responsibility to ensure they are sending the correct cryptocurrency on the right chain.
+            mainchain, including but not limited to ERC20, TRC20, or BRC20 tokens. It is the
+            User&apos;s responsibility to ensure they are sending the correct cryptocurrency on the
+            right chain.
           </Typography>
           <Typography>
             Earning Free UNT Credits: Users have the opportunity to earn free UNT credits through
             different means, such as participating in Free unboxing, spinning the Daily Free
             (minimum level 15 required), and redeeming promo codes found online. These free UNT
-            "credits" can be used to play games on our platform and cannot be withdrawn. They are
-            safely stored in the User's Promo Wallet.
+            &ldquo;credits&ldquo; can be used to play games on our platform and cannot be withdrawn.
+            They are safely stored in the User&apos;s Promo Wallet.
           </Typography>
           <Typography>
             Locked Free Credits: Any winnings from playing with credits in the Promo Wallet are
@@ -214,7 +216,7 @@ export default function TermsView() {
             policy, which ensures fair and transparent gameplay. Users can learn more about this
             policy through the provided link. Our provable fair policy consist of all games against
             the house have a 95% RTP. Most casinos have a range between 85% - 95% this means we are
-            on theRules and Responsibility: Rules for each game may vary, and it is the User's
+            on theRules and Responsibility: Rules for each game may vary, and it is the User&apos;s
             responsibility to be familiar with the rules of the specific game they are playing. By
             participating in a game, the User agrees to abide by the rules for that game.
           </Typography>
@@ -270,7 +272,7 @@ export default function TermsView() {
             fairness and transparency. If you have any questions or require further information
             about our games and features, please feel free to contact our support team. Other Games:
             limbo, crash, and coinflip work similarly. Coinflip is a 1vs1 and the winner will
-            receive all of it. Commissions will be taken before the game starts.{' '}
+            receive all of it. Commissions will be taken before the game starts.
           </Typography>
           <Typography>
             Users can earn UNT TOKENS from using the Services. Users can use UNT TOKENS to enter
@@ -302,13 +304,14 @@ export default function TermsView() {
             with the outcomes determined by doubleit.casino.
           </Typography>
           <Typography>
-            Right to Cancel Participation: doubleit.casino reserves the right to cancel a User's
-            ability to participate in a game or use Our Services entirely if We determine that the
-            User's actions are improper, unfair, fraudulent, or detrimental to other Users. Improper
-            actions may include but are not limited to falsifying personal information, violating
-            eligible payment method terms, using unauthorized scripts or automated means, tampering
-            with the administration or computer programs associated with the Service, obtaining
-            other entrants' information and engaging in abusive or harassing behavior.
+            Right to Cancel Participation: doubleit.casino reserves the right to cancel a
+            User&apos;s ability to participate in a game or use Our Services entirely if We
+            determine that the User&apos;s actions are improper, unfair, fraudulent, or detrimental
+            to other Users. Improper actions may include but are not limited to falsifying personal
+            information, violating eligible payment method terms, using unauthorized scripts or
+            automated means, tampering with the administration or computer programs associated with
+            the Service, obtaining other entrants&apos; information and engaging in abusive or
+            harassing behavior.
           </Typography>
           <Typography>
             Force Majeure: We acknowledge that certain unforeseen events or circumstances, such as
@@ -322,21 +325,21 @@ export default function TermsView() {
           </Typography>
           <Typography>
             Additional Rewards: Apart from standard rewards from winning a game, we offer other
-            enticing rewards, such as the "Whale Watch" program, where Users who wager the most
-            during a week are rewarded, and the "Cashback" program, allowing Users to earn credits
-            back based on their total wagers.
+            enticing rewards, such as the &ldquo;Whale Watch&ldquo; program, where Users who wager
+            the most during a week are rewarded, and the &ldquo;Cashback&ldquo; program, allowing
+            Users to earn credits back based on their total wagers.
           </Typography>
           <Typography>6. Responsible Gambling</Typography>
           <Typography>
             doubleit.casino acknowledges the importance of responsible gambling and the potential
             risks of gambling addiction. We are committed to promoting a safe and responsible gaming
-            environment for all Users. To this end, we offer a "Self-Exclusion" feature that allows
-            Players to take a break from the platform if they feel the need to do so.
+            environment for all Users. To this end, we offer a &ldquo;Self-Exclusion&ldquo; feature
+            that allows Players to take a break from the platform if they feel the need to do so.
           </Typography>
           <Typography>
             Self-Exclusion Option: We understand that Users may wish to take a break from gambling.
-            For this reason, we provide the option for Users to set a "Self-Exclusion" period of a
-            specified duration
+            For this reason, we provide the option for Users to set a &ldquo;Self-Exclusion&ldquo;
+            period of a specified duration
           </Typography>
           <Typography>
             Self-Exclusion Effects: When a User enters a Self-Exclusion period, their ability to
@@ -344,15 +347,15 @@ export default function TermsView() {
             duration of the specified time.
           </Typography>
           <Typography>
-            No Override of Self-Exclusion: It's important to note that doubleit.casino is unable to
-            override a User's Self-Exclusion period. Users will need to wait for the designated
-            period to pass before their account is no longer in Self-Exclusion mode.
+            No Override of Self-Exclusion: It&apos;s important to note that doubleit.casino is
+            unable to override a User&apos;s Self-Exclusion period. Users will need to wait for the
+            designated period to pass before their account is no longer in Self-Exclusion mode.
           </Typography>
           <Typography>
             doubleit.casino takes responsible gambling seriously and encourages Users to make use of
-            the Self-Exclusion feature if they believe it's necessary. Our goal is to ensure that
-            our platform remains a fun and enjoyable place for entertainment, while also providing
-            the necessary tools to promote responsible gambling practices.
+            the Self-Exclusion feature if they believe it&apos;s necessary. Our goal is to ensure
+            that our platform remains a fun and enjoyable place for entertainment, while also
+            providing the necessary tools to promote responsible gambling practices.
           </Typography>
           <Typography>7. 3rd Party Links</Typography>
           <Typography>
@@ -370,13 +373,13 @@ export default function TermsView() {
             these third-party websites.
           </Typography>
           <Typography>
-            User's Discretion: The decision to access any third-party links is solely at the User's
-            discretion and risk. Any interactions, transactions, or engagements with these external
-            sites are entirely the responsibility of the User.
+            User&apos;s Discretion: The decision to access any third-party links is solely at the
+            User&apos;s discretion and risk. Any interactions, transactions, or engagements with
+            these external sites are entirely the responsibility of the User.
           </Typography>
           <Typography>
             Loss or Damage: doubleit.casino shall not be held liable for any loss or damage that may
-            arise from the User's use of these third-party links. Users are advised to exercise
+            arise from the User&apos;s use of these third-party links. Users are advised to exercise
             caution and read the terms of use and privacy policies of such external websites before
             engaging with them.
           </Typography>
@@ -401,9 +404,10 @@ export default function TermsView() {
             content.
           </Typography>
           <Typography>
-            "As Is" and "As Available" Basis: The website, its content, and any services or items
-            obtained through the website are provided on an "as is" and "as available" basis,
-            without any warranties of any kind, whether express or implied.
+            &ldquo;As Is&ldquo; and &ldquo;As Available&ldquo; Basis: The website, its content, and
+            any services or items obtained through the website are provided on an &ldquo;as
+            is&ldquo; and &ldquo;as available&ldquo; basis, without any warranties of any kind,
+            whether express or implied.
           </Typography>
           <Typography>
             Completeness and Security: Neither the Company nor any person associated with the
@@ -451,8 +455,8 @@ export default function TermsView() {
             We want to ensure transparency and honesty in our communication with our Users.
             doubleit.casino is an independent online casino platform and operates separately from
             Steam and Valve Corporation. While we may offer certain gaming services related to Valve
-            Corporation's games, it is essential to understand that our website is entirely separate
-            from the Steam platform.
+            Corporation&apos;s games, it is essential to understand that our website is entirely
+            separate from the Steam platform.
           </Typography>
           <Typography>10. Errors/Glitches</Typography>
           <Typography>
@@ -557,7 +561,7 @@ export default function TermsView() {
           <Typography>Selling or transferring their account to another party.</Typography>
           <Typography>
             Consequences of Violation: Violating any of the above-stated rules may result in the
-            suspension or termination of a User's account and may also lead to legal action, if
+            suspension or termination of a User&apos;s account and may also lead to legal action, if
             necessary.
           </Typography>
           <Typography>
@@ -580,9 +584,9 @@ export default function TermsView() {
             doubleit.casino is solely at their own discretion and risk.
           </Typography>
           <Typography>
-            "As Is" and "As Available" Basis: doubleit.casino is provided on an "as is" and "as
-            available" basis. There is no guarantee that specific results may be obtained from using
-            our platform.
+            &ldquo;As Is&ldquo; and &ldquo;As Available&ldquo; Basis: doubleit.casino is provided on
+            an &ldquo;as is&ldquo; and &ldquo;as available&ldquo; basis. There is no guarantee that
+            specific results may be obtained from using our platform.
           </Typography>
           <Typography>
             No Guarantee of Continuous or Uninterrupted Access: doubleit.casino does not guarantee
@@ -596,16 +600,16 @@ export default function TermsView() {
             affiliates had been advised of the possibility of such damages.
           </Typography>
           <Typography>
-            Limited Liability: Notwithstanding anything to the contrary, doubleit.casino's liability
-            to Users for any cause whatsoever will at all times be limited to the amount paid, if
-            any, by the User to doubleit.casino for the use of the platform during the term of their
-            registration, excluding any fees paid for services and/or products rendered before the
-            circumstances giving rise to the claim.
+            Limited Liability: Notwithstanding anything to the contrary, doubleit.casino&apos;s
+            liability to Users for any cause whatsoever will at all times be limited to the amount
+            paid, if any, by the User to doubleit.casino for the use of the platform during the term
+            of their registration, excluding any fees paid for services and/or products rendered
+            before the circumstances giving rise to the claim.
           </Typography>
           <Typography>
             Responsibility for Lost Funds, Hacked Accounts, or Accidental Withdrawals:
             doubleit.casino is not responsible for any lost funds, hacked accounts, or accidental
-            withdrawals experienced by Users. It is the User's responsibility to secure their
+            withdrawals experienced by Users. It is the User&apos;s responsibility to secure their
             account and take necessary precautions.
           </Typography>
           <Typography>16. System Maintenance</Typography>
