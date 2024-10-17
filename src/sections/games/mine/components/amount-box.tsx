@@ -48,13 +48,7 @@ const AmountBox = ({ isMobile, playStatus, min, max, value, setValue }: any) => 
           <div className="amount-landscape">
             <div className="amount-landscape-inner">
               <div className="amount-landscape-center">
-                <input
-                  type="text"
-                  name="amount"
-                  value={`$ ${value}`}
-                  readOnly
-                  disabled={playStatus}
-                />
+                <input type="text" name="amount" value={value} readOnly disabled={playStatus} />
               </div>
               <div className="amount-landscape-btn-group">
                 <button type="button" className="amount-landscape-btn top-left" onClick={handleMax}>
