@@ -15,7 +15,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import Image from 'src/components/image';
 
-import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { useSelector } from 'src/store';
 import useApi from 'src/hooks/use-api';
 import { ProfileDialogProps } from './types';
@@ -52,8 +51,6 @@ const COLUMNS = [
 ];
 
 export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
-  const { User } = useMockedUser();
-
   const { getUsers } = useApi();
 
   const { user, avatar } = useSelector((state: any) => state.auth);
@@ -138,7 +135,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
               justifyContent: 'center'
             }}
           >
-            <Autocomplete
+            {/* <Autocomplete
               disablePortal
               id="combo-box-demo"
               options={userList}
@@ -163,11 +160,11 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
                   }}
                 />
               )}
-            />
+            /> */}
 
             <Avatar
-              src={curuser ? curuser.avatar : avatar}
-              alt={User?.userName}
+              src={avatar}
+              alt={avatar}
               sx={{
                 width: 126,
                 height: 126,
@@ -175,7 +172,9 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
                   '0px 23px 125px 0px rgba(100, 80, 255, 0.55), -1px 14px 15px 0px rgba(255, 255, 255, 0.33) inset'
               }}
             >
-              {User?.userName.charAt(0).toUpperCase()}
+              {`${user?.firstName?.charAt(0).toUpperCase()}${user?.lastName
+                ?.charAt(0)
+                .toUpperCase()}` || ''}
             </Avatar>
             <Box>
               <Typography sx={{ fontSize: 15, fontWeight: 600 }}>
@@ -195,7 +194,7 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
           }}
         >
           <Grid container spacing={3}>
-            {curuser &&
+            {user &&
               COLUMNS.map((row) => (
                 <Grid key={row.id} item xs={4} md={4}>
                   <Stack
@@ -211,8 +210,8 @@ export default function ProfileDialog({ open, onClose }: ProfileDialogProps) {
                     <Typography sx={{ fontSize: 10 }}>{row.label}</Typography>
                     <Typography sx={{ color: row.color }}>
                       {row.id === 'games'
-                        ? curuser.won + curuser.lost
-                        : formatedValue(Number(curuser[row.id].toFixed(3)), row.format)}
+                        ? user.won + user.lost
+                        : formatedValue(Number(user[row.id].toFixed(3)), row.format)}
                     </Typography>
                   </Stack>
                 </Grid>
