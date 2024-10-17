@@ -111,8 +111,8 @@ export const ApiProvider = ({ children }: { children: React.ReactElement }) => {
     return axios.post(API_PATH.ROULETTE_BET, { userId, bet, betAmount });
   };
 
-  const getGameHistory = async () => {
-    return await axios.get(API_PATH.CRASH_HISTORY);
+  const getGameHistory = async (filter: string) => {
+    return await axios.post(API_PATH.CRASH_HISTORY, { filter, userId: user._id });
   };
 
   const getCurrencies = async () => {
