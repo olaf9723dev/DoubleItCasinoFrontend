@@ -10,8 +10,6 @@ import {
   useMediaQuery
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
 import gsap from 'gsap';
 import _ from 'underscore';
 import { enqueueSnackbar } from 'notistack';
@@ -486,7 +484,12 @@ export default function GameContent() {
                 error={parseFloat(betAmount) <= 0 ?? true}
                 inputProps={{ step: 0.01, min: 0 }}
                 startAdornment={
-                  <AttachMoneyIcon fontSize="small" sx={{ color: theme.palette.primary.main }} />
+                  <img
+                    src="/assets/unicred.png"
+                    alt="unicred"
+                    width={20}
+                    style={{ padding: '0 4px' }}
+                  />
                 }
                 endAdornment={
                   <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>

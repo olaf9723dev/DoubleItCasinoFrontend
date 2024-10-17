@@ -1,6 +1,5 @@
 import { useState, useEffect, Fragment } from 'react';
 import { Box, Button, Grid, InputBase, Stack, Typography, useTheme } from '@mui/material';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { enqueueSnackbar } from 'notistack';
 import $ from 'jquery';
 
@@ -140,7 +139,12 @@ export default function GameContent() {
               error={parseFloat(betAmount) <= 0 ?? true}
               inputProps={{ step: 0.01, min: 0 }}
               startAdornment={
-                <AttachMoneyIcon fontSize="small" sx={{ color: theme.palette.primary.main }} />
+                <img
+                  src="/assets/unicred.png"
+                  alt="unicred"
+                  width={22}
+                  style={{ padding: '0 4px' }}
+                />
               }
               endAdornment={
                 <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>

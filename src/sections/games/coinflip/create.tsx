@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 // @mui
 import { Stack, InputBase, IconButton, Button, Avatar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
-// components
 import { useSelector, dispatch } from 'src/store';
 import { enqueueSnackbar } from 'notistack';
 import useSocket from 'src/hooks/use-socket';
@@ -69,11 +66,12 @@ export default function CreateCoinflip() {
           type="number"
           inputProps={{ step: 0.01, min: 0 }}
           startAdornment={
-            <AttachMoneyIcon fontSize="small" sx={{ color: o_theme.palette.primary.main }} />
+            <img src="/assets/unicred.png" alt="unicred" width={20} style={{ padding: '0 4px' }} />
           }
           className="coinflip_input"
           sx={{
-            p: 0.75,
+            px: 1,
+            py: 0.75,
             width: 140,
             flexShrink: 0,
             borderRadius: `5px`,

@@ -12,7 +12,6 @@ import {
   useTheme
 } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import $ from 'jquery';
 import { useSelector } from 'src/store';
 import { abbreviate, playSound } from 'src/utils';
@@ -716,7 +715,12 @@ export default function GameContent() {
               <Typography>
                 {toNumber(Number(chipDisplayValue) * Number(amount), 2, true)}
               </Typography>
-              <AttachMoneyIcon fontSize="small" sx={{ color: useTheme().palette.primary.main }} />
+              <img
+                src="/assets/unicred.png"
+                alt="unicred"
+                width={22}
+                style={{ padding: '0 4px' }}
+              />
             </Stack>
           </Stack>
           <Tabs
@@ -753,7 +757,12 @@ export default function GameContent() {
             <Typography>Bet Amount</Typography>
             <Stack direction="row" alignItems="center">
               <Typography>{toNumber(Number(totalBet), 2, true)}</Typography>
-              <AttachMoneyIcon fontSize="small" sx={{ color: useTheme().palette.primary.main }} />
+              <img
+                src="/assets/unicred.png"
+                alt="unicred"
+                width={22}
+                style={{ padding: '0 4px' }}
+              />
             </Stack>
           </Stack>
           <Stack gap={0.4}>
@@ -766,7 +775,12 @@ export default function GameContent() {
               error={parseFloat(String(amount)) <= 0}
               inputProps={{ step: 0.01, min: 0 }}
               startAdornment={
-                <AttachMoneyIcon fontSize="small" sx={{ color: useTheme().palette.primary.main }} />
+                <img
+                  src="/assets/unicred.png"
+                  alt="unicred"
+                  width={22}
+                  style={{ padding: '0 4px' }}
+                />
               }
               endAdornment={
                 <Stack sx={{ flexDirection: 'row', gap: 0.55 }}>
