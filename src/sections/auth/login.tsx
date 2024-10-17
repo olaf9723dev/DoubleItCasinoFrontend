@@ -26,14 +26,14 @@ const initLoginForm = {
     label: 'Email Or Username *',
     type: 'text',
     placeholder: 'Enter your email or username',
-    value: 'demo@gmail.com',
+    value: '',
     message: ''
   },
   password: {
     label: 'Password *',
     type: 'password',
     placeholder: 'Enter your password',
-    value: 'demo',
+    value: '',
     message: ''
   }
 };
@@ -42,35 +42,35 @@ const initRegisterForm = {
     label: 'Firstname *',
     type: 'text',
     placeholder: 'Enter your firstname',
-    value: 'Elli',
+    value: '',
     message: ''
   },
   lastName: {
     label: 'Lastname *',
     type: 'text',
     placeholder: 'Enter your lastname',
-    value: 'Kassis',
+    value: '',
     message: ''
   },
   email: {
     label: 'Email *',
     type: 'email',
     placeholder: 'Enter your email',
-    value: 'demo@gmail.com',
+    value: '',
     message: ''
   },
   userName: {
     label: 'Username *',
     type: 'text',
     placeholder: 'Enter your username',
-    value: 'demo',
+    value: '',
     message: ''
   },
   password: {
     label: 'Password *',
     type: 'password',
     placeholder: 'Enter your password',
-    value: 'demo',
+    value: '',
     message: ''
   }
 };
