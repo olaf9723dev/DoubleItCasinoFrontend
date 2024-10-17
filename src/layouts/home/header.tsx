@@ -17,7 +17,8 @@ import { DepositIcon } from 'src/components/icons';
 import { useSettingsContext } from 'src/components/settings';
 // reduce
 import { useSelector } from 'src/store';
-import DepositMethodDialog from 'src/sections/payment/method-dialog';
+import CryptoDialog from 'src/sections/payment/crypto';
+// import DepositMethodDialog from 'src/sections/payment/method-dialog';
 import { HEADER } from '../config-layout';
 import { HeaderMenu, LoginButton, AccountPopover } from '../_common';
 
@@ -120,7 +121,8 @@ export default function Header({ onOpenNav }: Props) {
               {user?.balance?.toFixed(2) || 0}
             </Button>
             <AccountPopover />
-            <DepositMethodDialog open={open} onClose={handleSetOpen} />
+            <CryptoDialog open={open} onClose={handleSetOpen} />
+            {/* <DepositMethodDialog open={open} onClose={handleSetOpen} /> */}
           </>
         ) : (
           <LoginButton />
